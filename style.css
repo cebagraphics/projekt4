@@ -1,6 +1,6 @@
 :root {
     --yellow: #FFFF00;
-    --black: #2B292F;
+    --black: #111;
 }
 
 @font-face {
@@ -34,7 +34,43 @@
 
 
 body {
-    background-color: #2B292F;
+    background-color: var(--black);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    overflow: hidden;
+            
+}
+
+.container {
+    position: relative;
+    width: 400px;
+    height: 400px;
+}
+
+.piece {
+    position: absolute;
+    opacity: 0;
+    animation: flyIn 1.5s ease-out forwards;
+}
+
+/* Forskellige startpositioner */
+.piece:nth-child(1) { top: -100px; left: 10px; animation-delay: 0.2s; }
+.piece:nth-child(2) { top: 50px; left: -150px; animation-delay: 0.4s; }
+.piece:nth-child(3) { bottom: -100px; left: 100px; animation-delay: 0.6s; }
+.piece:nth-child(4) { bottom: -120px; right: -20px; animation-delay: 0.8s; }
+.piece:nth-child(5) { bottom: 150px; right: 170px; animation-delay: 1.0s; }
+.piece:nth-child(6) { bottom: 350px; right: 20px; animation-delay: 1.2s; }
+.piece:nth-child(7) { bottom: 70px; left: 250px; animation-delay: 1.4s; }
+.piece:nth-child(8) { bottom: 150px; right: -150px; animation-delay: 1.6s; }
+.piece:nth-child(9) { bottom: 170px; right: 300px; animation-delay: 1.8s; }
+.piece:nth-child(10) { bottom: -80px; right: 320px; animation-delay: 2.0s; }
+.piece:nth-child(11) { bottom: 350px; right: 150px; animation-delay: 2.2s; }
+
+@keyframes flyIn {
+    0% { transform: translate(0, 0); opacity: 0; }
+    100% { transform: translate(0, 0); opacity: 1; }
 }
 
 .tester {
