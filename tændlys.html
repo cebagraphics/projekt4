@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="da">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tænd et lys</title>
+    <script defer src="script.js"></script>
+    <style>
+        body { font-family: Arial, sans-serif; text-align: center; padding: 50px; background-color: #121212; color: white; }
+        #light-container { margin-top: 20px; display: flex; flex-wrap: wrap; justify-content: center; gap: 20px; }
+        .candle { width: 50px; height: 100px; background: white; border-radius: 5px; position: relative; display: inline-block; }
+        .flame { width: 20px; height: 30px; background: orange; border-radius: 50%; position: absolute; top: -25px; left: 50%; transform: translateX(-50%);
+                 animation: flicker 1s infinite alternate ease-in-out; }
+        @keyframes flicker { 0% { opacity: 0.8; transform: translateX(-50%) scale(1); } 100% { opacity: 1; transform: translateX(-50%) scale(1.1); } }
+        #count { font-size: 24px; margin-top: 20px; }
+        button { padding: 10px 20px; font-size: 18px; cursor: pointer; background: yellow; border: none; border-radius: 5px; margin-top: 10px; }
+        .comment { margin-top: 5px; font-size: 14px; color: #ccc; font-style: italic; }
+        input { padding: 10px; width: 80%; max-width: 400px; margin-top: 10px; border-radius: 5px; border: none; }
+    </style>
+</head>
+<body>
+
+    <h1>Tænd et lys for personen i historien</h1>
+    <p>Klik på knappen for at tænde et lys og vise din støtte.</p>
+
+    <input type="text" id="comment-input" placeholder="Skriv en kommentar...">
+    <button id="light-btn">Tænd et lys</button>
+
+    <p id="count">Lys tændt: 0</p>
+    <div id="light-container"></div>
+
+    <script>
+        // ✅ Hent lys-data fra Local Storage eller start fra tomt array
+        let lights = localStorage.getItem("lights") ? JSON.parse(localStorage.getItem("lights")) : [];
+
+        // ✅ Opdater tællervisning
+        document.getElementById("count").innerText = `Lys tændt: ${lights.length}`;
+
+        // ✅ Funktion: Tilføj lys til siden
+        function addLight(comment) {
+            let lightContainer = document.getElementById("light-container");
+
+            let candle = document.createElement("div");
+            candle.classList.add("candle");
+
+            let flame = document.createElement("div");
+            flame.classList.add("flame");
+
+            let commentText = document.createElement("p");
+            commentText.classList.add("comment");
+            commentText.innerText = comment ? `"${comment}"` : "";
+
+            candle.appendChild(flame);
+            lightContainer.appendChild(candle);
+            lightContainer.appendChild(commentText);
+        }
+
+        // ✅ Indlæs eksisterende lys fra Local Storage
+        lights.forEach(light => addLight(light.comment));
+
+        // ✅ EVENT: Tænd et nyt lys
+        document.getElementById("light-btn").addEventListener("click", function() {
+            let comment = document.getElementById("comment-input").value.trim();
+            lights.push({ comment: comment });
+            localStorage.setItem("lights", JSON.stringify(lights));
+
+            addLight(comment); // Tilføj visuelt lys
+            document.getElementById("count").innerText = `Lys tændt: ${lights.length}`; // Opdater tæller
+            document.getElementById("comment-input").value = ""; // Ryd inputfeltet
+        });
+    </script>
+
+</body>
+</html>
