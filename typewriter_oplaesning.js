@@ -5,8 +5,12 @@ const texts = ["Det var en aften som så mange andre. Ida, 22 år, studerende, a
 let index = 0;
 let textIndex = 0;
 let speechSynthesis = window.speechSynthesis; // Web Speech API
-let isPaused = false; // Pause status
-let timeoutId; // ID til setTimeout for tekst-typen
+
+let isPaused = false;  // Flag til at holde styr på, om afspilningen er sat på pause
+
+// Pause og genstart knapper
+const pauseBtn = document.getElementById("pause-btn");
+const restartBtn = document.getElementById("restart-btn");
 
 // ✅ TEKST-INDTASTNING MED LYD
 function typeWriter() {
@@ -15,7 +19,7 @@ function typeWriter() {
     if (index < texts[textIndex].length && !isPaused) {
         document.getElementById("story-text").innerHTML += texts[textIndex].charAt(index);
         index++;
-        timeoutId = setTimeout(typeWriter, 100); // Hastighed på tekst-typing
+        setTimeout(typeWriter, 50); // Justeret til hurtigere hastighed (50 ms)
     } else {
         console.log("Tekst færdig!");
     }
@@ -34,50 +38,52 @@ function speakText(text) {
     }
 }
 
-// ✅ PAUSE-FUNKTION
-function pauseStory() {
-    if (!isPaused) {
-        isPaused = true;
-        clearTimeout(timeoutId); // Stop tekst-animation
-        speechSynthesis.pause(); // Pause lyd
-        document.getElementById("pause-btn").textContent = "Fortsæt"; // Skift knaptekst
-    } else {
+// Funktion til at starte/stoppe afspilning
+function togglePlayPause() {
+    if (isPaused) {
+        // Genstart afspilning (play)
+        console.log("Afspilning genoptages");
+
+        // Start tale og tekst fra det punkt, hvor vi stoppede
+        speakText(texts[textIndex].substring(index));  // Begynd at læse fra det punkt, vi stoppede
+        typeWriter();  // Begynd at skrive fra det punkt, vi stoppede
+
+        pauseBtn.innerHTML = "&#10074;&#10074;";  // Skift til pause-ikon
         isPaused = false;
-        typeWriter(); // Genoptag tekst-animation
-        speechSynthesis.resume(); // Fortsæt lyd
-        document.getElementById("pause-btn").textContent = "Pause"; // Skift knaptekst
+    } else {
+        // Pause afspilning
+        console.log("Afspilning sat på pause");
+        speechSynthesis.pause();  // Stop afspilningen
+        pauseBtn.innerHTML = "&#9654;";  // Skift til play-ikon
+        isPaused = true;
     }
 }
 
-// ✅ GENSTART-FUNKTION
-function restartStory() {
-    isPaused = false;
-    clearTimeout(timeoutId); // Stop eksisterende tekst-animation
-    speechSynthesis.cancel(); // Stop lyd
-    document.getElementById("story-text").innerHTML = ""; // Nulstil tekst
+// Genstart knappen
+restartBtn.addEventListener("click", function() {
+    console.log("Genstart knappen blev klikket!");
     index = 0;
     textIndex = (textIndex + 1) % texts.length; // Skift mellem teksterne
-    startStory(); // Start forfra
-}
+    document.getElementById("story-text").innerHTML = "";
 
-// ✅ START HISTORIE (første gang eller efter genstart)
-function startStory() {
-    speakText(texts[textIndex]); // Læs første tekst op
-    typeWriter(); // Start tekst-animation
-}
+    // Stop nuværende tale, før vi starter en ny
+    speechSynthesis.cancel();
 
-// ✅ EVENT: Klik for at genstarte tekst OG stemme
-document.getElementById("restart-btn").addEventListener("click", function() {
-    console.log("Genstart knappen blev klikket!");
-    restartStory();
+    // Start tekst og tale
+    speakText(texts[textIndex]); // Læs teksten op
+    typeWriter(); // Vis teksten på skærmen
+    pauseBtn.innerHTML = "&#10074;&#10074;";  // Skift til pause-ikon, når vi genstarter
+    isPaused = false;
 });
 
-// ✅ EVENT: Klik for at pause/fortsætte
-document.getElementById("pause-btn").addEventListener("click", function() {
-    pauseStory();
-});
+// Event listener for pause knappen
+pauseBtn.addEventListener("click", togglePlayPause);
 
-// ✅ START TYPEWRITER + LÆS OP VED INDLÆSNING
+// Event listener for pause knappen
+pauseBtn.addEventListener("click", togglePlayPause);
+
+// Start typewriter og læs op ved indlæsning
 window.onload = function() {
-    startStory(); // Start automatisk ved indlæsning
+    speakText(texts[textIndex]); // Læs første tekst op
+    typeWriter();
 };
