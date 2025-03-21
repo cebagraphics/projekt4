@@ -1,0 +1,89 @@
+:root {
+    --yellow: #FFFF00;
+    --black: #111;
+}
+
+@font-face {
+    font-family: 'AmnestyTradeGothic';
+    src: url('fonts/AmnestyTradeGothic-BdCn20.ttf') format('truetype');
+    font-weight: 700;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'AmnestyTradeGothic';
+    src: url('fonts/AmnestyTradeGothic-Cn18.ttf') format('truetype');
+    font-weight: 500;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'AmnestyTradeGothic';
+    src: url('fonts/AmnestyTradeGothic.ttf') format('truetype');
+    font-weight: 400;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'AmnestyTradeGothic';
+    src: url('fonts/AmnestyTradeGothic-Cn18Obl.ttf') format('truetype');
+    font-weight: 100;
+    font-style: normal;
+}
+
+
+
+body {
+    background-color: var(--black);
+}
+
+.tester {
+    font-family: 'AmnestyTradeGothic', sans-serif;;
+    font-weight: 700;
+    font-style: normal;
+    text-transform: uppercase;
+    color: #fff;
+    font-size: 40px;
+    letter-spacing: 2px;
+}
+
+.tester2 {
+    font-family: 'AmnestyTradeGothic', sans-serif;;
+    font-weight: 500;
+    font-style: normal;
+    color: #fff;
+    font-size: 30px;
+    letter-spacing: 2px;
+}
+
+.tester3 {
+    font-family: 'AmnestyTradeGothic', sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    color: #fff;
+    font-size: 18px;
+}
+
+.link {
+    font-family: 'AmnestyTradeGothic', sans-serif;
+    font-weight: 100;
+    font-style: normal;
+    color: var(--yellow);
+}
+
+button {
+    padding: 12px 24px;
+    color: var(--black);
+    border-radius: 0;
+    font-family: 'AmnestyTradeGothic';
+    font-weight: bold;
+    font-style: normal;
+    font-size: 16px;
+    text-transform: uppercase;
+    background-color: var(--yellow);
+    border: 1px solid var(--yellow);
+}
+
+#story-text {
+    color: #fff;
+}
