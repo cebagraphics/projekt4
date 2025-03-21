@@ -79,9 +79,6 @@ restartBtn.addEventListener("click", function() {
 // Event listener for pause knappen
 pauseBtn.addEventListener("click", togglePlayPause);
 
-// Event listener for pause knappen
-pauseBtn.addEventListener("click", togglePlayPause);
-
 // Start typewriter og læs op ved indlæsning
 window.onload = function() {
     speakText(texts[textIndex]); // Læs første tekst op

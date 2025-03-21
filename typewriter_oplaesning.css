@@ -1,97 +1,67 @@
-/* Grundlæggende reset */
-* {
+/* Baggrund og layout */
+body {
+    background-color: black;
+    color: white;
+    font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
-    box-sizing: border-box;
-}
-
-/* Baggrund og font */
-body {
-    background-color: black;  /* Sort baggrund */
-    color: white;  /* Hvid tekst */
-    font-family: Arial, sans-serif;
     display: flex;
     justify-content: center;
     align-items: center;
     height: 100vh;
     text-align: center;
-    overflow: hidden; /* Skjul scrollbars */
 }
 
-/* Container til billede og tekst */
+/* Container for billede og tekst */
 .container {
     display: flex;
-    align-items: center;
     justify-content: center;
-    gap: 20px; /* Afstand mellem billede og tekst */
+    align-items: center;
+    position: relative;
     width: 80%;
-    max-width: 1200px; /* Maksimal bredde */
+    max-width: 1200px;
 }
 
-/* Billede-container */
-.image-container {
-    flex: 1; /* Billedet tager 1 del af pladsen */
-    text-align: center;
-}
-
-#story-image {
-    width: 80%; /* Billedets bredde */
-    max-width: 400px; /* Maksimal størrelse for billede */
-    border-radius: 8px; /* Runde hjørner */
-}
-
-/* Tekst-container */
+/* Tekst container */
 .text-container {
-    flex: 2; /* Teksten tager 2 dele af pladsen */
-    text-align: left; /* Tekst til venstre */
-    max-width: 600px; /* Maksimal bredde på tekst */
+    margin-left: 20px;
+    text-align: left;
 }
 
-h1 {
-    font-size: 2em;
-    margin-bottom: 20px;
-}
-
-p {
+/* Tekst */
+#story-text {
     font-size: 1.2em;
-    line-height: 1.5;
+    line-height: 1.5em;
+    white-space: pre-wrap;
+}
+
+/* Billede */
+.image-container img {
+    width: 300px;
+    height: auto;
+    border-radius: 10px;
 }
 
 /* Knapperne */
 .buttons {
     margin-top: 20px;
-    display: flex;
-    gap: 10px; /* Afstand mellem knapper */
 }
 
 .control-btn {
-    background-color: yellow;
+    background-color: #FFD700;
     border: none;
-    border-radius: 50%; /* Runder knapperne */
-    width: 40px;
-    height: 40px;
+    padding: 10px;
+    margin: 5px;
+    border-radius: 50%;
     font-size: 20px;
     cursor: pointer;
     transition: background-color 0.3s ease;
 }
 
 .control-btn:hover {
-    background-color: orange; /* Farveændring ved hover */
+    background-color: #FFC107;
 }
 
-/* Responsiv justering */
-@media (max-width: 768px) {
-    .container {
-        flex-direction: column;
-    }
-
-    .image-container,
-    .text-container {
-        text-align: center;
-    }
-
-    #story-image {
-        width: 100%; /* Billede fylder 100% af bredden på mobil */
-        max-width: none;
-    }
+.control-btn:focus {
+    outline: none;
 }
