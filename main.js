@@ -1,26 +1,23 @@
-const text = "Jeg vidste ikke, hvad jeg skulle gøre..."; 
-let index = 0;
+document.querySelectorAll(".knap2, .knap3, .knap4").forEach(knap => {
+    knap.addEventListener("click", function() {
+        let targetId = this.getAttribute("data-target");
 
-function typeWriter() {
-    if (index < text.length) {
-        document.getElementById("story-text").innerHTML += text.charAt(index);
-        index++;
-        setTimeout(typeWriter, 100); // 100 ms mellem bogstaver
-    }
-}
+        // Skjuler alle sektioner først
+        document.querySelectorAll(".info-section").forEach(section => {
+            section.style.display = "none";
+        });
 
-window.onload = typeWriter;
+        // Viser den valgte sektion
+        let targetSection = document.getElementById(targetId);
+        targetSection.style.display = "flex";
 
-const recognition = new (window.SpeechRecognition || window.webkitSpeechRecognition)();
-recognition.onresult = function(event) {
-    let command = event.results[0][0].transcript.toLowerCase();
-    if (command.includes("flygt")) {
-        chooseOption("escape");
-    } else if (command.includes("kæmp")) {
-        chooseOption("fight");
-    }
-};
+        // Scroller ned til den valgte sektion
+        targetSection.scrollIntoView({ behavior: "smooth" });
+    });
+});
 
-function startListening() {
-    recognition.start();
-}
+document.addEventListener("DOMContentLoaded", function () {
+    document.querySelectorAll(".info-section").forEach(section => {
+        section.style.display = "none"; // Skjuler alle sektioner ved start
+    });
+});

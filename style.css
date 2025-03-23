@@ -39,7 +39,9 @@ body {
     justify-content: center;
     align-items: center;
     height: 100vh;
+    overflow-x: hidden;
 }
+
 
 .container {
     position: relative;
@@ -338,4 +340,19 @@ h3 {
     top: 172%;
     left: 80%;
     transform: translate(-50%, -50%);
+}
+
+
+.info-section {
+    display: none; /* Skjult som standard */
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: #f3f3f3;
+}
+
+.info-section {
+    background-color: var(--black);
 }

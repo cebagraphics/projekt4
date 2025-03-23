@@ -6,6 +6,7 @@
     <title>Navn her</title>
     <link rel="icon" type="image/x-icon" href="">
     <link rel="stylesheet" href="style.css"/>
+    <script defer src="main.js"></script>
   </head>
 
 <body>
@@ -113,9 +114,9 @@
 <h3 class="Josetext">José</h3>
 <h3 class="Idatext">Ida</h3>
 
-<button class="knap2">Vælg</button>
-<button class="knap3">Vælg</button>
-<button class="knap4">Vælg</button>
+<button class="knap2" data-target="info1">Vælg</button>
+<button class="knap3" data-target="info2">Vælg</button>
+<button class="knap4" data-target="info3">Vælg</button>
 
 
 <script>
@@ -123,6 +124,24 @@
       window.scrollBy({ top: window.innerHeight, behavior: "smooth" });
   });
 </script>
+
+<section id="landing">
+  <!-- Skjult Information -->
+  <section id="info1" class="info-section">
+    <h2>Du valgte Valg 1</h2>
+    <p>Her er information relateret til dit første valg.</p>
+</section>
+
+<section id="info2" class="info-section">
+    <h2>Du valgte Valg 2</h2>
+    <p>Her er information relateret til dit andet valg.</p>
+</section>
+
+<section id="info3" class="info-section">
+    <h2>Du valgte Valg 3</h2>
+    <p>Her er information relateret til dit tredje valg.</p>
+</section>
+</section>
 
 </body>
 </html>
