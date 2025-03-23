@@ -1,0 +1,67 @@
+/* Baggrund og layout */
+body {
+    background-color: black;
+    color: white;
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    text-align: center;
+}
+
+/* Container for billede og tekst */
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    width: 80%;
+    max-width: 1200px;
+}
+
+/* Tekst container */
+.text-container {
+    margin-left: 20px;
+    text-align: left;
+}
+
+/* Tekst */
+#story-text {
+    font-size: 1.2em;
+    line-height: 1.5em;
+    white-space: pre-wrap;
+}
+
+/* Billede */
+.image-container img {
+    width: 300px;
+    height: auto;
+    border-radius: 10px;
+}
+
+/* Knapperne */
+.buttons {
+    margin-top: 20px;
+}
+
+.control-btn {
+    background-color: #FFD700;
+    border: none;
+    padding: 10px;
+    margin: 5px;
+    border-radius: 50%;
+    font-size: 20px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.control-btn:hover {
+    background-color: #FFC107;
+}
+
+.control-btn:focus {
+    outline: none;
+}
