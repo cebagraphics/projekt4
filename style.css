@@ -35,18 +35,18 @@
 
 body {
     background-color: var(--black);
-    display: flex;
     justify-content: center;
     align-items: center;
     height: 100vh;
-    overflow: hidden;
-            
 }
 
 .container {
     position: relative;
     width: 400px;
     height: 400px;
+    top: 37%;
+    left: 52%;
+    transform: translate(-50%, -50%);
 }
 
 .piece {
@@ -56,19 +56,190 @@ body {
 }
 
 /* Forskellige startpositioner */
-.piece:nth-child(1) { top: -110px; left: -30px; animation-delay: 0.2s; }
-.piece:nth-child(2) { top: 70px; left: -130px; animation-delay: 0.4s; }
-.piece:nth-child(3) { bottom: -140px; left: 80px; animation-delay: 0.6s; }
-.piece:nth-child(4) { bottom: -120px; right: -40px; animation-delay: 0.8s; }
-.piece:nth-child(5) { bottom: 50px; right: 120px; animation-delay: 1.0s; }
-.piece:nth-child(6) { bottom: 360px; right: 20px; animation-delay: 1.2s; }
+.piece:nth-child(1) { top: -60px; left: 30px; animation-delay: 0.2s; }
+.piece:nth-child(2) { top: 80px; left: -50px; animation-delay: 0.4s; }
+.piece:nth-child(3) { bottom: -120px; left: 80px; animation-delay: 0.6s; }
+.piece:nth-child(4) { bottom: -50px; right: 20px; animation-delay: 0.8s; }
+.piece:nth-child(5) { bottom: 70px; right: 150px; animation-delay: 1.0s; }
+.piece:nth-child(6) { bottom: 330px; right: 50px; animation-delay: 1.2s; }
 .piece:nth-child(7) { bottom: 150px; left: 200px; animation-delay: 1.4s; }
-.piece:nth-child(8) { bottom: 150px; right: -60px; animation-delay: 1.6s; }
+.piece:nth-child(8) { bottom: 170px; right: 20px; animation-delay: 1.6s; }
 .piece:nth-child(9) { bottom: 190px; right: 210px; animation-delay: 1.8s; }
-.piece:nth-child(10) { bottom: -80px; right: 300px; animation-delay: 2.0s; }
-.piece:nth-child(11) { bottom: 350px; right: 150px; animation-delay: 2.2s; }
+.piece:nth-child(10) { bottom: -50px; right: 300px; animation-delay: 2.0s; }
+.piece:nth-child(11) { bottom: 330px; right: 150px; animation-delay: 2.2s; }
 
 @keyframes flyIn {
     0% { transform: translate(0, 0); opacity: 0; }
     100% { transform: translate(0, 0); opacity: 1; }
+}
+
+button {
+    padding: 12px 24px;
+    margin-top: 575px;
+    color: var(--black);
+    border-radius: 20px;
+    font-family: 'AmnestyTradeGothic';
+    font-weight: bold;
+    font-style: normal;
+    font-size: 16px;
+    text-transform: uppercase;
+    background-color: var(--yellow);
+    border: 1px solid var(--yellow);
+}
+
+h1 {
+    font-family: 'AmnestyTradeGothic';
+    font-weight: bold;
+    font-style: normal;
+    font-size: 35px;
+    text-transform: uppercase;
+    background-color: var(--yellow);
+    color: var(--black);
+    display: inline-block;
+    padding: 5px;
+}
+
+.overskrift1 {
+    position: absolute;
+    top: 6%;  /* Flytter dem længere ned */
+    left: 5%; /* Flytter dem mod højre */
+}
+
+.overskrift2 {
+    position: absolute;
+    top: 14%;  /* Flytter dem længere ned */
+    left: 5%; /* Flytter dem mod højre */
+}
+
+.overskrift3 {
+    position: absolute;
+    top: 22%;  /* Flytter dem længere ned */
+    left: 5%; /* Flytter dem mod højre */
+}
+
+
+.handwritten1 img {
+    width: 330px;
+    position: absolute;
+    top: 10%; 
+    left: 64%;
+}
+
+.handwritten2 img {
+    width: 330px;
+    position: absolute;
+    top: 60%; 
+    left: 7%;
+}
+
+.stjerne1 img {
+    width: 30px;
+    position: absolute;
+    top: 73%; 
+    left: 7%;
+}
+
+.stjerne2 img {
+    width: 50px;
+    position: absolute;
+    top: 67%; 
+    left: 5%;
+}
+
+.stjerne3 img {
+    width: 50px;
+    position: absolute;
+    top: 10%; 
+    left: 80%;
+}
+
+.stjerne4 img {
+    width: 30px;
+    position: absolute;
+    top: 16%; 
+    left: 83%;
+}
+
+.knap1 {
+    position: absolute;
+    top: 17%; 
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.number3 img {
+    width: 45px;
+    position: absolute;
+    top: 65%; 
+    left: 62%;
+}
+
+.number1 img {
+    width: 30px;
+    position: absolute;
+    top: 76%; 
+    left: 67%;
+}
+
+.letterl img {
+    width: 45px;
+    position: absolute;
+    top: 65%; 
+    left: 67%;
+}
+
+.letteri img {
+    width: 25px;
+    position: absolute;
+    top: 65%; 
+    left: 71%;
+}
+
+.letterv img {
+    width: 40px;
+    position: absolute;
+    top: 65%; 
+    left: 73.5%;
+}
+
+.letters img {
+    width: 55px;
+    position: absolute;
+    top: 75%; 
+    left: 71%;
+}
+
+.letterk img {
+    width: 55px;
+    position: absolute;
+    top: 76%; 
+    left: 75%;
+}
+
+.letteræ img {
+    width: 55px;
+    position: absolute;
+    top: 76%; 
+    left: 79.5%;
+}
+
+.letterb img {
+    width: 55px;
+    position: absolute;
+    top: 75.5%; 
+    left: 83.5%;
+}
+
+.lettern img {
+    width: 47px;
+    position: absolute;
+    top: 75%; 
+    left: 87.5%;
+}
+
+.lettere img {
+    width: 47px;
+    position: absolute;
+    top: 75%; 
+    left: 91%;
 }
