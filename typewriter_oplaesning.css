@@ -15,6 +15,7 @@ body {
 /* Container for billede og tekst */
 .container {
     display: flex;
+    flex-wrap: wrap; /* Gør det muligt at wrappe på små skærme */
     justify-content: center;
     align-items: center;
     position: relative;
@@ -24,8 +25,9 @@ body {
 
 /* Tekst container */
 .text-container {
-    margin-left: 20px;
+    margin-left: 50px; /* Øget margin for at få teksten til at rykke mere til højre */
     text-align: left;
+    max-width: 600px;  /* Begrænser bredden på tekstcontaineren */
 }
 
 /* Tekst */
@@ -33,11 +35,20 @@ body {
     font-size: 1.2em;
     line-height: 1.5em;
     white-space: pre-wrap;
+    word-wrap: break-word;
+    max-width: 90vw;
+    margin: 0 auto;
 }
 
 /* Billede */
+.image-container {
+    flex-shrink: 0; /* Sørger for, at billedet ikke krymper */
+    margin-bottom: 20px;
+}
+
 .image-container img {
-    width: 300px;
+    width: 100%;
+    max-width: 300px;  /* Gør billedet responsivt */
     height: auto;
     border-radius: 10px;
 }
@@ -64,4 +75,26 @@ body {
 
 .control-btn:focus {
     outline: none;
+}
+
+/* Media query for mindre skærme */
+@media (max-width: 768px) {
+    .container {
+        flex-direction: column; /* Stabler billeder og tekst vertikalt */
+        text-align: center;
+    }
+
+    .image-container img {
+        max-width: 80%; /* Gør billedet lidt mindre på mobil */
+    }
+
+    .text-container {
+        margin-left: 20px; /* Mindre margin på små skærme */
+        margin-right: 20px; /* Sørg for at der er plads til højre også */
+    }
+
+    .control-btn {
+        font-size: 18px; /* Mindre knapper på små skærme */
+        padding: 8px;    /* Mindre padding på knapper */
+    }
 }
