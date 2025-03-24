@@ -131,10 +131,43 @@ p {
 .fortsætknap {
     padding: 12px 70px;
     position: absolute;
-    top: 220%;
+    top: 227%;
     left: 50%;
     transform: translate(-50%, -50%);
 }
+
+.ida_valg1_knap {
+    padding: 12px 80px;
+    position: absolute;
+    top: 270%;
+    left: 20%;
+    transform: translate(-50%, -50%);
+}
+
+.ida_valg2_knap {
+    padding: 12px 80px;
+    position: absolute;
+    top: 285%;
+    left: 20%;
+    transform: translate(-50%, -50%);
+}
+
+.ida_valg3_knap {
+    padding: 12px 80px;
+    position: absolute;
+    top: 300%;
+    left: 20%;
+    transform: translate(-50%, -50%);
+}
+
+.ida_valg4_knap {
+    padding: 12px 80px;
+    position: absolute;
+    top: 315%;
+    left: 20%;
+    transform: translate(-50%, -50%);
+}
+
 /* KNAPPER SLUT */
 
 
@@ -381,4 +414,234 @@ p {
     align-items: center;
     background-color: var(--black);
 }
+
+/* Ida */
+.idaoverskrift {
+    position: absolute;
+    top: 217%;
+    left: 52%;
+}
+
+.idaintro {
+    width: 450px;
+    position: absolute;
+    top: 227%;
+    left: 52%;
+}
+
+.ida_barn_1 {
+    width: 300px;
+    position: absolute;
+    top: 230%;
+    left: 25%;
+}
+
+.sikkerhedsnål {
+    width: 220px;
+    position: absolute;
+    top: 218%;
+    left: 18.9%;
+    z-index: 1000;
+}
+
+.letteri2 {
+    width: 35px;
+    position: absolute;
+    top: 278%; 
+    left: 23%;
+    rotate: 10deg;
+}
+
+.letterd {
+    width: 60px;
+    position: absolute;
+    top: 279%; 
+    left: 26%;
+    rotate: 5deg;
+}
+
+.lettera {
+    width: 50px;
+    position: absolute;
+    top: 278%; 
+    left: 30.5%;
+    rotate: 5deg;
+}
+
+.ida_håndskrevet {
+    width: 200px;
+    position: absolute;
+    top: 260%; 
+    left: 8%;
+}
+
+.replayicon {
+    width: 40px;
+    position: absolute;
+    top: 286%; 
+    left: 76.5%;
+}
+
+.starticon {
+    width: 40px;
+    position: absolute;
+    top: 286%; 
+    left: 80%;
+}
+
+.stjerne5 {
+    width: 30px;
+    position: absolute;
+    top: 226%; 
+    left: 83%;
+}
+
+.stjerne6 {
+    width: 50px;
+    position: absolute;
+    top: 220%; 
+    left: 80%;
+}
+
 /* PRÆSENTATION SLUT */
+
+
+.second-section {
+    display: none; /* Skjult som standard */
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--black);
+}
+
+/* Ida valg 1 */
+
+.info4_overskrift {
+    position: absolute;
+    top: 320%;
+    left: 13%;
+}
+
+.info4_valg1 {
+    position: absolute;
+    top: 334%;
+    left: 13%;
+}
+
+.info4_valg2 {
+    position: absolute;
+    top: 350%;
+    left: 13%;
+}
+
+.info4_valg3 {
+    position: absolute;
+    top: 365%;
+    left: 13%;
+}
+
+.info4_valg4 {
+    position: absolute;
+    top: 380%;
+    left: 13%;
+}
+
+.ida_teenager {
+    width: 300px;
+    position: absolute;
+    top: 340%;
+    left: 63%;
+}
+
+.clips_sølv {
+    width: 250px;
+    position: absolute;
+    top: 320%;
+    left: 65%;
+}
+
+.valg4_letter_s {
+    width: 50px;
+    position: absolute;
+    top: 390%;
+    left: 56%;
+}
+
+.valg4_letter_k {
+    width: 50px;
+    position: absolute;
+    top: 392%;
+    left: 60%;
+}
+
+.valg4_letter_a {
+    width: 50px;
+    position: absolute;
+    top: 390%;
+    left: 64%;
+}
+
+.valg4_letter_m {
+    width: 50px;
+    position: absolute;
+    top: 392%;
+    left: 68%;
+}
+
+.valg1_replay {
+    width: 30px;
+    position: absolute;
+    top: 335%;
+    left: 34%;
+}
+
+.valg1_starticon {
+    width: 30px;
+    position: absolute;
+    top: 335%;
+    left: 36.5%;
+}
+
+.valg2_replay {
+    width: 30px;
+    position: absolute;
+    top: 351%;
+    left: 42.5%;
+}
+
+.valg2_starticon {
+    width: 30px;
+    position: absolute;
+    top: 351%;
+    left: 45%;
+}
+
+.valg3_replay {
+    width: 30px;
+    position: absolute;
+    top: 366%;
+    left: 34.5%;
+}
+
+.valg3_starticon {
+    width: 30px;
+    position: absolute;
+    top: 366%;
+    left: 37%;
+}
+
+.valg4_replay {
+    width: 30px;
+    position: absolute;
+    top: 381%;
+    left: 39.5%;
+}
+
+.valg4_starticon {
+    width: 30px;
+    position: absolute;
+    top: 381%;
+    left: 42%;
+}
