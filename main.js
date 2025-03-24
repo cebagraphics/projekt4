@@ -21,3 +21,8 @@ document.addEventListener("DOMContentLoaded", function () {
         section.style.display = "none"; // Skjuler alle sektioner ved start
     });
 });
+
+
+document.querySelector(".knap1").addEventListener("click", function() {
+    window.scrollBy({ top: window.innerHeight, behavior: "smooth" });
+});
