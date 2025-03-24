@@ -10,9 +10,10 @@ const texts = [
 ];
 let index = 0;
 let textIndex = 0;
-let speechSynthesis = window.speechSynthesis;
+
+// Hent audio elementet
+const audioPlayer = document.getElementById("audio-player");
 let isPaused = false;
-let currentUtterance = null;
 
 const pauseBtn = document.getElementById("pause-btn");
 const restartBtn = document.getElementById("restart-btn");
@@ -28,28 +29,16 @@ function typeWriter() {
         // Når den aktuelle tekst er færdig, skift til næste tekst
         textIndex++;
         index = 0;  // Nulstil index for næste tekst
-        setTimeout(() => {
-            // Tilføj et linjeskift mellem afsnittene (kun et linjeskift for mindre mellemrum)
-            storyText.textContent += "\n"; // Tilføj ét linjeskift
-            speakText(); // Start tale for næste tekst
-            typeWriter(); // Start typewriter-effekt for næste tekst
-        }, 500);  // Vent lidt før den starter næste tekst
+        storyText.textContent += "\n"; // Tilføj ét linjeskift
+        playAudio(); // Start afspilning af lyd
+        typeWriter(); // Start typewriter-effekt for næste tekst
     }
 }
 
-// ✅ SYNKRONISER TALE OG TEKST
-function speakText() {
-    if ('speechSynthesis' in window) {
-        speechSynthesis.cancel(); // Sørger for at stoppe tidligere afspilninger
-        currentUtterance = new SpeechSynthesisUtterance(texts[textIndex].substring(index));
-        currentUtterance.lang = "da-DK";
-        currentUtterance.rate = 1;
-        currentUtterance.pitch = 1;
-        currentUtterance.onend = () => (isPaused = false); // Reset flag ved afslutning
-        speechSynthesis.speak(currentUtterance);
-    } else {
-        console.log("Din browser understøtter ikke Web Speech API.");
-    }
+// ✅ SYNKRONISER AFSPILNING OG TEKST
+function playAudio() {
+    audioPlayer.currentTime = 0;
+    audioPlayer.play();
 }
 
 // ✅ PAUSE / PLAY FUNKTION
@@ -57,12 +46,12 @@ function togglePlayPause() {
     if (isPaused) {
         console.log("Genoptager afspilning");
         isPaused = false;
-        speakText();
+        playAudio();
         typeWriter();
         pauseBtn.innerHTML = "&#10074;&#10074;"; // Pause-ikon
     } else {
         console.log("Afspilning sat på pause");
-        speechSynthesis.cancel(); // Stopper tale korrekt
+        audioPlayer.pause(); // Stopper lydafspilning korrekt
         isPaused = true;
         pauseBtn.innerHTML = "&#9654;"; // Play-ikon
     }
@@ -74,10 +63,11 @@ restartBtn.addEventListener("click", function() {
     index = 0;
     textIndex = 0; // Skift til første tekst igen
     storyText.textContent = "";  // Fjern den tidligere tekst
-    speechSynthesis.cancel();
+    audioPlayer.pause(); // Stop afspilning af lyd
+    audioPlayer.currentTime = 0; // Sæt afspilningstidspunktet til starten
     isPaused = false;
     pauseBtn.innerHTML = "&#10074;&#10074;";
-    speakText();
+    playAudio();
     typeWriter();
 });
 
@@ -85,6 +75,7 @@ restartBtn.addEventListener("click", function() {
 pauseBtn.addEventListener("click", togglePlayPause);
 
 window.onload = function() {
-    speakText();
-    typeWriter();
+    // Start med det samme, både tekst og lyd
+    playAudio(); // Start lydafspilning med det samme
+    typeWriter(); // Start typewriter-effekt med det samme
 };
