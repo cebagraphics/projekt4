@@ -1,11 +1,12 @@
 document.addEventListener("DOMContentLoaded", function() {
     // Initially hide all sections
-    document.querySelectorAll(".info-section, .second-section").forEach(section => {
+    document.querySelectorAll(".info-section, .second-section, .third-section, .fourth-section, .fifth-section, .sixth-section").forEach(section => {
         section.style.display = "none";
     });
 
-    // Event listener for all the "Vælg" og "Fortsæt" knapper
-    document.querySelectorAll(".knap2, .knap3, .knap4, .fortsætknap").forEach(knap => {
+    
+    // Event listener 
+    document.querySelectorAll(".knap2, .knap3, .knap4, .fortsætknap, .ida_valg1_knap, .ida_valg2_knap, .ida_valg3_knap, .ida_valg4_knap").forEach(knap => {
         knap.addEventListener("click", function() {
             let targetId = this.getAttribute("data-target");
 
@@ -14,7 +15,7 @@ document.addEventListener("DOMContentLoaded", function() {
             // Check if a valid targetId exists
             if (targetId) {
                 // Hide all sections except info3
-                document.querySelectorAll(".info-section, .second-section").forEach(section => {
+                document.querySelectorAll(".info-section, .second-section, .third-section, .fourth-section, .fifth-section, .sixth-section").forEach(section => {
                     if (section.id !== "info3") {
                         section.style.display = "none";
                     }
@@ -32,6 +33,8 @@ document.addEventListener("DOMContentLoaded", function() {
             }
         });
     });
+
+    
 
     // Optional: Scroll down to the first section when the "Tag det første valg" button is clicked
     document.querySelector(".knap1").addEventListener("click", function() {
