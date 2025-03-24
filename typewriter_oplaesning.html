@@ -28,11 +28,21 @@
     </div>
 
     <!-- Lydafspiller -->
-    <audio id="audio-player" preload="auto">
-        <source src="path/to/your/audiofile.mp3" type="audio/mp3"> <!-- Erstat denne med din lydfil -->
-        Din browser understøtter ikke audio elementet.
-    </audio>
+    <audio id="audio-player" src="audio/ida_er_blevet_voldtaget.m4a" preload="auto"></audio>
 
     <script src="typewriter_oplaesning.js"></script> <!-- Link til JavaScript-fil -->
+
+    <script>
+        // Vent på at siden er indlæst, og start afspilning af lyd
+        window.onload = function() {
+            const audioPlayer = document.getElementById("audio-player");
+            audioPlayer.play(); // Start afspilning af lydfilen automatisk
+
+            // Start typewriter-effekt og tale synkronisering
+            speakText();
+            typeWriter();
+        };
+    </script>
+
 </body>
 </html>
