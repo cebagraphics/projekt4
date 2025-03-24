@@ -656,6 +656,114 @@ p {
     background-color: var(--black);
 }
 
+.third-section-text {
+    width: 350px;
+    position: absolute;
+    top: 320%;
+    left: 63%;
+}
+
+.third-section_replayicon {
+    width: 40px;
+    position: absolute;
+    top: 360%; 
+    left: 81%;
+}
+
+.third-section_starticon {
+    width: 40px;
+    position: absolute;
+    top: 360%; 
+    left: 84.5%;
+}
+
+.third-section_ida-teenager {
+    width: 300px;
+    position: absolute;
+    top: 343%; 
+    left: 28.5%;
+    z-index: 10;
+}
+
+.third-section_ida-barn {
+    width: 300px;
+    position: absolute;
+    top: 325%; 
+    left: 13.5%;
+}
+
+.third-section_tape1 {
+    width: 200px;
+    position: absolute;
+    top: 336%; 
+    left: 40.5%;
+    z-index: 100;
+}
+
+.third-section_tape2 {
+    width: 170px;
+    position: absolute;
+    top: 318%; 
+    left: 10.5%;
+    z-index: 100;
+}
+
+.third-section_letter-s {
+    width: 50px;
+    position: absolute;
+    top: 390%; 
+    left: 8%;
+    z-index: 200;
+}
+
+.third-section_letter-m {
+    width: 50px;
+    position: absolute;
+    top: 390%; 
+    left: 12%;
+    z-index: 200;
+}
+
+.third-section_letter-e {
+    width: 50px;
+    position: absolute;
+    top: 390%; 
+    left: 16%;
+    z-index: 200;
+}
+
+.third-section_letter-r {
+    width: 50px;
+    position: absolute;
+    top: 390%; 
+    left: 20%;
+    z-index: 200;
+}
+
+.third-section_letter-t {
+    width: 35px;
+    position: absolute;
+    top: 390%; 
+    left: 24%;
+    z-index: 200;
+}
+
+.third-section_letter-e2 {
+    width: 50px;
+    position: absolute;
+    top: 390%; 
+    left: 27%;
+    z-index: 200;
+}
+
+.third-section_button {
+    padding: 12px 70px;
+    position: absolute;
+    top: 327%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
 .fourth-section {
     display: none; /* Skjult som standard */
     height: 100vh;
