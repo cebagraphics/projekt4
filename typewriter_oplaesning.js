@@ -1,83 +1,74 @@
-console.log("Script loaded!"); // Fejlfinding
+console.log("Script loaded!");
 
 // ✅ VARIABLER & ARRAY
-const texts = ["Det var en aften som så mange andre. Ida, 22 år, studerende, ambitiøs, social, en helt almindelig ung kvinde i København. Hun havde glædet sig til festen, klædt sig pænt på, grinet med sine venner og danset til sange, hun elskede. Og så mødte hun ham. Han var charmerende, sjov, virkede interesseret. De snakkede længe, og det føltes rart. Trygt. Et sted mellem latteren og de ufarlige berøringer forsvandt kontrollen. Senere ville hun tænke tilbage og spørge sig selv: Hvornår ændrede stemningen sig? Hvornår blev det utrygt? Hvornår blev mit nej ikke længere hørt? Hun husker brudstykker. Følelsen af at være låst fast. Af en krop, der ikke længere reagerede. Af panik, der kæmpede mod en frygtlammet stilhed. Og morgenen efter, den tomme, rungende erkendelse: Det skete. Dagen efter burde have været som alle andre. Men intet var som før. Kroppen føltes fremmed. Huden kriblede, som om han stadig var der. Hendes tanker kørte i ring: Var det min skyld? Gjorde jeg noget forkert? Ville nogen overhovedet tro mig? Nu står hun her. Foran et valg, der føles umuligt. Hvad skal hun gøre?"];
+const texts = ["Det var en aften som så mange andre. Ida, 22 år, studerende, ambitiøs, social, en helt almindelig ung kvinde i København. Hun havde glædet sig til festen, klædt sig pænt på, grinet med sine venner og danset til sange, hun elskede. Og så mødte hun ham. Han var charmerende, sjov, virkede interesseret. De snakkede længe, og det føltes rart. Trygt. Et sted mellem latteren og de ufarlige berøringer forsvandt kontrollen. Senere ville hun tænke tilbage og spørge sig selv: Hvornår ændrede stemningen sig? Hvornår blev det utrygt? Hvornår blev mit nej ikke længere hørt? Hun husker brudstykker. Følelsen af at være låst fast. Af en krop, der ikke længere reagerede. Af panik, der kæmpede mod en frygtlammet stilhed. Og morgenen efter, den tomme, rungende erkendelse: Det skete. Dagen efter burde have været som alle andre. Men intet var som før. Kroppen føltes fremmed. Huden kriblede, som om han stadig var der. Hendes tanker kørte i ring: Var det min skyld? Gjorde jeg noget forkert? Ville nogen overhovedet tro mig? Nu står hun her. Foran et valg, der føles umuligt. Hvad skal hun gøre?"]; // Forkortet for overskuelighed
 let index = 0;
 let textIndex = 0;
-let speechSynthesis = window.speechSynthesis; // Web Speech API
-let isPaused = false; // Pause status
-let timeoutId; // ID til setTimeout for tekst-typen
+let speechSynthesis = window.speechSynthesis;
+let isPaused = false;
+let currentUtterance = null;
 
-// ✅ TEKST-INDTASTNING MED LYD
+const pauseBtn = document.getElementById("pause-btn");
+const restartBtn = document.getElementById("restart-btn");
+const storyText = document.getElementById("story-text");
+
+// ✅ TYPEWRITER-EFFEKT (SKRIVER TEKST SYNKRONT MED TALE)
 function typeWriter() {
-    console.log(`Typing text: ${texts[textIndex]}`); // Debugging
-
     if (index < texts[textIndex].length && !isPaused) {
-        document.getElementById("story-text").innerHTML += texts[textIndex].charAt(index);
+        storyText.textContent += texts[textIndex].charAt(index);
         index++;
-        timeoutId = setTimeout(typeWriter, 100); // Hastighed på tekst-typing
-    } else {
-        console.log("Tekst færdig!");
+        setTimeout(typeWriter, 50);
     }
 }
 
-// ✅ LÆSER TEKST OP
-function speakText(text) {
+// ✅ SYNKRONISER TALE OG TEKST
+function speakText() {
     if ('speechSynthesis' in window) {
-        let utterance = new SpeechSynthesisUtterance(text);
-        utterance.lang = "da-DK"; // Dansk stemme
-        utterance.rate = 1; // Normal hastighed
-        utterance.pitch = 1; // Normal tonehøjde
-        speechSynthesis.speak(utterance);
+        speechSynthesis.cancel(); // Sørger for at stoppe tidligere afspilninger
+        currentUtterance = new SpeechSynthesisUtterance(texts[textIndex].substring(index));
+        currentUtterance.lang = "da-DK";
+        currentUtterance.rate = 1;
+        currentUtterance.pitch = 1;
+        currentUtterance.onend = () => (isPaused = false); // Reset flag ved afslutning
+        speechSynthesis.speak(currentUtterance);
     } else {
         console.log("Din browser understøtter ikke Web Speech API.");
     }
 }
 
-// ✅ PAUSE-FUNKTION
-function pauseStory() {
-    if (!isPaused) {
-        isPaused = true;
-        clearTimeout(timeoutId); // Stop tekst-animation
-        speechSynthesis.pause(); // Pause lyd
-        document.getElementById("pause-btn").textContent = "Fortsæt"; // Skift knaptekst
-    } else {
+// ✅ PAUSE / PLAY FUNKTION
+function togglePlayPause() {
+    if (isPaused) {
+        console.log("Genoptager afspilning");
         isPaused = false;
-        typeWriter(); // Genoptag tekst-animation
-        speechSynthesis.resume(); // Fortsæt lyd
-        document.getElementById("pause-btn").textContent = "Pause"; // Skift knaptekst
+        speakText();
+        typeWriter();
+        pauseBtn.innerHTML = "&#10074;&#10074;"; // Pause-ikon
+    } else {
+        console.log("Afspilning sat på pause");
+        speechSynthesis.cancel(); // Stopper tale korrekt
+        isPaused = true;
+        pauseBtn.innerHTML = "&#9654;"; // Play-ikon
     }
 }
 
-// ✅ GENSTART-FUNKTION
-function restartStory() {
-    isPaused = false;
-    clearTimeout(timeoutId); // Stop eksisterende tekst-animation
-    speechSynthesis.cancel(); // Stop lyd
-    document.getElementById("story-text").innerHTML = ""; // Nulstil tekst
+// ✅ GENSTART FUNKTION
+restartBtn.addEventListener("click", function() {
+    console.log("Genstarter historie");
     index = 0;
-    textIndex = (textIndex + 1) % texts.length; // Skift mellem teksterne
-    startStory(); // Start forfra
-}
-
-// ✅ START HISTORIE (første gang eller efter genstart)
-function startStory() {
-    speakText(texts[textIndex]); // Læs første tekst op
-    typeWriter(); // Start tekst-animation
-}
-
-// ✅ EVENT: Klik for at genstarte tekst OG stemme
-document.getElementById("restart-btn").addEventListener("click", function() {
-    console.log("Genstart knappen blev klikket!");
-    restartStory();
+    textIndex = (textIndex + 1) % texts.length;
+    storyText.textContent = "";
+    speechSynthesis.cancel();
+    isPaused = false;
+    pauseBtn.innerHTML = "&#10074;&#10074;";
+    speakText();
+    typeWriter();
 });
 
-// ✅ EVENT: Klik for at pause/fortsætte
-document.getElementById("pause-btn").addEventListener("click", function() {
-    pauseStory();
-});
+// ✅ EVENT LISTENERS
+pauseBtn.addEventListener("click", togglePlayPause);
 
-// ✅ START TYPEWRITER + LÆS OP VED INDLÆSNING
 window.onload = function() {
-    startStory(); // Start automatisk ved indlæsning
+    speakText();
+    typeWriter();
 };

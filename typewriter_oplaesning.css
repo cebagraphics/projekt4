@@ -1,0 +1,108 @@
+/* Baggrund og layout */
+body {
+    background-color: black;
+    color: white;
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    text-align: center;
+}
+
+/* Container for billede og tekst */
+.container {
+    display: flex;
+    justify-content: flex-start; /* Sørger for at placere tekst og billede korrekt */
+    align-items: flex-start; /* Justerer elementerne korrekt */
+    width: 80%;
+    max-width: 1200px;
+    flex-wrap: wrap;  /* Gør det muligt at wrappe på små skærme */
+}
+
+/* Tekst container */
+.text-container {
+    margin-left: auto;  /* Sørger for at der er plads til venstre */
+    margin-right: 5px;
+    text-align: left;
+    max-width: 600px;  /* Begrænser bredden på tekstcontaineren */
+    position: relative;
+    flex-grow: 1;  /* Tekst containeren skal tage den ledige plads */
+    padding-top: 10px;
+}
+
+/* Tekst */
+#story-text {
+    font-size: 1.2em;
+    line-height: 1.5em;
+    white-space: pre-wrap;  /* Tillader linjeskift inden for tekstboksen */
+    word-wrap: break-word;  /* Sørger for, at lange ord brydes korrekt */
+    max-width: 100%;        /* Teksten kan fylde hele containerens bredde */
+    margin: 0 auto;
+    overflow: hidden;       /* Skjuler overskydende tekst */
+}
+
+/* Billede */
+.image-container {
+    flex-shrink: 0; /* Sørger for, at billedet ikke krymper */
+    width: 320px;   /* Sørger for at billedet har en fast bredde */
+    height: auto;
+    margin-bottom: 20px;
+    margin-left: 200px; /* Flytter billedet mod højre */
+}
+
+.image-container img {
+    width: 100%;
+    height: auto;
+    border-radius: 0;
+}
+
+/* Knapperne */
+.buttons {
+    margin-top: 20px;
+}
+
+.control-btn {
+    background-color: #FFD700;
+    border: none;
+    width: 40px;
+    height: 40px;
+    padding: 0;
+    margin: 5px;
+    border-radius: 50%;
+    font-size: 20px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.control-btn:hover {
+    background-color: #FFC107;
+}
+
+.control-btn:focus {
+    outline: none;
+}
+
+/* Media query for mindre skærme */
+@media (max-width: 768px) {
+    .container {
+        flex-direction: column; /* Stabler billeder og tekst vertikalt */
+        text-align: center;
+    }
+
+    .image-container img {
+        max-width: 80%; /* Gør billedet lidt mindre på mobil */
+    }
+
+    .text-container {
+        margin-left: 0; /* Mindre margin på små skærme */
+        margin-right: 0; /* Sørg for at der er plads til højre også */
+    }
+
+    .control-btn {
+        font-size: 18px; /* Mindre knapper på små skærme */
+        padding: 8px;    /* Mindre padding på knapper */
+    }
+}
