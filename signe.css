@@ -1,46 +1,19 @@
+/* Baggrundsfarven på hele body */
 body {
     background-color: #1e1e1e;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    gap: 20px;
-}
+  }
 
-svg {
-    max-width: 100%;
-}
-
+  /* signe.css */
 path {
-    stroke-dasharray: 1000; /* Skjuler hele stregen */
-    stroke-dashoffset: -1000; /* Starter "usynlig" fra toppen */
-    /* FJERN transition herfra */
-}
-
-/* Style for knappen */
-button {
-    background-color: #ffff00;
-    color: black;
-    border: none;
-    padding: 10px 20px;
-    font-size: 16px;
-    cursor: pointer;
-    border-radius: 5px;
-    transition: 0.3s;
-}
-
-button:hover {
-    background-color: lightgray;
-}
- 
-.svg-container {
-    position: absolute; 
-    bottom: 0; /* Placerer SVG’en i bunden af skærmen */
-    left: 50%;
-    transform: translateX(-50%); /* Centrerer den horisontalt */
-    width: 30%; /* Sørger for, at den fylder næsten hele bredden */
-    max-width: 878px;
-    padding-left: 400px;
-}
-
+    stroke-dasharray: 10000; /* Større værdi for at få hele linjen til at være 'usynlig' i starten */
+    stroke-dashoffset: 10000; /* Starten på animationen (skjuler linjen) */
+    animation: draw 5s forwards; /* 5 sekunder for at tegne linjen */
+    transition: stroke-dashoffset 0.5s ease;
+  }
+  
+  @keyframes draw {
+    to {
+      stroke-dashoffset: 0; /* Færdig med animationen, linjen er tegnet */
+    }
+  }
+  

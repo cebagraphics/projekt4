@@ -8,8 +8,10 @@ const texts = [
     "Dagen efter burde have været som alle andre. Men intet var som før. Kroppen føltes fremmed. Huden kriblede, som om han stadig var der. Hendes tanker kørte i ring: Var det min skyld? Gjorde jeg noget forkert? Ville nogen overhovedet tro mig?\n", 
     "Nu står hun her. Foran et valg, der føles umuligt. Hvad skal hun gøre?"
 ];
+
 let index = 0;
 let textIndex = 0;
+let intervalId;
 
 // Hent audio elementet
 const audioPlayer = document.getElementById("audio-player");
@@ -19,26 +21,43 @@ const pauseBtn = document.getElementById("pause-btn");
 const restartBtn = document.getElementById("restart-btn");
 const storyText = document.getElementById("story-text");
 
-// ✅ TYPEWRITER-EFFEKT (SKRIVER TEKST SYNKRONT MED TALE)
-function typeWriter() {
-    if (index < texts[textIndex].length && !isPaused) {
-        storyText.textContent += texts[textIndex].charAt(index);
-        index++;
-        setTimeout(typeWriter, 50);
-    } else if (index === texts[textIndex].length && textIndex < texts.length - 1) {
-        // Når den aktuelle tekst er færdig, skift til næste tekst
-        textIndex++;
-        index = 0;  // Nulstil index for næste tekst
-        storyText.textContent += "\n"; // Tilføj ét linjeskift
-        playAudio(); // Start afspilning af lyd
-        typeWriter(); // Start typewriter-effekt for næste tekst
-    }
+// ✅ SYNKRONISER AFSPILNING OG TEKST
+function syncTextWithAudio() {
+    // Start med at afspille lyd fra starten
+    audioPlayer.play();
+
+    intervalId = setInterval(() => {
+        // Tjek lydens tid og synkroniser tekst
+        const currentTime = audioPlayer.currentTime;
+
+        // Når vi når en ny sektion af teksten, opdater teksten
+        if (currentTime >= getSectionStartTime(textIndex)) {
+            if (index < texts[textIndex].length) {
+                storyText.textContent += texts[textIndex].charAt(index);
+                index++;
+            } else {
+                // Skift til næste tekst
+                textIndex++;
+                index = 0;
+                storyText.textContent += "\n";
+                if (textIndex >= texts.length) {
+                    clearInterval(intervalId); // Stop ved slutningen af teksten
+                }
+            }
+        }
+    }, 50); // Opdater hver 50ms
 }
 
-// ✅ SYNKRONISER AFSPILNING OG TEKST
-function playAudio() {
-    audioPlayer.currentTime = 0;
-    audioPlayer.play();
+// Returnerer starttidspunktet for hver tekstsektion i lydfilen
+function getSectionStartTime(index) {
+    const sectionTimes = [
+        0,       // Starttidspunkt for første tekst
+        5,       // Starttidspunkt for anden tekst
+        10,      // Starttidspunkt for tredje tekst
+        15,      // Starttidspunkt for fjerde tekst
+        20       // Starttidspunkt for femte tekst
+    ];
+    return sectionTimes[index] || 0;
 }
 
 // ✅ PAUSE / PLAY FUNKTION
@@ -46,12 +65,13 @@ function togglePlayPause() {
     if (isPaused) {
         console.log("Genoptager afspilning");
         isPaused = false;
-        playAudio();
-        typeWriter();
+        audioPlayer.play();
+        syncTextWithAudio(); // Resume text sync
         pauseBtn.innerHTML = "&#10074;&#10074;"; // Pause-ikon
     } else {
         console.log("Afspilning sat på pause");
-        audioPlayer.pause(); // Stopper lydafspilning korrekt
+        audioPlayer.pause();
+        clearInterval(intervalId); // Stop synkronisering af teksten
         isPaused = true;
         pauseBtn.innerHTML = "&#9654;"; // Play-ikon
     }
@@ -67,15 +87,21 @@ restartBtn.addEventListener("click", function() {
     audioPlayer.currentTime = 0; // Sæt afspilningstidspunktet til starten
     isPaused = false;
     pauseBtn.innerHTML = "&#10074;&#10074;";
-    playAudio();
-    typeWriter();
+    syncTextWithAudio();
 });
 
 // ✅ EVENT LISTENERS
 pauseBtn.addEventListener("click", togglePlayPause);
 
+// Når vinduet er færdig med at loade, start automatisk afspilning og tekstsynkronisering
 window.onload = function() {
-    // Start med det samme, både tekst og lyd
-    playAudio(); // Start lydafspilning med det samme
-    typeWriter(); // Start typewriter-effekt med det samme
+    console.log("Window loaded!");
+    // Sørg for at afspilning kan starte automatisk
+    audioPlayer.play()
+        .then(() => {
+            syncTextWithAudio(); // Start synkroniseringen af tekst og lyd
+        })
+        .catch((error) => {
+            console.log("Error with autoplay: ", error);
+        });
 };
