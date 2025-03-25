@@ -1,43 +1,31 @@
-document.addEventListener("DOMContentLoaded", function() {
-    // Initially hide all sections
-    document.querySelectorAll(".info-section, .second-section, .third-section, .fourth-section, .fifth-section, .sixth-section").forEach(section => {
+
+document.addEventListener("DOMContentLoaded", function () {
+    // Start med at skjule alle sektioner undtagen den første
+    document.querySelectorAll(".info-section, .second-section, .third-section, .fourth-section, .fifth-section, .sixth-section, .seventh-section, .eight-section, .ninth-section, .tenth-section, .eleventh-section, .twelfth-section, .thirteenth-section, .fourteenth-section, .fifteenth-section, .sixteenth-section, .seventeenth-section, .eighteenth-section, .nineteenth-section").forEach(section => {
         section.style.display = "none";
     });
 
-    
-    // Event listener 
-    document.querySelectorAll(".knap2, .knap3, .knap4, .fortsætknap, .ida_valg1_knap, .ida_valg2_knap, .ida_valg3_knap, .ida_valg4_knap").forEach(knap => {
-        knap.addEventListener("click", function() {
+    // Event listener til alle knapper
+    document.querySelectorAll(".knap2, .knap3, .knap4, .fortsætknap, .ida_valg1_knap, .ida_valg2_knap, .ida_valg3_knap, .ida_valg4_knap, .third-section_button, .fourth-section_button, .fifth-section_button, .sixth-section_button, .dilemma2_valg1_knap, .dilemma2_valg2_knap, .sidste_knap").forEach(knap => {
+        knap.addEventListener("click", function () {
             let targetId = this.getAttribute("data-target");
 
-            console.log("Button clicked, targetId:", targetId); // Debugging line
-
-            // Check if a valid targetId exists
             if (targetId) {
-                // Hide all sections except info3
-                document.querySelectorAll(".info-section, .second-section, .third-section, .fourth-section, .fifth-section, .sixth-section").forEach(section => {
-                    if (section.id !== "info3") {
-                        section.style.display = "none";
-                    }
-                });
-
-                // Show the selected section
                 let targetSection = document.getElementById(targetId);
+
                 if (targetSection) {
-                    targetSection.style.display = "block"; // or "flex" depending on your layout
-                    targetSection.scrollIntoView({ behavior: "smooth" });
-                    console.log("Section displayed:", targetSection.id); // Debugging line
-                } else {
-                    console.log("Target section not found:", targetId); // Debugging line
+                    targetSection.style.display = "block"; // Vis den nye sektion
+                    targetSection.scrollIntoView({ behavior: "smooth" }); // Scroll til den nye sektion
                 }
             }
         });
     });
 
-    
-
-    // Optional: Scroll down to the first section when the "Tag det første valg" button is clicked
-    document.querySelector(".knap1").addEventListener("click", function() {
-        window.scrollBy({ top: window.innerHeight, behavior: "smooth" });
-    });
+    // Scroll-funktion for første valg
+    let firstButton = document.querySelector(".knap1");
+    if (firstButton) {
+        firstButton.addEventListener("click", function () {
+            window.scrollBy({ top: window.innerHeight, behavior: "smooth" });
+        });
+    }
 });

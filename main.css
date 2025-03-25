@@ -504,14 +504,14 @@ p {
     width: 40px;
     position: absolute;
     top: 286%; 
-    left: 76.5%;
+    left: 82%;
 }
 
 .starticon {
     width: 40px;
     position: absolute;
     top: 286%; 
-    left: 80%;
+    left: 78.5%;
 }
 
 .stjerne5 {
@@ -619,56 +619,56 @@ p {
     width: 30px;
     position: absolute;
     top: 335%;
-    left: 34%;
+    left: 36.5%;
 }
 
 .valg1_starticon {
     width: 30px;
     position: absolute;
     top: 335%;
-    left: 36.5%;
+    left: 34%;
 }
 
 .valg2_replay {
     width: 30px;
     position: absolute;
     top: 351%;
-    left: 42.5%;
+    left: 45%;
 }
 
 .valg2_starticon {
     width: 30px;
     position: absolute;
     top: 351%;
-    left: 45%;
+    left: 42.5%;
 }
 
 .valg3_replay {
     width: 30px;
     position: absolute;
     top: 366%;
-    left: 34.5%;
+    left: 37%;
 }
 
 .valg3_starticon {
     width: 30px;
     position: absolute;
     top: 366%;
-    left: 37%;
+    left: 34.5%;
 }
 
 .valg4_replay {
     width: 30px;
     position: absolute;
     top: 381%;
-    left: 39.5%;
+    left: 42%;
 }
 
 .valg4_starticon {
     width: 30px;
     position: absolute;
     top: 381%;
-    left: 42%;
+    left: 39.5%;
 }
 
 .third-section {
@@ -684,28 +684,28 @@ p {
 .third-section-text {
     width: 350px;
     position: absolute;
-    top: 320%;
+    top: 420%;
     left: 63%;
 }
 
 .third-section_replayicon {
     width: 40px;
     position: absolute;
-    top: 360%; 
+    top: 460%; 
     left: 81%;
 }
 
 .third-section_starticon {
     width: 40px;
     position: absolute;
-    top: 360%; 
+    top: 460%; 
     left: 84.5%;
 }
 
 .third-section_ida-teenager {
     width: 300px;
     position: absolute;
-    top: 343%; 
+    top: 443%; 
     left: 28.5%;
     z-index: 10;
 }
@@ -713,14 +713,14 @@ p {
 .third-section_ida-barn {
     width: 300px;
     position: absolute;
-    top: 325%; 
+    top: 425%; 
     left: 13.5%;
 }
 
 .third-section_tape1 {
     width: 200px;
     position: absolute;
-    top: 336%; 
+    top: 436%; 
     left: 40.5%;
     z-index: 100;
 }
@@ -728,7 +728,7 @@ p {
 .third-section_tape2 {
     width: 170px;
     position: absolute;
-    top: 318%; 
+    top: 418%; 
     left: 10.5%;
     z-index: 100;
 }
@@ -736,7 +736,7 @@ p {
 .third-section_letter-s {
     width: 50px;
     position: absolute;
-    top: 390%; 
+    top: 490%; 
     left: 8%;
     z-index: 200;
 }
@@ -744,7 +744,7 @@ p {
 .third-section_letter-m {
     width: 50px;
     position: absolute;
-    top: 390%; 
+    top: 490%; 
     left: 12%;
     z-index: 200;
 }
@@ -752,7 +752,7 @@ p {
 .third-section_letter-e {
     width: 50px;
     position: absolute;
-    top: 390%; 
+    top: 490%; 
     left: 16%;
     z-index: 200;
 }
@@ -760,7 +760,7 @@ p {
 .third-section_letter-r {
     width: 50px;
     position: absolute;
-    top: 390%; 
+    top: 490%; 
     left: 20%;
     z-index: 200;
 }
@@ -768,7 +768,7 @@ p {
 .third-section_letter-t {
     width: 35px;
     position: absolute;
-    top: 390%; 
+    top: 490%; 
     left: 24%;
     z-index: 200;
 }
@@ -776,7 +776,7 @@ p {
 .third-section_letter-e2 {
     width: 50px;
     position: absolute;
-    top: 390%; 
+    top: 490%; 
     left: 27%;
     z-index: 200;
 }
@@ -784,7 +784,7 @@ p {
 .third-section_button {
     padding: 12px 70px;
     position: absolute;
-    top: 327%;
+    top: 427%;
     left: 50%;
     transform: translate(-50%, -50%);
 }
@@ -810,6 +810,16 @@ p {
 }
 
 .sixth-section {
+    display: none; /* Skjult som standard */
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--black);
+}
+
+.seventh-section {
     display: none; /* Skjult som standard */
     height: 100vh;
     display: flex;
