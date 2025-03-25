@@ -108,14 +108,14 @@ p {
 .knap2 {
     padding: 12px 80px;
     position: absolute;
-    top: 115%;
+    top: 117%;
     left: 50%;
     transform: translate(-50%, -50%);
 }
 
 .knap3 {padding: 12px 80px;
     position: absolute;
-    top: 115%;
+    top: 117%;
     left: 20%;
     transform: translate(-50%, -50%);
 }
@@ -123,7 +123,7 @@ p {
 .knap4 {
     padding: 12px 80px;
     position: absolute;
-    top: 115%;
+    top: 117%;
     left: 80%;
     transform: translate(-50%, -50%);
 }
@@ -352,7 +352,7 @@ p {
 
 .personoverskrift {
     position: absolute;
-    top: 107%;
+    top: 105%;
     left: 50%;
     transform: translate(-50%, -50%);
 }
@@ -360,14 +360,22 @@ p {
 .Adutportræt {
     width: 300px;
     position: absolute;
-    top: 143%;
+    top: 140%;
     left: 20%;
     transform: translate(-50%, -50%);
 }
 
 .Aduttext {
     position: absolute;
-    top: 172%;
+    top: 167%;
+    left: 20%;
+    transform: translate(-50%, -50%);
+}
+
+.Adutbrødtekst {
+    width: 300px;
+    position: absolute;
+    top: 179%;
     left: 20%;
     transform: translate(-50%, -50%);
 }
@@ -375,14 +383,22 @@ p {
 .Joseportræt {
     width: 300px;
     position: absolute;
-    top: 140.5%;
+    top: 138%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.Josébrødtekst {
+    width: 300px;
+    position: absolute;
+    top: 179%;
     left: 50%;
     transform: translate(-50%, -50%);
 }
 
 .Josetext {
     position: absolute;
-    top: 172%;
+    top: 167%;
     left: 50%;
     transform: translate(-50%, -50%);
 }
@@ -390,17 +406,26 @@ p {
 .Idaportræt {
     width: 340px;
     position: absolute;
-    top: 143%;
+    top: 140.5%;
     left: 78%;
     transform: translate(-50%, -50%);
 }
 
 .Idatext {
     position: absolute;
-    top: 172%;
+    top: 167%;
     left: 80%;
     transform: translate(-50%, -50%);
 }
+
+.Idabrødtekst {
+    width: 300px;
+    position: absolute;
+    top: 179%;
+    left: 80%;
+    transform: translate(-50%, -50%);
+}
+
 /* 3 PERSONER SIDE SLUT */
 
 
