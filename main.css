@@ -501,17 +501,17 @@ p {
 }
 
 .replayicon {
-    width: 40px;
+    width: 30px;
     position: absolute;
     top: 286%; 
-    left: 82%;
+    left: 82.5%;
 }
 
 .starticon {
-    width: 40px;
+    width: 30px;
     position: absolute;
     top: 286%; 
-    left: 78.5%;
+    left: 80%;
 }
 
 .stjerne5 {
@@ -689,17 +689,17 @@ p {
 }
 
 .third-section_replayicon {
-    width: 40px;
+    width: 30px;
     position: absolute;
     top: 460%; 
-    left: 81%;
+    left: 85.5%;
 }
 
 .third-section_starticon {
-    width: 40px;
+    width: 30px;
     position: absolute;
     top: 460%; 
-    left: 84.5%;
+    left: 83%;
 }
 
 .third-section_ida-teenager {
@@ -821,6 +821,150 @@ p {
 
 .seventh-section {
     display: none; /* Skjult som standard */
+    height: 110vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--black);
+}
+
+.info9_valg1 {
+        position: absolute;
+        top: 537%;
+        left: 13%;
+    }
+
+.dilemma2_valg1_knap {
+    padding: 12px 80px;
+    position: absolute;
+    top: 474%;
+    left: 19%;
+    transform: translate(-50%, -50%);
+}
+    
+.info9_valg2 {
+        position: absolute;
+        top: 570%;
+        left: 13%;
+    }
+
+.dilemma2_valg2_knap {
+    padding: 12px 80px;
+    position: absolute;
+    top: 507%;
+    left: 19%;
+    transform: translate(-50%, -50%);
+}
+
+.ida_kat_billede {
+    width: 350px;
+    position: absolute;
+    top: 540%;
+    left: 60%;
+}
+
+.seventh-section_replayicon {
+    width: 30px;
+    position: absolute;
+    top: 538.5%; 
+    left: 40.5%;
+}
+
+.seventh-section_starticon {
+    width: 30px;
+    position: absolute;
+    top: 538.5%; 
+    left: 38%;
+}
+
+.seventh-section_replayicon2 {
+    width: 30px;
+    position: absolute;
+    top: 571%; 
+    left: 46.5%;
+}
+
+.seventh-section_starticon2 {
+    width: 30px;
+    position: absolute;
+    top: 571%; 
+    left: 44%;
+}
+
+.seventh-section_sikkerhedsnål {
+    width: 220px;
+    position: absolute;
+    top: 527%;
+    left: 75%;
+    z-index: 1000;
+    rotate: 40deg;
+}
+
+.seventh-section_lettera {
+    width: 55px;
+    position: absolute;
+    top: 580%; 
+    left: 55%;
+}
+
+.seventh-section_letterf {
+    width: 45px;
+    position: absolute;
+    top: 580%; 
+    left: 59%;
+}
+
+.seventh-section_letterm {
+    width: 70px;
+    position: absolute;
+    top: 580%; 
+    left: 62.3%;
+}
+
+.seventh-section_lettera2 {
+    width: 55px;
+    position: absolute;
+    top: 580%; 
+    left: 67%;
+}
+
+.seventh-section_letterg {
+    width: 50px;
+    position: absolute;
+    top: 580%; 
+    left: 71%;
+}
+
+.seventh-section_lettert {
+    width: 35px;
+    position: absolute;
+    top: 580%; 
+    left: 75%;
+}
+
+.eight-section {
+    display: none; /* Skjult som standard */
+    height: 110vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--black);
+}
+
+.ninth-section {
+    display: none; /* Skjult som standard */
+    height: 110vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--black);
+}
+
+.tenth-section {
+    display: none; /* Skjult som standard */
     height: 100vh;
     display: flex;
     flex-direction: column;
@@ -828,3 +972,81 @@ p {
     align-items: center;
     background-color: var(--black);
 }
+
+.eleventh-section-text {
+    width: 350px;
+    position: absolute;
+    top: 610%;
+    left: 63%;
+}
+
+.eleventh-section {
+    display: none; /* Skjult som standard */
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--black);
+}
+
+.twelfth-section {
+    display: none; /* Skjult som standard */
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--black);
+}
+
+.thirteenth-section {
+    display: none; /* Skjult som standard */
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--black);
+}
+
+.fourteenth-section {
+    display: none; /* Skjult som standard */
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--black);
+}
+
+.fifteenth-section {
+    display: none; /* Skjult som standard */
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--black);
+}
+
+.sixteenth-section {
+    display: none; /* Skjult som standard */
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--black);
+}
+
+.nineteenth-section {
+    display: none; /* Skjult som standard */
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--black);
+}
+
