@@ -821,7 +821,7 @@ p {
 
 .seventh-section {
     display: none; /* Skjult som standard */
-    height: 110vh;
+    height: 100vh;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -945,7 +945,7 @@ p {
 
 .eight-section {
     display: none; /* Skjult som standard */
-    height: 110vh;
+    height: 100vh;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -955,7 +955,7 @@ p {
 
 .ninth-section {
     display: none; /* Skjult som standard */
-    height: 110vh;
+    height: 100vh;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -976,7 +976,7 @@ p {
 .eleventh-section-text {
     width: 350px;
     position: absolute;
-    top: 610%;
+    top: 620%;
     left: 63%;
 }
 
