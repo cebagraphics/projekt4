@@ -408,7 +408,7 @@ p {
 
 /* 3 PERSONER SIDE START */
 #mere-info {
-    height: 150vh;
+    height: 134vh;
 }
 
 .Amnesty-lys_1 {
@@ -428,6 +428,22 @@ p {
     position: absolute;
     top: 113.5%;
     left: 2.8%;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+tr {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px;
+}
+
+th {
+    text-align: left;
 }
 
 .personoverskrift {
