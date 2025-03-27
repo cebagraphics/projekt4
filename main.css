@@ -411,6 +411,25 @@ p {
     height: 150vh;
 }
 
+.Amnesty-lys_1 {
+    width: 50px;
+    position: absolute;
+    top: 104%;
+    left: 2%;
+}
+
+.lys-text_1 {
+    font-family: 'AmnestyTradeGothic';
+    font-weight: 500;
+    font-style: normal;
+    font-size: 18px;
+    text-transform: uppercase;
+    color: var(--white);
+    position: absolute;
+    top: 113.5%;
+    left: 2.8%;
+}
+
 .personoverskrift {
     position: absolute;
     top: 105%;
@@ -499,6 +518,25 @@ p {
     justify-content: center;
     align-items: center;
     background-color: var(--black);
+}
+
+.Amnesty-lys_2 {
+    width: 50px;
+    position: absolute;
+    top: 214%;
+    left: 2%;
+}
+
+.lys-text_2 {
+    font-family: 'AmnestyTradeGothic';
+    font-weight: 500;
+    font-style: normal;
+    font-size: 18px;
+    text-transform: uppercase;
+    color: var(--white);
+    position: absolute;
+    top: 223.5%;
+    left: 2.8%;
 }
 
 /* Ida */
@@ -610,6 +648,26 @@ p {
     align-items: center;
     background-color: var(--black);
 }
+
+.Amnesty-lys_3 {
+    width: 50px;
+    position: absolute;
+    top: 314%;
+    left: 2%;
+}
+
+.lys-text_3 {
+    font-family: 'AmnestyTradeGothic';
+    font-weight: 500;
+    font-style: normal;
+    font-size: 18px;
+    text-transform: uppercase;
+    color: var(--white);
+    position: absolute;
+    top: 323.5%;
+    left: 2.8%;
+}
+
 
 /* Ida valg 1 */
 
@@ -750,6 +808,85 @@ p {
     align-items: center;
     background-color: var(--black);
 }
+
+.Amnesty-lys_4 {
+    width: 50px;
+    position: absolute;
+    top: 414%;
+    left: 2%;
+} 
+
+.lys-text_4 {
+    font-family: 'AmnestyTradeGothic';
+    font-weight: 500;
+    font-style: normal;
+    font-size: 18px;
+    text-transform: uppercase;
+    color: var(--white);
+    position: absolute;
+    top: 423.5%;
+    left: 2.8%;
+}
+
+.Amnesty-lys_5 {
+    width: 50px;
+    position: absolute;
+    top: 514%;
+    left: 2%;
+}
+
+.lys-text_5 {
+    font-family: 'AmnestyTradeGothic';
+    font-weight: 500;
+    font-style: normal;
+    font-size: 18px;
+    text-transform: uppercase;
+    color: var(--white);
+    position: absolute;
+    top: 523.5%;
+    left: 2.8%;
+}
+
+
+.Amnesty-lys_6 {
+    width: 50px;
+    position: absolute;
+    top: 614%;
+    left: 2%;
+}
+
+.lys-text_6 {
+    font-family: 'AmnestyTradeGothic';
+    font-weight: 500;
+    font-style: normal;
+    font-size: 18px;
+    text-transform: uppercase;
+    color: var(--white);
+    position: absolute;
+    top: 623.5%;
+    left: 2.8%;
+}
+
+
+.Amnesty-lys_7 {
+    width: 50px;
+    position: absolute;
+    top: 714%;
+    left: 2%;
+}
+
+.lys-text_7 {
+    font-family: 'AmnestyTradeGothic';
+    font-weight: 500;
+    font-style: normal;
+    font-size: 18px;
+    text-transform: uppercase;
+    color: var(--white);
+    position: absolute;
+    top: 723.5%;
+    left: 2.8%;
+}
+
 
 .third-section-text {
     width: 350px;
