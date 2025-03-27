@@ -29,3 +29,11 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     }
 });
+
+document.querySelector(".del-resultat_knap").addEventListener("click", () => {
+    document.getElementById("popup").style.display = "block";
+});
+
+document.getElementById("closeBtn").addEventListener("click", () => {
+    document.getElementById("popup").style.display = "none";
+});
