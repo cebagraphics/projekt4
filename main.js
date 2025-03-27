@@ -37,3 +37,12 @@ document.querySelector(".del-resultat_knap").addEventListener("click", () => {
 document.getElementById("closeBtn").addEventListener("click", () => {
     document.getElementById("popup").style.display = "none";
 });
+
+
+document.querySelector(".spørgsmålstegnicon").addEventListener("click", () => {
+    document.getElementById("popup2").style.display = "block";
+});
+
+document.getElementById("closeBtn2").addEventListener("click", () => {
+    document.getElementById("popup2").style.display = "none";
+});

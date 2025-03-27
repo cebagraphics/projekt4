@@ -562,17 +562,24 @@ p {
 }
 
 .replayicon {
-    width: 30px;
+    width: 37px;
     position: absolute;
-    top: 286%; 
-    left: 82.5%;
+    top: 287%; 
+    left: 74.5%;
 }
 
 .starticon {
-    width: 30px;
+    width: 37px;
     position: absolute;
-    top: 286%; 
-    left: 80%;
+    top: 287%; 
+    left: 77.5%;
+}
+
+.spørgsmålstegnicon {
+    width: 31px;
+    position: absolute;
+    top: 286.5%; 
+    left: 81%;
 }
 
 .udråbstegn1 {
@@ -1513,6 +1520,23 @@ p {
     color: var(--black);
 }
 
+#popup2 {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: white;
+    padding: 20px;
+    border: 1px solid #ccc;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    text-align: center;
+}
+
+#popup2 p {
+    color: var(--black);
+}
+
 #closeBtn, #downloadBtn {
     background: var(--yellow);
     color: var(--black);
@@ -1523,3 +1547,26 @@ p {
     cursor: pointer;
     font-family: 'AmnestyTradeGothic';
 }
+
+#closeBtn2 {
+    background: var(--yellow);
+    color: var(--black);
+    border: none;
+    padding: 10px 20px;
+    margin: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-family: 'AmnestyTradeGothic';
+    display: flex;
+    justify-content: center;
+    margin-left: 45%;
+}
+.popup2_playbutton {
+   padding-bottom: 40px;
+   padding-top: 5px;
+}
+
+.popup2_replaybutton {
+    padding-top: 5px;
+    padding-bottom: 40px;
+ }
