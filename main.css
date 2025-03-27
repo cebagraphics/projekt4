@@ -953,6 +953,35 @@ p {
     background-color: var(--black);
 }
 
+.eight-section_replayicon {
+    width: 30px;
+    position: absolute;
+    top: 538.5%; 
+    left: 38.5%;
+}
+
+.eight-section_starticon {
+    width: 30px;
+    position: absolute;
+    top: 538.5%; 
+    left: 36%;
+}
+
+
+.eight-section_replayicon2 {
+    width: 30px;
+    position: absolute;
+    top: 571%; 
+    left: 46.5%;
+}
+
+.eight-section_starticon2 {
+    width: 30px;
+    position: absolute;
+    top: 571%; 
+    left: 44%;
+}
+
 .ninth-section {
     display: none; /* Skjult som standard */
     height: 100vh;
@@ -961,6 +990,34 @@ p {
     justify-content: center;
     align-items: center;
     background-color: var(--black);
+}
+
+.ninth-section_starticon {
+    width: 30px;
+    position: absolute;
+    top: 538.5%; 
+    left: 47%;
+}
+
+.ninth-section_replayicon {
+    width: 30px;
+    position: absolute;
+    top: 538.5%; 
+    left: 49.5%;
+}
+
+.ninth-section_starticon2 {
+    width: 30px;
+    position: absolute;
+    top: 571%; 
+    left: 41%;
+}
+
+.ninth-section_replayicon2 {
+    width: 30px;
+    position: absolute;
+    top: 571%; 
+    left: 43.5%;
 }
 
 .tenth-section {
@@ -973,10 +1030,38 @@ p {
     background-color: var(--black);
 }
 
+.tenth-section_starticon {
+    width: 30px;
+    position: absolute;
+    top: 538.5%; 
+    left: 38%;
+}
+
+.tenth-section_replayicon {
+    width: 30px;
+    position: absolute;
+    top: 538.5%; 
+    left: 40.5%;
+}
+
+.tenth-section_starticon2 {
+    width: 30px;
+    position: absolute;
+    top: 571%; 
+    left: 35%;
+}
+
+.tenth-section_replayicon2 {
+    width: 30px;
+    position: absolute;
+    top: 571%; 
+    left: 37.5%;
+}
+
 .eleventh-section-text {
     width: 350px;
     position: absolute;
-    top: 620%;
+    top: 630%;
     left: 63%;
 }
 
@@ -988,6 +1073,100 @@ p {
     justify-content: center;
     align-items: center;
     background-color: var(--black);
+}
+
+.eleventh-section_letterf {
+    width: 42px;
+    position: absolute;
+    top: 685%; 
+    left: 19.5%;
+    z-index: 5;
+}
+
+.eleventh-section_letterr {
+    width: 45px;
+    position: absolute;
+    top: 685%; 
+    left: 23%;
+    z-index: 5;
+}
+
+.eleventh-section_lettery {
+    width: 45px;
+    position: absolute;
+    top: 685%; 
+    left: 26.5%;
+    z-index: 5;
+}
+
+.eleventh-section_letterg {
+    width: 45px;
+    position: absolute;
+    top: 685%; 
+    left: 30%;
+    z-index: 5;
+}
+
+.eleventh-section_lettert {
+    width: 35px;
+    position: absolute;
+    top: 685%; 
+    left: 34%;
+    z-index: 5;
+}
+
+.eleventh-section_billede_1 {
+    width: 370px;
+    position: absolute;
+    top: 655%; 
+    left: 28.5%;
+    z-index: 2;
+    transform: scaleX(-1);
+}
+
+.eleventh-section_billede_2 {
+    width: 260px;
+    position: absolute;
+    top: 625%; 
+    left: 14.5%;
+}
+
+.sidste_knap {
+    padding: 12px 70px;
+    position: absolute;
+    top: 627%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.eleventh-section_tape1 {
+    width: 200px;
+    position: absolute;
+    top: 648%; 
+    left: 45.5%;
+    z-index: 100;
+}
+
+.eleventh-section_tape2 {
+    width: 170px;
+    position: absolute;
+    top: 618%; 
+    left: 10.5%;
+    z-index: 100;
+}
+
+.eleventh-section_replayicon {
+    width: 30px;
+    position: absolute;
+    top: 642%; 
+    left: 82%;
+}
+
+.eleventh-section_starticon {
+    width: 30px;
+    position: absolute;
+    top: 642%; 
+    left: 84.5%;
 }
 
 .twelfth-section {
@@ -1040,6 +1219,26 @@ p {
     background-color: var(--black);
 }
 
+.seventeenth-section {
+    display: none; /* Skjult som standard */
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--black);
+}
+
+.eighteenth-section {
+    display: none; /* Skjult som standard */
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--black);
+}
+
 .nineteenth-section {
     display: none; /* Skjult som standard */
     height: 100vh;
@@ -1049,4 +1248,157 @@ p {
     align-items: center;
     background-color: var(--black);
 }
+
+.nineteenth-section_portræt {
+    width: 300px;
+    position: absolute;
+    top: 732%; 
+    left: 21%;
+}
+
+.nineteenth-section_clips {
+    width: 250px;
+    position: absolute;
+    top: 710%; 
+    left: 23%;
+    z-index: 10;
+}
+
+.nineteenth-section_letter-s {
+    width: 50px;
+    position: absolute;
+    top: 775%; 
+    left: 14.5%;
+    z-index: 200;
+}
+
+.nineteenth-section_letter-t {
+    width: 30px;
+    position: absolute;
+    top: 775%; 
+    left: 18.5%;
+    z-index: 200;
+}
+
+.nineteenth-section_letter-ø {
+    width: 50px;
+    position: absolute;
+    top: 775%; 
+    left: 21%;
+    z-index: 200;
+}
+
+.nineteenth-section_letter-t2 {
+    width: 30px;
+    position: absolute;
+    top: 775%; 
+    left: 25%;
+    z-index: 200;
+}
+
+.nineteenth-section_letter-t3 {
+    width: 30px;
+    position: absolute;
+    top: 775%; 
+    left: 27.5%;
+    z-index: 200;
+}
+
+.nineteenth-section_letter-e {
+    width: 50px;
+    position: absolute;
+    top: 775%; 
+    left: 30%;
+    z-index: 200;
+}
+
+.nineteenth-section_text {
+    width: 350px;
+    position: absolute;
+    top: 721%; 
+    left: 55%;
+}
+
+.nineteenth-section_replayicon {
+    width: 30px;
+    position: absolute;
+    top: 783%; 
+    left: 74%;
+}
+
+.nineteenth-section_starticon {
+    width: 30px;
+    position: absolute;
+    top: 783%; 
+    left: 76.5%;
+}
+
+.lignende-historier_knap {
+    color: var(--yellow);
+    border-radius: 30px;
+    font-family: 'AmnestyTradeGothic';
+    font-weight: bold;
+    font-style: normal;
+    font-size: 18px;
+    background-color: var(--black);
+    border: 1px solid var(--yellow);
+    text-decoration: none;
+    position: absolute;
+    top: 798%; 
+    left: 20%;
+    transform: translate(-50%, -50%);
+    padding: 12px 30px;
+}
+
+.bliv-frivillig_knap {
+    color: var(--black);
+    border-radius: 30px;
+    font-family: 'AmnestyTradeGothic';
+    font-weight: bold;
+    font-style: normal;
+    font-size: 18px;
+    background-color: var(--yellow);
+    border: 1px solid var(--yellow);
+    text-decoration: none;
+    position: absolute;
+    top: 798%; 
+    left: 40%;
+    transform: translate(-50%, -50%);
+    padding: 12px 55px;
+}
+
+.prøv-igen_knap {
+    color: var(--black);
+    border-radius: 30px;
+    font-family: 'AmnestyTradeGothic';
+    font-weight: bold;
+    font-style: normal;
+    font-size: 18px;
+    background-color: var(--yellow);
+    border: 1px solid var(--yellow);   
+    text-decoration: none;
+    position: absolute;
+    top: 798%; 
+    left: 80%;
+    transform: translate(-50%, -50%);
+    padding: 12px 60px;
+}
+
+.tænd-lys_knap {
+    color: var(--yellow);
+    border-radius: 30px;
+    font-family: 'AmnestyTradeGothic';
+    font-weight: bold;
+    font-style: normal;
+    font-size: 18px;
+    background-color: var(--black);
+    border: 1px solid var(--yellow);
+    text-decoration: none;
+    position: absolute;
+    top: 798%; 
+    left: 60%;
+    transform: translate(-50%, -50%);
+    padding: 12px 55px;
+}
+
 
