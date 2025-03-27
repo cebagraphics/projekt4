@@ -293,31 +293,35 @@ p {
     left: 9%;
 }
 
-.stjerne1 img {
-    width: 30px;
+.stjerne1 {
+    color: var(--yellow);
+    font-size: 40px;
     position: absolute;
-    top: 73%; 
+    top: 70%; 
     left: 7%;
 }
 
-.stjerne2 img {
-    width: 50px;
+.stjerne2 {
+    color: var(--yellow);
+    font-size: 60px;
     position: absolute;
-    top: 67%; 
+    top: 60%; 
     left: 5%;
 }
 
-.stjerne3 img {
-    width: 50px;
+.stjerne3 {
+    color: var(--yellow);
+    font-size: 60px;
     position: absolute;
-    top: 10%; 
+    top: 1%; 
     left: 80%;
 }
 
-.stjerne4 img {
-    width: 30px;
+.stjerne4 {
+    color: var(--yellow);
+    font-size: 40px;
     position: absolute;
-    top: 16%; 
+    top: 10%; 
     left: 83%;
 }
 
