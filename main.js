@@ -6,7 +6,7 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 
     // Event listener til alle knapper
-    document.querySelectorAll(".knap2, .knap3, .knap4, .fortsætknap, .ida_valg1_knap, .ida_valg2_knap, .ida_valg3_knap, .ida_valg4_knap, .third-section_button, .fourth-section_button, .fifth-section_button, .sixth-section_button, .dilemma2_valg1_knap, .dilemma2_valg2_knap, .sidste_knap").forEach(knap => {
+    document.querySelectorAll(".knap2, .knap3, .knap4, .fortsætknap, .choicebutton, .third-section_button, .fourth-section_button, .fifth-section_button, .sixth-section_button, .dilemma2_valg1_knap, .dilemma2_valg2_knap, .sidste_knap").forEach(knap => {
         knap.addEventListener("click", function () {
             let targetId = this.getAttribute("data-target");
 

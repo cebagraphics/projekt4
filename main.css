@@ -245,13 +245,25 @@ p {
 
 .choicebutton {
     background: yellow;
-    border: none;
-    padding: 10px 20px;
+    border: 1px solid var(--yellow);
     font-size: 16px;
     cursor: pointer;
     display: block;
     margin-top: 5px;
     text-align: left; /* Sørger for at teksten på knappen også er venstrejusteret */
+    padding: 12px 80px;
+    transition: all .5s ease;
+}
+
+.choicebutton:hover {
+    color: var(--yellow);
+    background-color: var(--black)
+}
+
+.choice img {
+    width: 20px; /* Juster ikonernes størrelse */
+    height: auto;
+    cursor: pointer; /* Gør dem klikbare */
 }
 
 
@@ -787,60 +799,8 @@ th {
     left: 68%;
 }
 
-.valg1_replay {
+.valg1_replay, .valg1_starticon, .valg2_replay, .valg2_starticon, .valg3_replay, .valg3_starticon, .valg4_replay, .valg4_starticon {
     width: 30px;
-    position: absolute;
-    top: 335%;
-    left: 36.5%;
-}
-
-.valg1_starticon {
-    width: 30px;
-    position: absolute;
-    top: 335%;
-    left: 34%;
-}
-
-.valg2_replay {
-    width: 30px;
-    position: absolute;
-    top: 352%;
-    left: 45%;
-}
-
-.valg2_starticon {
-    width: 30px;
-    position: absolute;
-    top: 352%;
-    left: 42.5%;
-}
-
-.valg3_replay {
-    width: 30px;
-    position: absolute;
-    top: 369%;
-    left: 37%;
-}
-
-.valg3_starticon {
-    width: 30px;
-    position: absolute;
-    top: 369%;
-    left: 34.5%;
-}
-
-.valg4_replay {
-    width: 30px;
-    position: absolute;
-    top: 386%;
-    left: 42%;
-}
-
-.valg4_starticon {
-    width: 30px;
-    position: absolute;
-    top: 386%;
-    left: 39.5%;
 }
 
 .third-section {
