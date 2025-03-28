@@ -230,7 +230,10 @@ p {
     text-align: left;
     max-width: 600px;
     margin-left: 180px; /* Skubber valgene mod venstre */
-    transform: translateY(50%); /* Flytter containeren 50% op for at centrere */
+    transform: translateY(45%); /* Flytter containeren 50% op for at centrere */
+    display: flex;
+    flex-direction: column;
+    gap: 30px; /* Skaber ensartet afstand mellem alle valg */
 }
 
 .choice p {
