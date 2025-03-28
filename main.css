@@ -170,7 +170,7 @@ p {
 .ida_valg1_knap {
     padding: 12px 80px;
     position: absolute;
-    top: 272%;
+    top: 275%;
     left: 20%;
     transform: translate(-50%, -50%);
     transition: all .5s ease;
@@ -184,7 +184,7 @@ p {
 .ida_valg2_knap {
     padding: 12px 80px;
     position: absolute;
-    top: 288%;
+    top: 291%;
     left: 20%;
     transform: translate(-50%, -50%);
     transition: all .5s ease;
@@ -198,7 +198,7 @@ p {
 .ida_valg3_knap {
     padding: 12px 80px;
     position: absolute;
-    top: 305%;
+    top: 308%;
     left: 20%;
     transform: translate(-50%, -50%);
     transition: all .5s ease;
@@ -213,7 +213,7 @@ p {
 .ida_valg4_knap {
     padding: 12px 80px;
     position: absolute;
-    top: 323%;
+    top: 326%;
     left: 20%;
     transform: translate(-50%, -50%);
     transition: all .5s ease;
