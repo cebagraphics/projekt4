@@ -170,7 +170,7 @@ p {
 .ida_valg1_knap {
     padding: 12px 80px;
     position: absolute;
-    top: 275%;
+    top: 272%;
     left: 20%;
     transform: translate(-50%, -50%);
     transition: all .5s ease;
@@ -184,7 +184,7 @@ p {
 .ida_valg2_knap {
     padding: 12px 80px;
     position: absolute;
-    top: 290%;
+    top: 287%;
     left: 20%;
     transform: translate(-50%, -50%);
     transition: all .5s ease;
@@ -198,7 +198,7 @@ p {
 .ida_valg3_knap {
     padding: 12px 80px;
     position: absolute;
-    top: 305%;
+    top: 302%;
     left: 20%;
     transform: translate(-50%, -50%);
     transition: all .5s ease;
@@ -213,7 +213,7 @@ p {
 .ida_valg4_knap {
     padding: 12px 80px;
     position: absolute;
-    top: 320%;
+    top: 317%;
     left: 20%;
     transform: translate(-50%, -50%);
     transition: all .5s ease;
@@ -686,6 +686,7 @@ th {
 
 
 /* Ida valg 1 */
+
 
 .info4_overskrift {
     position: absolute;
