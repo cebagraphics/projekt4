@@ -226,6 +226,30 @@ p {
 
 
 /* KNAPPER SLUT */
+.choices {
+    text-align: left;
+    max-width: 600px;
+    margin-left: 180px; /* Skubber valgene mod venstre */
+    transform: translateY(50%); /* Flytter containeren 50% op for at centrere */
+}
+
+.choice p {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start; /* Sikrer at teksten starter til venstre */
+    gap: 10px; /* Lidt afstand mellem teksten og ikonerne */
+}
+
+.choicebutton {
+    background: yellow;
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    display: block;
+    margin-top: 5px;
+    text-align: left; /* Sørger for at teksten på knappen også er venstrejusteret */
+}
 
 
 /* LANDING PAGE START */
