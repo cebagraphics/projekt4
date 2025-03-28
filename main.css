@@ -115,7 +115,7 @@ p {
 .knap2 {
     padding: 12px 80px;
     position: absolute;
-    top: 117%;
+    top: 120%;
     left: 50%;
     transform: translate(-50%, -50%);
     transition: all .5s ease;
@@ -128,7 +128,7 @@ p {
 
 .knap3 {padding: 12px 80px;
     position: absolute;
-    top: 117%;
+    top: 120%;
     left: 20%;
     transform: translate(-50%, -50%);
     transition: all .5s ease;
@@ -142,7 +142,7 @@ p {
 .knap4 {
     padding: 12px 80px;
     position: absolute;
-    top: 117%;
+    top: 120%;
     left: 80%;
     transform: translate(-50%, -50%);
     transition: all .5s ease;
@@ -444,7 +444,6 @@ tr {
 
 th {
     text-align: left;
-    padding-bottom: 10px;
 }
 
 .personoverskrift {
@@ -475,7 +474,6 @@ th {
     top: 179%;
     left: 20%;
     transform: translate(-50%, -50%);
-    padding-bottom: 10px;
 }
 
 .Joseportræt {
