@@ -184,7 +184,7 @@ p {
 .ida_valg2_knap {
     padding: 12px 80px;
     position: absolute;
-    top: 287%;
+    top: 288%;
     left: 20%;
     transform: translate(-50%, -50%);
     transition: all .5s ease;
@@ -198,7 +198,7 @@ p {
 .ida_valg3_knap {
     padding: 12px 80px;
     position: absolute;
-    top: 302%;
+    top: 305%;
     left: 20%;
     transform: translate(-50%, -50%);
     transition: all .5s ease;
@@ -213,7 +213,7 @@ p {
 .ida_valg4_knap {
     padding: 12px 80px;
     position: absolute;
-    top: 317%;
+    top: 323%;
     left: 20%;
     transform: translate(-50%, -50%);
     transition: all .5s ease;
@@ -702,19 +702,19 @@ th {
 
 .info4_valg2 {
     position: absolute;
-    top: 350%;
+    top: 351%;
     left: 13%;
 }
 
 .info4_valg3 {
     position: absolute;
-    top: 365%;
+    top: 368%;
     left: 13%;
 }
 
 .info4_valg4 {
     position: absolute;
-    top: 380%;
+    top: 385%;
     left: 13%;
 }
 
@@ -1069,7 +1069,7 @@ th {
 .dilemma2_valg1_knap {
     padding: 12px 80px;
     position: absolute;
-    top: 474%;
+    top: 478%;
     left: 19%;
     transform: translate(-50%, -50%);
     transition: all .5s ease;
@@ -1089,7 +1089,7 @@ th {
 .dilemma2_valg2_knap {
     padding: 12px 80px;
     position: absolute;
-    top: 507%;
+    top: 511%;
     left: 19%;
     transform: translate(-50%, -50%);
     transition: all .5s ease;
