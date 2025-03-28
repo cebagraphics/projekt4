@@ -439,11 +439,12 @@ tr {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 30px;
+    padding: 20px;
 }
 
 th {
     text-align: left;
+    padding-bottom: 10px;
 }
 
 .personoverskrift {
