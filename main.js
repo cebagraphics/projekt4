@@ -46,3 +46,5 @@ document.querySelector(".spørgsmålstegnicon").addEventListener("click", () => 
 document.getElementById("closeBtn2").addEventListener("click", () => {
     document.getElementById("popup2").style.display = "none";
 });
+
+
