@@ -453,20 +453,29 @@ p {
 .Amnesty-lys_1 {
     width: 50px;
     position: absolute;
-    top: 104%;
-    left: 2%;
+    top: 100%;
 }
 
-.lys-text_1 {
-    font-family: 'AmnestyTradeGothic';
-    font-weight: 500;
-    font-style: normal;
-    font-size: 18px;
-    text-transform: uppercase;
-    color: var(--white);
+.Amnesty-lys_2 {
+    width: 50px;
     position: absolute;
-    top: 113.5%;
-    left: 2.8%;
+    top: 212%;
+}
+
+
+.lys-text_1 {
+    position: absolute;
+    top: 114%;
+}
+
+.lys-text_2 {
+    position: absolute;
+    top: 227%;
+}
+
+.lys-text_3 {
+    position: absolute;
+    top: 327%;
 }
 
 table {
@@ -575,24 +584,6 @@ th {
     background-color: var(--black);
 }
 
-.Amnesty-lys_2 {
-    width: 50px;
-    position: absolute;
-    top: 214%;
-    left: 2%;
-}
-
-.lys-text_2 {
-    font-family: 'AmnestyTradeGothic';
-    font-weight: 500;
-    font-style: normal;
-    font-size: 18px;
-    text-transform: uppercase;
-    color: var(--white);
-    position: absolute;
-    top: 223.5%;
-    left: 2.8%;
-}
 
 /* Ida */
 .idaoverskrift {
@@ -707,21 +698,9 @@ th {
 .Amnesty-lys_3 {
     width: 50px;
     position: absolute;
-    top: 314%;
-    left: 2%;
+    top: 312%;
 }
 
-.lys-text_3 {
-    font-family: 'AmnestyTradeGothic';
-    font-weight: 500;
-    font-style: normal;
-    font-size: 18px;
-    text-transform: uppercase;
-    color: var(--white);
-    position: absolute;
-    top: 323.5%;
-    left: 2.8%;
-}
 
 
 /* Ida valg 1 */
@@ -813,82 +792,29 @@ th {
     background-color: var(--black);
 }
 
-.Amnesty-lys_4 {
-    width: 50px;
-    position: absolute;
-    top: 414%;
-    left: 2%;
-} 
+.hjørne_lys {
+    display: flex;
+    flex-direction: column; /* Stabler elementerne lodret */
+    align-items: flex-start; /* Placerer dem i venstre hjørne */
+    text-align: left;
+    margin-top: 5px;
+}
 
-.lys-text_4 {
+.Amnesty-lys_1, .Amnesty-lys_2, .Amnesty-lys_3, .Amnesty-lys_4, .Amnesty-lys_5, .Amnesty-lys_6, .Amnesty-lys_7 {
+    width: 50px; /* Juster størrelsen efter behov */
+    height: auto;
+    padding: 15px;
+}
+
+.lys-text_1, .lys-text_2, .lys-text_3, .lys-text_4, .lys-text_5, .lys-text_6, .lys-text_7 {
     font-family: 'AmnestyTradeGothic';
     font-weight: 500;
     font-style: normal;
     font-size: 18px;
     text-transform: uppercase;
     color: var(--white);
-    position: absolute;
-    top: 423.5%;
-    left: 2.8%;
-}
-
-.Amnesty-lys_5 {
-    width: 50px;
-    position: absolute;
-    top: 514%;
-    left: 2%;
-}
-
-.lys-text_5 {
-    font-family: 'AmnestyTradeGothic';
-    font-weight: 500;
-    font-style: normal;
-    font-size: 18px;
-    text-transform: uppercase;
-    color: var(--white);
-    position: absolute;
-    top: 523.5%;
-    left: 2.8%;
-}
-
-
-.Amnesty-lys_6 {
-    width: 50px;
-    position: absolute;
-    top: 614%;
-    left: 2%;
-}
-
-.lys-text_6 {
-    font-family: 'AmnestyTradeGothic';
-    font-weight: 500;
-    font-style: normal;
-    font-size: 18px;
-    text-transform: uppercase;
-    color: var(--white);
-    position: absolute;
-    top: 623.5%;
-    left: 2.8%;
-}
-
-
-.Amnesty-lys_7 {
-    width: 50px;
-    position: absolute;
-    top: 714%;
-    left: 2%;
-}
-
-.lys-text_7 {
-    font-family: 'AmnestyTradeGothic';
-    font-weight: 500;
-    font-style: normal;
-    font-size: 18px;
-    text-transform: uppercase;
-    color: var(--white);
-    position: absolute;
-    top: 723.5%;
-    left: 2.8%;
+    margin-top: 5px; /* Giver lidt luft mellem billedet og teksten */
+    margin-left: 25px;
 }
 
 
