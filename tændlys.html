@@ -1,50 +1,209 @@
 <!DOCTYPE html>
-<html lang="da">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tænd et lys</title>
-    <script defer src="script.js"></script>
-    <style>
-        body { font-family: Arial, sans-serif; text-align: center; padding: 50px; background-color: #121212; color: white; }
-        #light-container { margin-top: 20px; display: flex; flex-direction: column; align-items: center; }
-        #candle { width: 50px; height: 100px; background: white; border-radius: 5px; position: relative; display: none; }
-        #flame { width: 20px; height: 30px; background: orange; border-radius: 50%; position: absolute; top: -25px; left: 50%; transform: translateX(-50%); display: none; 
-                 animation: flicker 1s infinite alternate ease-in-out; }
-        @keyframes flicker { 0% { opacity: 0.8; transform: translateX(-50%) scale(1); } 100% { opacity: 1; transform: translateX(-50%) scale(1.1); } }
-        #count { font-size: 24px; margin-top: 20px; }
-        button { padding: 10px 20px; font-size: 18px; cursor: pointer; background: yellow; border: none; border-radius: 5px; margin-top: 10px; }
-    </style>
+    <title>Candle Lighting</title>
+    <link rel="stylesheet" href="tændlys.css">
 </head>
 <body>
-
-    <h1>Tænd et lys for personen i historien</h1>
-    <p>Klik på knappen for at tænde et lys og vise din støtte.</p>
-
-    <button id="light-btn">Tænd et lys</button>
-    <div id="light-container">
-        <div id="candle">
-            <div id="flame"></div>
-        </div>
-        <p id="count">Lys tændt: 0</p>
+    <div class="container">
+        <button class="Gå_tilbage_knap">Gå tilbage</button>
+        <h1>Tænd et lys</h1>
+        <h2>Klik på et lys for at tænde det og vis din støtte</h2>
+        <p id="counter">0 lys tændt</p>
+        <div class="grid" id="candleGrid"></div>
+        <div id="pagination" class="pagination"></div>
     </div>
-
     <script>
-        // ✅ Hent tæller fra Local Storage eller start fra 0
-        let lightCount = localStorage.getItem("lightCount") ? parseInt(localStorage.getItem("lightCount")) : 0;
+        const candles = [
+            { lit: false, name: "", location: "" }, // Første lys - bruger vælger navn
+            { lit: true, name: "Sofie", location: "København, Danmark" },
+            { lit: true, name: "Anders", location: "Århus, Danmark" },
+            { lit: true, name: "Maria", location: "Odense, Danmark" },
+            { lit: true, name: "Emil", location: "Aalborg, Danmark" },
+            { lit: true, name: "Freja", location: "Esbjerg, Danmark" },
+            { lit: true, name: "Thomas", location: "Silkeborg, Danmark" },
+            { lit: true, name: "Christine", location: "Kolding, Danmark" },
+            { lit: true, name: "Mille", location: "Valby, Danmark" },
+            { lit: true, name: "Anton", location: "Gadstrup, Danmark" },
+            { lit: true, name: "Pernille", location: "Taastrup, Danmark" },
+            { lit: true, name: "Jesper", location: "Skagen, Danmark" },
+            { lit: true, name: "Adolf", location: "Tønder, Danmark" },
+            { lit: true, name: "Knud", location: "Hvalsø, Danmark" },
+            { lit: true, name: "Silke", location: "Viborg, Danmark" },
+            { lit: true, name: "Mille", location: "Valby, Danmark" },
+            { lit: true, name: "Anton", location: "Gadstrup, Danmark" },
+            { lit: true, name: "Pernille", location: "Taastrup, Danmark" },
+            { lit: true, name: "Jesper", location: "Skagen, Danmark" },
+            { lit: true, name: "Adolf", location: "Tønder, Danmark" },
+            { lit: true, name: "Knud", location: "Hvalsø, Danmark" },
+            { lit: true, name: "Silke", location: "Viborg, Danmark" },
+            { lit: true, name: "Amanda", location: "Køge, Danmark" }
+        ];
 
-        // ✅ Opdater tællervisning
-        document.getElementById("count").innerText = `Lys tændt: ${lightCount}`;
+        const candlesPerPage = 10;
+        let currentPage = 1;
 
-        // ✅ EVENT: Tænd et lys
-        document.getElementById("light-btn").addEventListener("click", function() {
-            document.getElementById("candle").style.display = "block"; // Vis lys
-            document.getElementById("flame").style.display = "block"; // Vis flamme
-            lightCount++; // Tæl op
-            localStorage.setItem("lightCount", lightCount); // Gem antal i Local Storage
-            document.getElementById("count").innerText = `Lys tændt: ${lightCount}`; // Opdater visning
-        });
+        function renderCandles() {
+            const grid = document.getElementById("candleGrid");
+            grid.innerHTML = "";
+
+            // Beregn hvilke lys der skal vises på den aktuelle side
+            const startIndex = (currentPage - 1) * candlesPerPage;
+            const endIndex = startIndex + candlesPerPage;
+            const visibleCandles = candles.slice(startIndex, endIndex);
+
+            visibleCandles.forEach((candle, index) => {
+                const div = document.createElement("div");
+                div.className = "candle";
+
+                let mediaElement;
+                if (candle.lit) {
+                    mediaElement = document.createElement("video");
+                    mediaElement.autoplay = true;
+                    mediaElement.loop = true;
+                    mediaElement.muted = true;
+
+                    const source = document.createElement("source");
+                    source.src = "images p4/Candle-stage-1.mp4";
+                    source.type = "video/mp4";
+                    mediaElement.appendChild(source);
+                } else {
+                    mediaElement = document.createElement("img");
+                    mediaElement.className = "Utændt_lys";
+                    mediaElement.src = "images p4/Utændt_lys.png";
+                    mediaElement.alt = "Candle";
+                }
+
+                // Navn
+                const nameText = document.createElement("p");
+                nameText.className = "candle-name";
+                if (startIndex + index === 0 && candle.name === "") {
+                    nameText.innerHTML = `<input type="text" id="nameInput" placeholder="Indtast dit navn" />`;
+                } else {
+                    nameText.textContent = candle.name || "Ukendt";
+                }
+
+                // Lokation
+                const locationText = document.createElement("p");
+                locationText.className = "candle-location";
+                locationText.textContent = candle.location || "Ukendt placering";
+
+                // Tilføj elementer
+                div.appendChild(mediaElement);
+                div.appendChild(nameText);
+                div.appendChild(locationText);
+                div.onclick = () => lightCandle(startIndex + index);
+                grid.appendChild(div);
+            });
+
+            updatePagination();
+            updateCounter();
+        }
+
+        function lightCandle(index) {
+            if (!candles[index].lit) {
+                if (index === 0 && candles[index].name === "") {
+                    const inputField = document.getElementById("nameInput");
+                    if (inputField && inputField.value.trim() !== "") {
+                        candles[index].name = inputField.value.trim();
+                        getLocation(index);
+                    } else {
+                        alert("Indtast venligst dit navn, før du tænder lyset.");
+                        return;
+                    }
+                } else {
+                    candles[index].lit = true;
+                    renderCandles();
+                }
+            }
+        }
+
+        function getLocation(index) {
+            if ("geolocation" in navigator) {
+                navigator.geolocation.getCurrentPosition(
+                    async (position) => {
+                        const { latitude, longitude } = position.coords;
+                        try {
+                            const response = await fetch(`https://geocode.maps.co/reverse?lat=${latitude}&lon=${longitude}&format=json`);
+                            const data = await response.json();
+                            const city = data.address.city || data.address.town || data.address.village || "Ukendt by";
+                            const country = data.address.country || "Ukendt land";
+
+                            candles[index].location = `${city}, ${country}`;
+                            candles[index].lit = true;
+                            renderCandles();
+                        } catch (error) {
+                            console.error("Fejl ved hentning af lokation:", error);
+                            candles[index].location = "Ukendt placering";
+                            candles[index].lit = true;
+                            renderCandles();
+                        }
+                    },
+                    () => {
+                        alert("Kunne ikke hente din placering.");
+                        candles[index].location = "Ukendt placering";
+                        candles[index].lit = true;
+                        renderCandles();
+                    }
+                );
+            } else {
+                alert("Din browser understøtter ikke geolocation.");
+                candles[index].location = "Ukendt placering";
+                candles[index].lit = true;
+                renderCandles();
+            }
+        }
+
+        function updateCounter() {
+            const litCount = candles.filter(c => c.lit).length;
+            document.getElementById("counter").textContent = `I alt ${litCount} lys tændt`;
+        }
+
+        function updatePagination() {
+            const paginationDiv = document.getElementById("pagination");
+            paginationDiv.innerHTML = "";
+
+            const totalPages = Math.ceil(candles.length / candlesPerPage);
+
+            // Tilføj forrige-knap
+            if (currentPage > 1) {
+                const prevButton = document.createElement("button");
+                prevButton.textContent = "←";
+                prevButton.onclick = () => {
+                    currentPage--;
+                    renderCandles();
+                };
+                paginationDiv.appendChild(prevButton);
+            }
+
+            // Tilføj sidetal
+            for (let i = 1; i <= totalPages; i++) {
+                const pageButton = document.createElement("button");
+                pageButton.textContent = i;
+                pageButton.className = i === currentPage ? "active" : "";
+                pageButton.onclick = () => {
+                    currentPage = i;
+                    renderCandles();
+                };
+                paginationDiv.appendChild(pageButton);
+            }
+
+            // Tilføj næste-knap
+            if (currentPage < totalPages) {
+                const nextButton = document.createElement("button");
+                nextButton.textContent = "→";
+                nextButton.onclick = () => {
+                    currentPage++;
+                    renderCandles();
+                };
+                paginationDiv.appendChild(nextButton);
+            }
+        }
+
+        // Start rendering
+        renderCandles();
     </script>
-
 </body>
 </html>
