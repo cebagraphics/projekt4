@@ -1094,30 +1094,30 @@ th {
 }
 
 .seventh-section_replayicon {
-    width: 30px;
+    width: 23px;
     position: absolute;
     top: 538.5%; 
-    left: 40.5%;
+    left: 40%;
 }
 
 .seventh-section_starticon {
-    width: 30px;
+    width: 23px;
     position: absolute;
     top: 538.5%; 
     left: 38%;
 }
 
 .seventh-section_replayicon2 {
-    width: 30px;
+    width: 23px;
     position: absolute;
-    top: 571%; 
-    left: 46.5%;
+    top: 572%; 
+    left: 46%;
 }
 
 .seventh-section_starticon2 {
-    width: 30px;
+    width: 23px;
     position: absolute;
-    top: 571%; 
+    top: 572%; 
     left: 44%;
 }
 
