@@ -1512,6 +1512,11 @@ th {
     cursor: pointer;
 }
 
+.del-resultat_knap:hover {
+    color: var(--yellow);
+    background-color: var(--black)
+}
+
 .lignende-historier_knap {
     color: var(--yellow);
     border-radius: 30px;
@@ -1529,6 +1534,11 @@ th {
     padding: 12px 30px;
 }
 
+.lignende-historier_knap:hover {
+    color: var(--black);
+    background-color: var(--yellow)
+}
+
 .bliv-frivillig_knap {
     color: var(--black);
     border-radius: 30px;
@@ -1544,6 +1554,11 @@ th {
     left: 55%;
     transform: translate(-50%, -50%);
     padding: 12px 55px;
+}
+
+.bliv-frivillig_knap:hover {
+    color: var(--yellow);
+    background-color: var(--black)
 }
 
 .prøv-igen_knap {
@@ -1568,6 +1583,11 @@ th {
     left: 71%;
     transform: translate(-50%, -50%);
     padding: 12px 55px;
+}
+
+.tænd-lys_knap:hover {
+    color: var(--black);
+    background-color: var(--yellow)
 }
 
 #popup {
