@@ -1,77 +1,69 @@
 console.log("Script loaded!");
 
-// ✅ VARIABLER & ARRAY
-const texts = [
-    "Det var en aften som så mange andre. Ida, 22 år, studerende, ambitiøs, social, en helt almindelig ung kvinde i København. Hun havde glædet sig til festen, klædt sig pænt på, grinet med sine venner og danset til sange, hun elskede. Og så mødte hun ham. Han var charmerende, sjov, virkede interesseret. De snakkede længe, og det føltes rart. Trygt.\n", 
-    "Et sted mellem latteren og de ufarlige berøringer forsvandt kontrollen. Senere ville hun tænke tilbage og spørge sig selv: Hvornår ændrede stemningen sig? Hvornår blev det utrygt? Hvornår blev mit nej ikke længere hørt?\n", 
-    "Hun husker brudstykker. Følelsen af at være låst fast. Af en krop, der ikke længere reagerede. Af panik, der kæmpede mod en frygtlammet stilhed. Og morgenen efter, den tomme, rungende erkendelse: Det skete.\n", 
-    "Dagen efter burde have været som alle andre. Men intet var som før. Kroppen føltes fremmed. Huden kriblede, som om han stadig var der. Hendes tanker kørte i ring: Var det min skyld? Gjorde jeg noget forkert? Ville nogen overhovedet tro mig?\n", 
-    "Nu står hun her. Foran et valg, der føles umuligt. Hvad skal hun gøre?"
-];
+// ✅ Hent tekst fra HTML i stedet for at have den i JS
+const storyParagraphs = document.querySelectorAll(".story-text");
+let texts = Array.from(storyParagraphs).map(p => p.textContent);
 
 let index = 0;
 let textIndex = 0;
 let intervalId;
+let isPaused = false;
 
 // Hent audio elementet
 const audioPlayer = document.getElementById("audio-player");
-let isPaused = false;
-
 const pauseBtn = document.getElementById("pause-btn");
 const restartBtn = document.getElementById("restart-btn");
 const storyText = document.getElementById("story-text");
 
-// ✅ SYNKRONISER AFSPILNING OG TEKST
+if (!audioPlayer) {
+    console.error("Audio element not found!");
+}
+
+// ✅ TYPEWRITER-FUNKTION MED LYD-SYNKRONISERING
 function syncTextWithAudio() {
-    // Start med at afspille lyd fra starten
-    audioPlayer.play();
+    if (!audioPlayer) return;
+    audioPlayer.play().catch(error => console.log("Error with autoplay:", error));
 
     intervalId = setInterval(() => {
-        // Tjek lydens tid og synkroniser tekst
-        const currentTime = audioPlayer.currentTime;
+        if (isPaused) return;
 
-        // Når vi når en ny sektion af teksten, opdater teksten
+        const currentTime = audioPlayer.currentTime;
         if (currentTime >= getSectionStartTime(textIndex)) {
             if (index < texts[textIndex].length) {
                 storyText.textContent += texts[textIndex].charAt(index);
                 index++;
             } else {
-                // Skift til næste tekst
                 textIndex++;
                 index = 0;
                 storyText.textContent += "\n";
                 if (textIndex >= texts.length) {
-                    clearInterval(intervalId); // Stop ved slutningen af teksten
+                    clearInterval(intervalId);
                 }
             }
         }
-    }, 50); // Opdater hver 50ms
+    }, 50);
 }
 
-// Returnerer starttidspunktet for hver tekstsektion i lydfilen
+// ✅ Returnerer starttidspunktet for hver tekstsektion i lydfilen
 function getSectionStartTime(index) {
-    const sectionTimes = [
-        0,       // Starttidspunkt for første tekst
-        5,       // Starttidspunkt for anden tekst
-        10,      // Starttidspunkt for tredje tekst
-        15,      // Starttidspunkt for fjerde tekst
-        20       // Starttidspunkt for femte tekst
-    ];
+    const sectionTimes = [0, 5, 10, 15, 20];
     return sectionTimes[index] || 0;
 }
 
 // ✅ PAUSE / PLAY FUNKTION
 function togglePlayPause() {
+    if (!audioPlayer) return;
+
     if (isPaused) {
         console.log("Genoptager afspilning");
         isPaused = false;
         audioPlayer.play();
-        syncTextWithAudio(); // Resume text sync
+        syncTextWithAudio();
         pauseBtn.innerHTML = "&#10074;&#10074;"; // Pause-ikon
     } else {
         console.log("Afspilning sat på pause");
         audioPlayer.pause();
-        clearInterval(intervalId); // Stop synkronisering af teksten
+        clearInterval(intervalId);
         isPaused = true;
         pauseBtn.innerHTML = "&#9654;"; // Play-ikon
     }
@@ -81,10 +73,12 @@ function togglePlayPause() {
 restartBtn.addEventListener("click", function() {
     console.log("Genstarter historie");
     index = 0;
-    textIndex = 0; // Skift til første tekst igen
-    storyText.textContent = "";  // Fjern den tidligere tekst
-    audioPlayer.pause(); // Stop afspilning af lyd
-    audioPlayer.currentTime = 0; // Sæt afspilningstidspunktet til starten
+    textIndex = 0;
+    storyText.textContent = "";
+    if (audioPlayer) {
+        audioPlayer.pause();
+        audioPlayer.currentTime = 0;
+    }
     isPaused = false;
     pauseBtn.innerHTML = "&#10074;&#10074;";
     syncTextWithAudio();
@@ -93,15 +87,12 @@ restartBtn.addEventListener("click", function() {
 // ✅ EVENT LISTENERS
 pauseBtn.addEventListener("click", togglePlayPause);
 
-// Når vinduet er færdig med at loade, start automatisk afspilning og tekstsynkronisering
+// ✅ START SYNKRONISERING NÅR SIDEN INDLÆSES
 window.onload = function() {
     console.log("Window loaded!");
-    // Sørg for at afspilning kan starte automatisk
-    audioPlayer.play()
-        .then(() => {
-            syncTextWithAudio(); // Start synkroniseringen af tekst og lyd
-        })
-        .catch((error) => {
-            console.log("Error with autoplay: ", error);
+    if (audioPlayer) {
+        audioPlayer.play().then(syncTextWithAudio).catch(error => {
+            console.log("Autoplay error:", error);
         });
+    }
 };
