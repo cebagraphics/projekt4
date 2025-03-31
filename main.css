@@ -943,6 +943,14 @@ th {
     background-color: var(--black);
 }
 
+#brokenHeart, #wholeHeart {
+    width: 100px;
+    position: absolute;
+    top: 467%;
+    left: 15%;
+}
+
+
 .fifth-section {
     display: none; /* Skjult som standard */
     height: 100vh;
