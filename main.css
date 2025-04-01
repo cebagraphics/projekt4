@@ -98,7 +98,7 @@ p {
 
 
 /* KNAPPER START */
-.knap1 {
+.button {
     padding: 12px 40px;
     position: absolute;
     top: 17%; 
@@ -107,7 +107,16 @@ p {
     transition: all .5s ease;
 }
 
-.knap1:hover {
+.button_1 {
+    padding: 12px 40px;
+    position: absolute;
+    top: 17%; 
+    left: 50%;
+    transform: translate(-50%, -50%);
+    transition: all .5s ease;
+}
+
+.button_1:hover {
     color: var(--yellow);
     background-color: var(--black)
 }

@@ -1,48 +1,58 @@
 <!DOCTYPE html>
 <html lang="da">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Interaktiv Historie</title>
-    <link rel="stylesheet" href="typewriter_oplaesning.css"> <!-- Link til ekstern CSS-fil -->
-</head>
-<body>
-
+    <link rel="stylesheet" href="typewriter_oplaesning.css" />
+    <!-- Link til ekstern CSS-fil -->
+  </head>
+  <body>
     <div class="container">
-        <!-- Billede til venstre -->
-        <div class="image-container">
-            <img src="images p4/Ida/Ida_som_barn_1.jpg" alt="Ida barn" id="story-image">
-        </div>
+      <!-- Billede til venstre -->
+      <div class="image-container">
+        <img
+          src="images/ida/ida_as_child_1.jpg"
+          alt="Ida barn"
+          id="story-image"
+        />
+      </div>
 
-        <!-- Tekst til højre -->
-        <div class="text-container">
-            <h1>Ida er blevet voldtaget</h1>
-            <p id="story-text"></p>
+      <!-- Tekst til højre -->
+      <div class="text-container">
+        <h1>Ida er blevet voldtaget</h1>
+        <p id="story-text"></p>
 
-            <!-- Pause og Genstart knapper -->
-            <div class="buttons">
-                <button id="pause-btn" class="control-btn">&#10074;&#10074;</button> <!-- Pause ikon -->
-                <button id="restart-btn" class="control-btn">&#8635;</button> <!-- Genstart ikon -->
-            </div>
+        <!-- Pause og Genstart knapper -->
+        <div class="buttons">
+          <button id="pause-btn" class="control-btn">&#10074;&#10074;</button>
+          <!-- Pause ikon -->
+          <button id="restart-btn" class="control-btn">&#8635;</button>
+          <!-- Genstart ikon -->
         </div>
+      </div>
     </div>
 
     <!-- Lydafspiller -->
-    <audio id="audio-player" src="audio/ida_er_blevet_voldtaget.m4a" preload="auto"></audio>
+    <audio
+      id="audio-player"
+      src="audio/ida_has_been_raped.m4a"
+      preload="auto"
+    ></audio>
 
-    <script src="typewriter_oplaesning.js"></script> <!-- Link til JavaScript-fil -->
+    <script src="typewriter_oplaesning.js"></script>
+    <!-- Link til JavaScript-fil -->
 
     <script>
-        // Vent på at siden er indlæst, og start afspilning af lyd
-        window.onload = function() {
-            const audioPlayer = document.getElementById("audio-player");
-            audioPlayer.play(); // Start afspilning af lydfilen automatisk
+      // Vent på at siden er indlæst, og start afspilning af lyd
+      window.onload = function () {
+        const audioPlayer = document.getElementById("audio-player");
+        audioPlayer.play(); // Start afspilning af lydfilen automatisk
 
-            // Start typewriter-effekt og tale synkronisering
-            speakText();
-            typeWriter();
-        };
+        // Start typewriter-effekt og tale synkronisering
+        speakText();
+        typeWriter();
+      };
     </script>
-
-</body>
+  </body>
 </html>
