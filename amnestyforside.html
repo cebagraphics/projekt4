@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="da">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>For frihed og retfærdighed - Amnesty.dk</title>
+    <link rel="icon" type="image/x-icon" href="images p4/Amnestyfavicon.jpg">
+    <link rel="stylesheet" href="styles.css">
+    <style>
+/* BASICS START*/
+
+:root {
+    --yellow: #FFFF00;
+    --black: #111;
+    --white: #F8F0ED;
+}
+
+@font-face {
+    font-family: 'AmnestyTradeGothic';
+    src: url('fonts/AmnestyTradeGothic-BdCn20.ttf') format('truetype');
+    font-weight: 700;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'AmnestyTradeGothic';
+    src: url('fonts/AmnestyTradeGothic-Cn18.ttf') format('truetype');
+    font-weight: 500;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'AmnestyTradeGothic';
+    src: url('fonts/AmnestyTradeGothic.ttf') format('truetype');
+    font-weight: 400;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'AmnestyTradeGothic';
+    src: url('fonts/AmnestyTradeGothic-Cn18Obl.ttf') format('truetype');
+    font-weight: 100;
+    font-style: normal;
+}
+        body {
+            margin: 0px;
+            font-family: Arial, sans-serif;
+        }
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin: 12px;
+            background-color: #FFFFFF;
+        }
+
+        h1 {
+            font-family: 'AmnestyTradeGothic';
+            font-weight: bold;
+            font-style: normal;
+            font-size: 55px;
+            text-transform: uppercase;
+            display: inline-block;
+            background-color: #FFFFFF;
+            color: #111;
+            padding: 5px;
+            position: absolute;
+            top: 75%;
+            left: 2%;
+        }
+
+        h2 {
+            font-family: 'AmnestyTradeGothic';
+            font-weight: bold;
+            font-style: normal;
+            font-size: 25px;
+            text-transform: uppercase;
+            display: inline-block;
+            background-color: var(--yellow);
+            color: #111;
+            padding: 12px;
+            position: absolute;
+            top: 91.5%;
+            left: 2%;
+        }
+        .logo img {
+            height: 70px;
+        }
+        nav {
+            margin-right: 15px;
+        }
+        nav ul {
+            list-style: none;
+            padding: 0px;
+            margin: 0px;
+            display: flex;
+            gap: 20px;
+        }
+        nav ul li {
+            display: inline;
+        }
+        nav ul li a {
+            font-family: 'AmnestyTradeGothic';
+            font-weight: 400;
+            font-style: normal;
+            text-decoration: none;
+            color: black;
+            padding: 10px;
+            display: flex;
+            align-items: center; /* Gør også link-teksten centreret i tilfælde af højdeforskel */
+            height: 60%; /* Matcher højden på navigationen */
+        }
+        .hero {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 47px;
+            background: url('hero.jpg') no-repeat center center/cover;
+            height: 500px;
+            color: white;
+            position: relative;
+        }
+        .hero-content {
+            padding: 0px;
+            border-radius: 10px;
+        }
+
+        .headerimg {
+            height: 600px;
+        }
+        .støt a {
+            border: 3px solid #111;
+            background-color: #111;
+            color: #FFFF00;
+            font-family: 'AmnestyTradeGothic';
+            font-weight: bold;
+            font-style: normal;
+            font-size: 20px;
+            text-transform: uppercase;
+            padding: 15px;
+            height: 27px;
+        }
+        .forsideinfoimg {
+            width: 1450px;
+            padding-top: 50px;
+        }
+
+        .ditvalg a {
+            border: 3px solid #111;
+            background-color: #FFFF00;
+            font-family: 'AmnestyTradeGothic';
+            font-weight: bold;
+            font-style: normal;
+            font-size: 20px;
+            text-transform: uppercase;
+            padding: 15px;
+            height: 27px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <img src="images p4/Amnestylogo.png" alt="Amnesty International Danmark">
+        </div>
+        <nav>
+            <ul>
+                <li><a href="#">Nyheder</a></li>
+                <li><a href="#">Vær med</a></li>
+                <li><a href="#">Om os</a></li>
+                <li><a href="#">Vores arbejde</a></li>
+                <li><a href="#">Kontakt os</a></li>
+                <li class="ditvalg"><a href="main.html">Dit valg</a></li>
+                <li class="støt"><a href="">Støt</a></li>
+            </ul>
+        </nav>
+    </header>
+    
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Retssag om dansk våbeneksport i Østre Landsret</h1>
+            <h2>Læs pressemeddelelsen</h2>
+            <img class="headerimg" src="images p4/Headerimgnyt.png" alt="">
+        </div>
+    </section>
+    <img class="forsideinfoimg" src="images p4/forsideamnestyinfo.png" alt="">
+</body>
+</html>
