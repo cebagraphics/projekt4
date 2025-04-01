@@ -49,13 +49,13 @@ function renderCandles() {
             mediaElement.muted = true;
 
             const source = document.createElement("source");
-            source.src = "images p4/Candle-stage-1.mp4";
+            source.src = "images p4/candle-stage-1.mp4";
             source.type = "video/mp4";
             mediaElement.appendChild(source);
         } else {
             mediaElement = document.createElement("img");
             mediaElement.className = "Utændt_lys";
-            mediaElement.src = "images p4/Utændt_lys.png";
+            mediaElement.src = "images p4/inlit_light.png";
             mediaElement.alt = "Candle";
         }
 
