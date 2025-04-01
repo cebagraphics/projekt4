@@ -6,7 +6,7 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 
     // Event listener til alle knapper
-    document.querySelectorAll(".knap2, .knap3, .knap4, .fortsætknap, .choicebutton, .third-section_button, .fourth-section_button, .fifth-section_button, .sixth-section_button, .dilemma2_valg1_knap, .dilemma2_valg2_knap, .sidste_knap").forEach(knap => {
+    document.querySelectorAll(".button_2, .button_3, .button_4, .continue_button, .choicebutton, .third-section_button, .fourth-section_button, .fifth-section_button, .sixth-section_button, .dilemma2_valg1_knap, .dilemma2_valg2_knap, .sidste_knap").forEach(knap => {
         knap.addEventListener("click", function () {
             let targetId = this.getAttribute("data-target");
 
@@ -22,7 +22,7 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 
     // Scroll-funktion for første valg
-    let firstButton = document.querySelector(".knap1");
+    let firstButton = document.querySelector(".button_1");
     if (firstButton) {
         firstButton.addEventListener("click", function () {
             window.scrollBy({ top: window.innerHeight, behavior: "smooth" });

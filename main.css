@@ -98,15 +98,6 @@ p {
 
 
 /* KNAPPER START */
-.button {
-    padding: 12px 40px;
-    position: absolute;
-    top: 17%; 
-    left: 50%;
-    transform: translate(-50%, -50%);
-    transition: all .5s ease;
-}
-
 .button_1 {
     padding: 12px 40px;
     position: absolute;
@@ -121,7 +112,7 @@ p {
     background-color: var(--black)
 }
 
-.knap2 {
+.button_2 {
     padding: 12px 80px;
     position: absolute;
     top: 120%;
@@ -130,12 +121,12 @@ p {
     transition: all .5s ease;
 }
 
-.knap2:hover {
+.button_2:hover {
     color: var(--yellow);
     background-color: var(--black)
 }
 
-.knap3 {padding: 12px 80px;
+.button_3 {padding: 12px 80px;
     position: absolute;
     top: 120%;
     left: 20%;
@@ -143,12 +134,12 @@ p {
     transition: all .5s ease;
 }
 
-.knap3:hover {
+.button_3:hover {
     color: var(--yellow);
     background-color: var(--black)
 }
 
-.knap4 {
+.button_4 {
     padding: 12px 80px;
     position: absolute;
     top: 120%;
@@ -157,12 +148,12 @@ p {
     transition: all .5s ease;
 }
 
-.knap4:hover {
+.button_4:hover {
     color: var(--yellow);
     background-color: var(--black)
 }
 
-.fortsætknap {
+.continue_button {
     padding: 12px 70px;
     position: absolute;
     top: 227%;
@@ -171,7 +162,7 @@ p {
     transition: all .5s ease;
 }
 
-.fortsætknap:hover {
+.continue_button:hover {
     color: var(--yellow);
     background-color: var(--black)
 }
