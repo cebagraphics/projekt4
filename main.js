@@ -1,25 +1,46 @@
 
 document.addEventListener("DOMContentLoaded", function () {
-    // Start med at skjule alle sektioner undtagen den første
-    document.querySelectorAll(".info-section, .second-section, .third-section, .fourth-section, .fifth-section, .sixth-section, .seventh-section, .eight-section, .ninth-section, .tenth-section, .eleventh-section, .twelfth-section, .thirteenth-section, .fourteenth-section, .fifteenth-section, .sixteenth-section, .seventeenth-section, .eighteenth-section, .nineteenth-section, .Jose-second-section, .Jose-third-section, .Jose-fourth-section, .Jose-fifth-section, .Jose-sixth-section, .Jose-seventh-section, .Jose-ninth-section, .Jose-eight-section, .Jose-tenth-section, .Jose-eleventh-section, .Jose-twelfth-section, .Jose-thirteenth-section, .Jose-fourteenth-section, .Jose-fifteenth-section, .Jose-sixteenth-section, .Jose-seventeenth-section, .Jose-eighteenth-section, .Jose-nineteenth-section").forEach(section => {
-        section.style.display = "none";
-    });
+    console.log("DOM indlæst"); // Fejlfinding
+
+     // Array til at gemme alle sektioner, der skal skjules
+     let sections = document.querySelectorAll(".info-section, .second-section, .third-section, .fourth-section, .fifth-section, .sixth-section, .seventh-section, .eight-section, .ninth-section, .tenth-section, .eleventh-section, .twelfth-section, .thirteenth-section, .fourteenth-section, .fifteenth-section, .sixteenth-section, .seventeenth-section, .eighteenth-section, .nineteenth-section, .Jose-second-section, .Jose-third-section, .Jose-fourth-section, .Jose-fifth-section, .Jose-sixth-section, .Jose-seventh-section, .Jose-ninth-section, .Jose-eight-section, .Jose-tenth-section, .Jose-eleventh-section, .Jose-twelfth-section, .Jose-thirteenth-section, .Jose-fourteenth-section, .Jose-fifteenth-section, .Jose-sixteenth-section, .Jose-seventeenth-section, .Jose-eighteenth-section, .Jose-nineteenth-section");
+
+     sections.forEach(section => {
+         section.style.display = "none";
+     });
 
     // Event listener til alle knapper
     document.querySelectorAll(".button_2, .button_3, .button_4, .continue_button, .choicebutton, .third-section_button, .fourth-section_button, .fifth-section_button, .sixth-section_button, .dilemma2_valg1_knap, .dilemma2_valg2_knap, .sidste_knap").forEach(knap => {
         knap.addEventListener("click", function () {
             let targetId = this.getAttribute("data-target");
 
+            //  Kontrolstruktur (if-else)
             if (targetId) {
                 let targetSection = document.getElementById(targetId);
 
                 if (targetSection) {
                     targetSection.style.display = "block"; // Vis den nye sektion
                     targetSection.scrollIntoView({ behavior: "smooth" }); // Scroll til den nye sektion
+                } else {
+                    console.error("Fejl: Sektionen med ID", targetId, "blev ikke fundet");
                 }
+            } else {
+                console.error("Fejl: Knap har ikke et gyldigt data-target");
             }
         });
-    });
+
+
+    // Eksempel på brug af et objekt (kun for at inkludere det - kan man gøre andet?)
+    let exampleObject = {
+        name: "Interaktiv Historie",
+        version: 1.0,
+        showInfo: function () {
+            console.log("Projekt:", this.name, "- Version:", this.version);
+        }
+    };
+
+    exampleObject.showInfo(); // Kalder objektets metode
+});
 
     // Scroll-funktion for første valg
     let firstButton = document.querySelector(".button_1");
@@ -29,6 +50,9 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     }
 });
+
+
+// Pop-up javascript
 
 document.querySelector(".del-resultat_knap").addEventListener("click", () => {
     document.getElementById("popup").style.display = "block";
@@ -48,6 +72,8 @@ document.getElementById("closeBtn2").addEventListener("click", () => {
 });
 
 
+
+//Broken heart javascript
 
 // Fejlfinding (console.log)
 console.log('JavaScript loaded');
