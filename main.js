@@ -142,12 +142,11 @@ console.log('Er hjertet helt?', isHeartWhole);
 
 
 
-// Typewriter- og oplæsning
 console.log("Script loaded!");
 
 // Hent tekst fra HTML i stedet for at have den i JS
-const storyParagraph = document.querySelector(".idaintro p");
-const text = storyParagraph.innerHTML.replace(/<br\s*\/?>/gi, "\n"); // Fjern <br> tags og erstat med newline
+const storyParagraph = document.querySelector(".ida_intro p"); // Ændret klasse til ida_intro
+const text = storyParagraph.innerHTML.replace(/<br\s*\/?>/gi, "\n"); // Erstat <br> med newline
 
 let index = 0;
 let isPaused = false;
@@ -167,7 +166,7 @@ function syncTextWithSpeech() {
         isSpeaking = false;
         return;
     }
-    
+
     storyText.textContent = "";
     index = 0;
     isSpeaking = true;
