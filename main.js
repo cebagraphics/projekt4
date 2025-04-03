@@ -10,7 +10,7 @@ document.addEventListener("DOMContentLoaded", function () {
      });
 
     // Event listener til alle knapper
-    document.querySelectorAll(".button_2, .button_3, .button_4, .continue_button, .choicebutton, .third-section_button, .fourth-section_button, .fifth-section_button, .sixth-section_button, .dilemma2_valg1_knap, .dilemma2_valg2_knap, .sidste_knap").forEach(knap => {
+    document.querySelectorAll(".button_2, .button_3, .button_4, .continue_button, .choicebutton, .third-section_button, .fourth-section_button, .fifth-section_button, .sixth-section_button, .dilemma2_choice1_button, .dilemma2_choice2_button, .last_button").forEach(knap => {
         knap.addEventListener("click", function () {
             let targetId = this.getAttribute("data-target");
 
@@ -54,7 +54,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
 // Pop-up javascript
 
-document.querySelector(".del-resultat_knap").addEventListener("click", () => {
+document.querySelector(".share-result_button").addEventListener("click", () => {
     document.getElementById("popup").style.display = "block";
 });
 
@@ -63,7 +63,7 @@ document.getElementById("closeBtn").addEventListener("click", () => {
 });
 
 
-document.querySelector(".spørgsmålstegnicon").addEventListener("click", () => {
+document.querySelector(".question_mark_icon").addEventListener("click", () => {
     document.getElementById("popup2").style.display = "block";
 });
 
