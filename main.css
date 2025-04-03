@@ -300,39 +300,39 @@ p {
     100% { transform: translate(0, 0); opacity: 1; }
 }
 
-.overskrift1 {
+.overskrift_1 {
     position: absolute;
     top: 6%;  
     left: 5%;
 }
 
-.overskrift2 {
+.overskrift_2 {
     position: absolute;
     top: 14%; 
     left: 5%; 
 }
 
-.overskrift3 {
+.overskrift_3 {
     position: absolute;
     top: 22%; 
     left: 5%;
 }
 
-.handwritten1 img {
+.handwritten_1 img {
     width: 250px;
     position: absolute;
     top: 14%; 
     left: 68%;
 }
 
-.handwritten2 img {
+.handwritten_2 img {
     width: 250px;
     position: absolute;
     top: 65%; 
     left: 9%;
 }
 
-.stjerne1 {
+.star_1 {
     color: var(--yellow);
     font-size: 40px;
     position: absolute;
@@ -340,7 +340,7 @@ p {
     left: 7%;
 }
 
-.stjerne2 {
+.star_2 {
     color: var(--yellow);
     font-size: 60px;
     position: absolute;
@@ -348,7 +348,7 @@ p {
     left: 5%;
 }
 
-.stjerne3 {
+.star_3 {
     color: var(--yellow);
     font-size: 60px;
     position: absolute;
@@ -356,7 +356,7 @@ p {
     left: 80%;
 }
 
-.stjerne4 {
+.star_4 {
     color: var(--yellow);
     font-size: 40px;
     position: absolute;
@@ -365,77 +365,77 @@ p {
 }
 
 
-.number3 img {
+.number_3 img {
     width: 45px;
     position: absolute;
     top: 65%; 
     left: 62%;
 }
 
-.number1 img {
+.number_1 img {
     width: 30px;
     position: absolute;
     top: 76%; 
     left: 67%;
 }
 
-.letterl img {
+.letter_l img {
     width: 45px;
     position: absolute;
     top: 65%; 
     left: 67%;
 }
 
-.letteri img {
+.letter_i img {
     width: 25px;
     position: absolute;
     top: 65%; 
     left: 71%;
 }
 
-.letterv img {
+.letter_v img {
     width: 40px;
     position: absolute;
     top: 65%; 
     left: 73.5%;
 }
 
-.letters img {
+.letter_s img {
     width: 55px;
     position: absolute;
     top: 75%; 
     left: 71%;
 }
 
-.letterk img {
+.letter_k img {
     width: 55px;
     position: absolute;
     top: 76%; 
     left: 75%;
 }
 
-.letteræ img {
+.letter_ae img {
     width: 55px;
     position: absolute;
     top: 76%; 
     left: 79.5%;
 }
 
-.letterb img {
+.letter_b img {
     width: 55px;
     position: absolute;
     top: 75.5%; 
     left: 83.5%;
 }
 
-.lettern img {
+.letter_n img {
     width: 47px;
     position: absolute;
     top: 75%; 
     left: 87.5%;
 }
 
-.lettere img {
+.letter_e img {
     width: 47px;
     position: absolute;
     top: 75%; 
@@ -446,34 +446,34 @@ p {
 
 
 /* 3 PERSONER SIDE START */
-#mere-info {
+#more-info {
     height: 134vh;
 }
 
-.Amnesty-lys_1 {
+.amnesty-light_1 {
     width: 50px;
     position: absolute;
     top: 100%;
 }
 
-.Amnesty-lys_2 {
+.amnesty-light_2 {
     width: 50px;
     position: absolute;
     top: 212%;
 }
 
 
-.lys-text_1 {
+.light-text_1 {
     position: absolute;
     top: 114%;
 }
 
-.lys-text_2 {
+.light-text_2 {
     position: absolute;
     top: 227%;
 }
 
-.lys-text_3 {
+.light-text_3 {
     position: absolute;
     top: 327%;
 }
@@ -494,14 +494,14 @@ th {
     text-align: left;
 }
 
-.personoverskrift {
+.person_heading {
     position: absolute;
     top: 105%;
     left: 50%;
     transform: translate(-50%, -50%);
 }
 
-.Adutportræt {
+.adut_portrait {
     width: 300px;
     position: absolute;
     top: 140%;
@@ -509,14 +509,14 @@ th {
     transform: translate(-50%, -50%);
 }
 
-.Aduttext {
+.adut_text {
     position: absolute;
     top: 167%;
     left: 20%;
     transform: translate(-50%, -50%);
 }
 
-.Adutbrødtekst {
+.adut_bodytext {
     width: 300px;
     position: absolute;
     top: 179%;
@@ -524,7 +524,7 @@ th {
     transform: translate(-50%, -50%);
 }
 
-.Joseportræt {
+.josé_portrait {
     width: 300px;
     position: absolute;
     top: 138%;
@@ -532,7 +532,7 @@ th {
     transform: translate(-50%, -50%);
 }
 
-.Josébrødtekst {
+.josé_bodytext {
     width: 300px;
     position: absolute;
     top: 179%;
@@ -540,14 +540,14 @@ th {
     transform: translate(-50%, -50%);
 }
 
-.Josetext {
+.josé_text {
     position: absolute;
     top: 167%;
     left: 50%;
     transform: translate(-50%, -50%);
 }
 
-.Idaportræt {
+.ida_portrait {
     width: 340px;
     position: absolute;
     top: 140.5%;
@@ -555,14 +555,14 @@ th {
     transform: translate(-50%, -50%);
 }
 
-.Idatext {
+.ida_text {
     position: absolute;
     top: 167%;
     left: 80%;
     transform: translate(-50%, -50%);
 }
 
-.Idabrødtekst {
+.ida_bodytext {
     width: 300px;
     position: absolute;
     top: 179%;
