@@ -110,3 +110,82 @@ for (let i = 0; i < maxClicks; i++) {
 // Brug af operatorer
 let isHeartWhole = wholeHeart.style.display === 'block';
 console.log('Er hjertet helt?', isHeartWhole);
+
+
+
+
+
+// Typewriter- og oplæsning
+console.log("Script loaded!");
+
+// Hent tekst fra HTML i stedet for at have den i JS
+const storyParagraph = document.querySelector(".idaintro p");
+const text = storyParagraph.innerHTML.replace(/<br\s*\/?>/gi, "\n"); // Fjern <br> tags og erstat med newline
+
+let index = 0;
+let isPaused = false;
+let isSpeaking = false;
+
+const startBtn = document.querySelector(".starticon");
+const replayBtn = document.querySelector(".replayicon");
+const storyText = document.createElement("p"); // Opret et nyt element til typewriter-effekten
+storyParagraph.parentNode.insertBefore(storyText, storyParagraph);
+storyParagraph.style.display = "none";
+
+let speechSynthesisUtterance = new SpeechSynthesisUtterance();
+
+function syncTextWithSpeech() {
+    if (isSpeaking) {
+        speechSynthesis.cancel();
+        isSpeaking = false;
+        return;
+    }
+    
+    storyText.textContent = "";
+    index = 0;
+    isSpeaking = true;
+
+    speechSynthesisUtterance.text = text;
+    speechSynthesisUtterance.lang = "da-DK";
+    speechSynthesisUtterance.rate = 1;
+
+    const voices = speechSynthesis.getVoices();
+    const danishVoice = voices.find(voice => voice.lang === "da-DK");
+    if (danishVoice) {
+        speechSynthesisUtterance.voice = danishVoice;
+    }
+
+    speechSynthesis.speak(speechSynthesisUtterance);
+    typeWriterEffect(text);
+}
+
+function typeWriterEffect(text) {
+    let i = 0;
+    storyText.textContent = "";
+
+    function type() {
+        if (i < text.length) {
+            storyText.textContent += text.charAt(i);
+            i++;
+            setTimeout(type, 50);
+        }
+    }
+    type();
+}
+
+// GENSTART FUNKTION
+replayBtn.addEventListener("click", function() {
+    speechSynthesis.cancel();
+    isSpeaking = false;
+    storyText.textContent = "";
+    index = 0;
+    syncTextWithSpeech();
+});
+
+// EVENT LISTENERS
+startBtn.addEventListener("click", syncTextWithSpeech);
+
+// START SYNKRONISERING NÅR SIDEN INDLÆSES
+window.onload = function() {
+    console.log("Window loaded!");
+};
