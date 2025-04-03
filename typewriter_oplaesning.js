@@ -1,6 +1,6 @@
 console.log("Script loaded!");
 
-// ✅ Hent tekst fra HTML i stedet for at have den i JS
+// Hent tekst fra HTML i stedet for at have den i JS
 const storyParagraphs = document.querySelectorAll(".story-text");
 let texts = Array.from(storyParagraphs).map(p => p.textContent);
 
@@ -9,90 +9,96 @@ let textIndex = 0;
 let intervalId;
 let isPaused = false;
 
-// Hent audio elementet
-const audioPlayer = document.getElementById("audio-player");
 const pauseBtn = document.getElementById("pause-btn");
 const restartBtn = document.getElementById("restart-btn");
 const storyText = document.getElementById("story-text");
+const speakBtn = document.getElementById("speak-btn");
 
-if (!audioPlayer) {
-    console.error("Audio element not found!");
-}
+// OPLÆSNINGSFUNKTION MED WEB SPEECH API
+let isSpeaking = false;
+let speechSynthesisUtterance = new SpeechSynthesisUtterance();
 
-// ✅ TYPEWRITER-FUNKTION MED LYD-SYNKRONISERING
-function syncTextWithAudio() {
-    if (!audioPlayer) return;
-    audioPlayer.play().catch(error => console.log("Error with autoplay:", error));
-
-    intervalId = setInterval(() => {
-        if (isPaused) return;
-
-        const currentTime = audioPlayer.currentTime;
-        if (currentTime >= getSectionStartTime(textIndex)) {
-            if (index < texts[textIndex].length) {
-                storyText.textContent += texts[textIndex].charAt(index);
-                index++;
-            } else {
-                textIndex++;
-                index = 0;
-                storyText.textContent += "\n";
-                if (textIndex >= texts.length) {
-                    clearInterval(intervalId);
-                }
-            }
-        }
-    }, 50);
-}
-
-// ✅ Returnerer starttidspunktet for hver tekstsektion i lydfilen
-function getSectionStartTime(index) {
-    const sectionTimes = [0, 5, 10, 15, 20];
-    return sectionTimes[index] || 0;
-}
-
-// ✅ PAUSE / PLAY FUNKTION
-function togglePlayPause() {
-    if (!audioPlayer) return;
-
-    if (isPaused) {
-        console.log("Genoptager afspilning");
-        isPaused = false;
-        audioPlayer.play();
-        syncTextWithAudio();
-        pauseBtn.innerHTML = "&#10074;&#10074;"; // Pause-ikon
-    } else {
-        console.log("Afspilning sat på pause");
-        audioPlayer.pause();
-        clearInterval(intervalId);
-        isPaused = true;
-        pauseBtn.innerHTML = "&#9654;"; // Play-ikon
+function syncTextWithSpeech() {
+    if (isSpeaking) {
+        speechSynthesis.cancel();
+        isSpeaking = false;
+        return;
     }
-}
-
-// ✅ GENSTART FUNKTION
-restartBtn.addEventListener("click", function() {
-    console.log("Genstarter historie");
-    index = 0;
-    textIndex = 0;
+    
     storyText.textContent = "";
-    if (audioPlayer) {
-        audioPlayer.pause();
-        audioPlayer.currentTime = 0;
+    textIndex = 0;
+    index = 0;
+    isSpeaking = true;
+    speakNextSection();
+}
+
+function speakNextSection() {
+    if (textIndex >= texts.length) {
+        isSpeaking = false;
+        return;
     }
-    isPaused = false;
-    pauseBtn.innerHTML = "&#10074;&#10074;";
-    syncTextWithAudio();
+
+    speechSynthesisUtterance.text = texts[textIndex];
+    speechSynthesisUtterance.lang = "da-DK";
+    speechSynthesisUtterance.rate = 1;
+
+    const voices = speechSynthesis.getVoices();
+    const danishVoice = voices.find(voice => voice.lang === "da-DK");
+    if (danishVoice) {
+        speechSynthesisUtterance.voice = danishVoice;
+    }
+
+    speechSynthesis.speak(speechSynthesisUtterance);
+    typeWriterEffect(texts[textIndex], () => {
+        textIndex++;
+        speechSynthesisUtterance.onend = speakNextSection;
+    });
+}
+
+function typeWriterEffect(text, callback) {
+    let i = 0;
+    storyText.textContent = "";
+
+    function type() {
+        if (i < text.length) {
+            storyText.textContent += text.charAt(i);
+            i++;
+            setTimeout(type, 50);
+        } else if (callback) {
+            callback();
+        }
+    }
+    type();
+}
+
+// PAUSE / PLAY FUNKTION
+function togglePlayPause() {
+    if (isSpeaking) {
+        speechSynthesis.cancel();
+        isSpeaking = false;
+        pauseBtn.innerHTML = "&#9654;";
+    } else {
+        syncTextWithSpeech();
+        pauseBtn.innerHTML = "&#10074;&#10074;";
+    }
+}
+
+// GENSTART FUNKTION
+restartBtn.addEventListener("click", function() {
+    speechSynthesis.cancel();
+    isSpeaking = false;
+    storyText.textContent = "";
+    textIndex = 0;
+    index = 0;
+    syncTextWithSpeech();
 });
 
-// ✅ EVENT LISTENERS
+// EVENT LISTENERS
 pauseBtn.addEventListener("click", togglePlayPause);
+speakBtn.addEventListener("click", syncTextWithSpeech);
 
-// ✅ START SYNKRONISERING NÅR SIDEN INDLÆSES
+// START SYNKRONISERING NÅR SIDEN INDLÆSES
 window.onload = function() {
     console.log("Window loaded!");
-    if (audioPlayer) {
-        audioPlayer.play().then(syncTextWithAudio).catch(error => {
-            console.log("Autoplay error:", error);
-        });
-    }
+    syncTextWithSpeech();
 };
