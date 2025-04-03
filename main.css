@@ -1001,13 +1001,13 @@ th {
     background-color: var(--black)
 }
     
-.info9_button2 {
+.info9_choice2 {
         position: absolute;
         top: 570%;
         left: 13%;
     }
 
-.dilemma2_button2_button {
+.dilemma2_choice2_button {
     padding: 12px 80px;
     position: absolute;
     top: 511%;
@@ -1418,7 +1418,7 @@ th {
     background-color: var(--black);
 }
 
-.nineteenth-section_portræt {
+.nineteenth-section_portrait {
     width: 300px;
     position: absolute;
     top: 732%; 
@@ -1449,7 +1449,7 @@ th {
     z-index: 200;
 }
 
-.nineteenth-section_letter-ø {
+.nineteenth-section_letter-oe {
     width: 50px;
     position: absolute;
     top: 775%; 
@@ -1502,7 +1502,7 @@ th {
     left: 74%;
 }
 
-.del-resultat_knap {
+.share-result_button {
     color: var(--black);
     border-radius: 30px;
     font-family: 'AmnestyTradeGothic';
@@ -1520,12 +1520,12 @@ th {
     cursor: pointer;
 }
 
-.del-resultat_knap:hover {
+.share-result_button:hover {
     color: var(--yellow);
     background-color: var(--black)
 }
 
-.lignende-historier_knap {
+.similar-stories_button {
     color: var(--yellow);
     border-radius: 30px;
     font-family: 'AmnestyTradeGothic';
@@ -1542,12 +1542,12 @@ th {
     padding: 12px 30px;
 }
 
-.lignende-historier_knap:hover {
+.similar-stories_button:hover {
     color: var(--black);
     background-color: var(--yellow)
 }
 
-.bliv-frivillig_knap {
+.become-volunteer_button {
     color: var(--black);
     border-radius: 30px;
     font-family: 'AmnestyTradeGothic';
@@ -1564,19 +1564,19 @@ th {
     padding: 12px 55px;
 }
 
-.bliv-frivillig_knap:hover {
+.become-volunteer_button:hover {
     color: var(--yellow);
     background-color: var(--black)
 }
 
-.prøv-igen_knap {
+.try-again_button {
     width: 45px;
     position: absolute;
     top: 795%;
     left: 80%;
 }
 
-.tænd-lys_knap {
+.turn-on-light_button {
     color: var(--yellow);
     border-radius: 30px;
     font-family: 'AmnestyTradeGothic';
@@ -1593,7 +1593,7 @@ th {
     padding: 12px 55px;
 }
 
-.tænd-lys_knap:hover {
+.turn-on-light_button:hover {
     color: var(--black);
     background-color: var(--yellow)
 }
