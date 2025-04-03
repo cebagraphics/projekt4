@@ -300,19 +300,19 @@ p {
     100% { transform: translate(0, 0); opacity: 1; }
 }
 
-.overskrift_1 {
+.heading_1 {
     position: absolute;
     top: 6%;  
     left: 5%;
 }
 
-.overskrift_2 {
+.heading_2 {
     position: absolute;
     top: 14%; 
     left: 5%; 
 }
 
-.overskrift_3 {
+.heading_3 {
     position: absolute;
     top: 22%; 
     left: 5%;
@@ -586,27 +586,27 @@ th {
 
 
 /* Ida */
-.idaoverskrift {
+.ida_heading {
     position: absolute;
     top: 217%;
     left: 52%;
 }
 
-.idaintro {
+.ida_intro {
     width: 450px;
     position: absolute;
     top: 227%;
     left: 52%;
 }
 
-.ida_barn_1 {
+.ida_child_1 {
     width: 300px;
     position: absolute;
     top: 230%;
     left: 25%;
 }
 
-.sikkerhedsnål {
+.safety_pin {
     width: 220px;
     position: absolute;
     top: 218%;
@@ -614,7 +614,7 @@ th {
     z-index: 1000;
 }
 
-.letteri2 {
+.letter_i_2 {
     width: 35px;
     position: absolute;
     top: 278%; 
@@ -622,7 +622,7 @@ th {
     rotate: 10deg;
 }
 
-.letterd {
+.letter_d {
     width: 60px;
     position: absolute;
     top: 279%; 
@@ -630,7 +630,7 @@ th {
     rotate: 5deg;
 }
 
-.lettera {
+.letter_a {
     width: 50px;
     position: absolute;
     top: 278%; 
@@ -638,35 +638,35 @@ th {
     rotate: 5deg;
 }
 
-.ida_håndskrevet {
+.ida_handwritten {
     width: 200px;
     position: absolute;
     top: 260%; 
     left: 8%;
 }
 
-.replayicon {
+.replay_icon {
     width: 37px;
     position: absolute;
     top: 287%; 
     left: 77.5%;
 }
 
-.starticon {
+.start_icon {
     width: 37px;
     position: absolute;
     top: 287%; 
     left: 74.5%;
 }
 
-.spørgsmålstegnicon {
+.question_mark_icon {
     width: 31px;
     position: absolute;
     top: 286.5%; 
     left: 81%;
 }
 
-.udråbstegn1 {
+.exclamation_mark_1 {
     width: 20px;
     position: absolute;
     top: 225%; 
@@ -674,7 +674,7 @@ th {
     rotate: 30deg;
 }
 
-.udråbstegn2 {
+.exclamation_mark_2 {
     width: 40px;
     position: absolute;
     top: 215%; 
