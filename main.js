@@ -63,14 +63,15 @@ document.getElementById("closeBtn").addEventListener("click", () => {
 });
 
 
-document.querySelector(".question_mark_icon").addEventListener("click", () => {
-    document.getElementById("popup2").style.display = "block";
-});
+document.addEventListener("DOMContentLoaded", function () {
+    document.querySelector(".question_mark_icon").addEventListener("click", () => {
+        document.getElementById("popup2").style.display = "block";
+    });
 
-document.getElementById("closeBtn2").addEventListener("click", () => {
-    document.getElementById("popup2").style.display = "none";
+    document.getElementById("closeBtn2").addEventListener("click", () => {
+        document.getElementById("popup2").style.display = "none";
+    });
 });
-
 
 
 //Broken heart javascript
