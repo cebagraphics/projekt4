@@ -372,11 +372,11 @@ p {
     left: 62%;
 }
 
-.number_1 img {
-    width: 30px;
+.number2_3 img {
+    width: 42px;
     position: absolute;
     top: 76%; 
-    left: 67%;
+    left: 66%;
 }
 
 .letter_l img {
@@ -440,6 +440,13 @@ p {
     position: absolute;
     top: 75%; 
     left: 91%;
+}
+
+.letter_r img {
+    width: 47px;
+    position: absolute;
+    top: 75%; 
+    left: 94%;
 }
 
 /* LANDING PAGE SLUT */
