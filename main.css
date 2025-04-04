@@ -831,7 +831,7 @@ th {
     display: flex;
     flex-direction: column;
     justify-content: center; /* Centrerer teksten vertikalt */
-  align-items: flex-start; /* Holder teksten venstrejusteret */
+    align-items: flex-start; /* Holder teksten venstrejusteret */
     align-items: flex-end; /* sørger for, at knapperne er til højre */
     padding: 1rem; /* lidt padding omkring */
   }
