@@ -824,27 +824,36 @@ th {
     margin-left: 25px;
 }
 
+.third-section-wrapper {
+    width: 400px; /* eller hvad du ønsker */
+    margin-left: auto;
+    margin-right: 10%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Centrerer teksten vertikalt */
+  align-items: flex-start; /* Holder teksten venstrejusteret */
+    align-items: flex-end; /* sørger for, at knapperne er til højre */
+    padding: 1rem; /* lidt padding omkring */
+  }
+  
 
-.third-section-text {
-    width: 400px;
-    position: absolute;
-    top: 420%;
-    left: 63%;
-}
-
-.third-section_replayicon {
+  .third-section-text {
+    width: 100%; /* gør teksten bredere */
+    text-align: left;
+    margin-bottom: -15px; /* afstanden mellem tekst og knapper */
+  }
+  
+  .third-section-icons {
+    margin-top: 5px; /* bestemmer afstanden til knapperne */
+    display: flex;
+    justify-content: flex-end;
+  }
+  
+  .third-section-icons img {
     width: 30px;
-    position: absolute;
-    top: 491%; 
-    left: 87.5%;
-}
-
-.third-section_starticon {
-    width: 30px;
-    position: absolute;
-    top: 491%; 
-    left: 85%;
-}
+    margin-left: 0.5rem;
+  }
+  
 
 .third-section_ida-teenager {
     width: 300px;
