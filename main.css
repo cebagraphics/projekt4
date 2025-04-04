@@ -950,7 +950,7 @@ th {
     background-color: var(--black);
 }
 
-#brokenHeart, #wholeHeart {
+.brokenHeart, .wholeHeart {
     width: 100px;
     position: absolute;
     top: 467%;
@@ -1633,6 +1633,7 @@ th {
     border: 1px solid #ccc;
     box-shadow: 0 4px 8px rgba(0,0,0,0.2);
     text-align: center;
+    z-index: 1000;
 }
 
 #popup2 p {
@@ -1673,3 +1674,146 @@ th {
     padding-bottom: 40px;
  }
 
+
+
+
+/* JOSE SEKTIONER STARTER HER */
+
+.Jose-second-section {
+    display: none; /* Skjult som standard */
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--black);
+}
+
+.Jose-third-section {
+    display: none; /* Skjult som standard */
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--black);
+}
+
+.Jose-fourth-section {
+    display: none; /* Skjult som standard */
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--black);
+}
+
+.Jose-fifth-section {
+    display: none; /* Skjult som standard */
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--black);
+}
+
+.Jose-sixth-section {
+    display: none; /* Skjult som standard */
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--black);
+}
+
+.Jose-seventh-section {
+    display: none; /* Skjult som standard */
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--black);
+}
+
+.Jose-eight-section {
+    display: none; /* Skjult som standard */
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--black);
+}
+
+.Jose-ninth-section {
+    display: none; /* Skjult som standard */
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--black);
+}
+
+.Jose-tenth-section {
+    display: none; /* Skjult som standard */
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--black);
+}
+
+
+/* JOSE SEKTIONER SLUTTER HER */
+
+
+
+/* JOSE FØRSTE SEKTION STARTER HER */
+.letter_j {
+    width: 45px;
+    position: absolute;
+    top: 280%; 
+    left: 22%;
+}
+
+.letter_o {
+    width: 55px;
+    position: absolute;
+    top: 282%; 
+    left: 25%;
+}
+
+.letter_s_2 {
+    width: 55px;
+    position: absolute;
+    top: 282%; 
+    left: 29%;
+}
+
+.letter_e_2 {
+    width: 55px;
+    position: absolute;
+    top: 282%; 
+    left: 33%;
+}
+
+/* JOSE FØRSTE SEKTION SLUTTER HER */
+
+/* JOSE ANDEN SEKTION STARTER HER */
+.Jose-second-section_image {
+    width: 500px;
+    position: absolute;
+    top: 340%;
+    left: 56%;
+}
+
+/* JOSE ANDEN SEKTION SLUTTER HER */
+
+
+/* JOSE TREDJE SEKTION STARTER HER */
