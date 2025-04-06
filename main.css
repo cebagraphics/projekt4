@@ -1801,6 +1801,100 @@ th {
     background-color: var(--black);
 }
 
+.Jose-eleventh-section {
+    display: none; /* Skjult som standard */
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--black);
+}
+
+.Jose-twelfth-section {
+    display: none; /* Skjult som standard */
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--black);
+}
+
+.Jose-thirteenth-section {
+    display: none; /* Skjult som standard */
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--black);
+}
+
+.Jose-fourteenth-section {
+    display: none; /* Skjult som standard */
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--black);
+}
+
+.Jose-fifteenth-section {
+    display: none; /* Skjult som standard */
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--black);
+}
+
+.Jose-sixteenth-section {
+    display: none; /* Skjult som standard */
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--black);
+}
+
+.Jose-seventeenth-section {
+    display: none; /* Skjult som standard */
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--black);
+}
+
+.Jose-nineteenth-section {
+    display: none; /* Skjult som standard */
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--black);
+}
+
+.jose-eleventh-section_image_1 {
+    width: 300px;
+    position: absolute;
+    top: 655%; 
+    left: 34%;
+    z-index: 2;
+}
+
+.jose-eleventh-section_image_2 {
+    width: 370px;
+    position: absolute;
+    top: 625%; 
+    left: 14.5%;
+}
 
 /* JOSE SEKTIONER SLUTTER HER */
 
@@ -1849,8 +1943,28 @@ th {
 
 
 /* JOSE TREDJE SEKTION STARTER HER */
+.third-section_jose-child {
+    width: 300px;
+    position: absolute;
+    top: 425%; 
+    left: 13.5%;
+}
 
+.third-section_jose-image {
+    width: 350px;
+    position: absolute;
+    top: 443%; 
+    left: 28%;
+    z-index: 10;
+}
 
+.Jose-2-dilemma-image {
+    width: 350px;
+    position: absolute;
+    top: 530%; 
+    left: 60%;
+    z-index: 0;
+}
 
 
 /* ADUT SEKTIONER STARTER HER */
