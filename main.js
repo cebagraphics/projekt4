@@ -28,6 +28,14 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 
     // --- Pop-up funktion ---
+    document.querySelector(".share-result_button").addEventListener("click", () => {
+        document.getElementById("popup").style.display = "block";
+    });    
+
+    document.getElementById("closeBtn").addEventListener("click", () => {
+        document.getElementById("popup").style.display = "none";
+    });
+
     document.querySelectorAll(".question_mark_icon").forEach((icon) => {
         icon.addEventListener("click", () => {
             document.getElementById("popup2").style.display = "block";
