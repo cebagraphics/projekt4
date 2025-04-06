@@ -27,7 +27,7 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     });
 
-    // --- Pop-up funktion ---
+    // --- Pop-up funktion (download knap) ---
     document.querySelector(".share-result_button").addEventListener("click", () => {
         document.getElementById("popup").style.display = "block";
     });    
@@ -36,6 +36,7 @@ document.addEventListener("DOMContentLoaded", function () {
         document.getElementById("popup").style.display = "none";
     });
 
+        // --- Pop-up funktion (spørgsmålstegn ikon) ---
     document.querySelectorAll(".question_mark_icon").forEach((icon) => {
         icon.addEventListener("click", () => {
             document.getElementById("popup2").style.display = "block";

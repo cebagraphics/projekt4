@@ -841,15 +841,26 @@ th {
   
 
 .third-section-text {
-    width: 430px;
+    width: 450px;
     position: absolute;
     top: 420%;
-    left: 63%;
+    left: 60%;
 }
 
 .third-section_replayicon {
-    width: 30px;
-    margin-left: 0.5rem;
+    width: 37px;
+    position: absolute;
+    top: 493%; 
+    left: 90%;
+    cursor: pointer;
+  }
+
+  .third-section_starticon {
+    width: 37px;
+    position: absolute;
+    top: 493%; 
+    left: 87%;
+    cursor: pointer;
   }
   
 
@@ -1236,10 +1247,10 @@ th {
 }
 
 .eleventh-section-text {
-    width: 430px;
+    width: 450px;
     position: absolute;
     top: 622%;
-    left: 63%;
+    left: 60%;
 }
 
 .eleventh-section {
@@ -1339,17 +1350,19 @@ th {
 }
 
 .eleventh-section_replayicon {
-    width: 30px;
+    width: 37px;
     position: absolute;
-    top: 694%; 
-    left: 86.5%;
+    top: 693%; 
+    left: 90%;
+    cursor: pointer;
 }
 
 .eleventh-section_starticon {
-    width: 30px;
+    width: 37px;
     position: absolute;
-    top: 694%; 
-    left: 84%;
+    top: 693%; 
+    left: 87%;
+    cursor: pointer;
 }
 
 .twelfth-section {
@@ -1503,17 +1516,19 @@ th {
 }
 
 .nineteenth-section_replayicon {
-    width: 30px;
+    width: 37px;
     position: absolute;
-    top: 783%; 
-    left: 76.5%;
+    top: 782%; 
+    left: 83%;
+    cursor: pointer;
 }
 
 .nineteenth-section_starticon {
-    width: 30px;
+    width: 37px;
     position: absolute;
-    top: 783%; 
-    left: 74%;
+    top: 782%; 
+    left: 80%;
+    cursor: pointer;
 }
 
 .share-result_button {
@@ -2022,7 +2037,7 @@ th {
 
 .Adut-nineteenth-section {
     display: none; /* Skjult som standard */
-    height: 100vh;
+    height: 95vh;
     display: flex;
     flex-direction: column;
     justify-content: center;
