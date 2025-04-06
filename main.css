@@ -840,21 +840,6 @@ th {
   }
   
 
-<<<<<<< Updated upstream
-  .third-section-text {
-    width: 100%; /* gør teksten bredere */
-    text-align: left;
-    margin-bottom: -15px; /* afstanden mellem tekst og knapper */
-  }
-  
-  .third-section-icons {
-    margin-top: 5px; /* bestemmer afstanden til knapperne */
-    display: flex;
-    justify-content: flex-end;
-  }
-  
-  .third-section-icons img {
-=======
 .third-section-text {
     width: 430px;
     position: absolute;
@@ -863,7 +848,6 @@ th {
 }
 
 .third-section_replayicon {
->>>>>>> Stashed changes
     width: 30px;
     margin-left: 0.5rem;
   }
