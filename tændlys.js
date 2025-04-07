@@ -70,31 +70,35 @@ function renderCandles() { // funktion der bruges til at vise lysene på skærme
             mediaElement.alt = "Candle";
         }
 
-        // Denne kontrolstruktur fortæller at et navn skal komme frem
+        // Denne kontrolstruktur fortæller at et navn skal komme frem når det er tastet ind
         const nameText = document.createElement("p");
         nameText.className = "candle-name";
+        // Hvis vi er ved det allerførste lys i hele listen, og det stadig ikke har et navn, så vil vi vise et input-felt, hvor brugeren kan skrive sit navn og dermed "tænde" det første lys.
         if (startIndex + index === 0 && candle.name === "") {
+            // startIndex + index: det første lys i listen med alle candles
+            // candle.name === tjekker om lyset endnu ikke har fået et navn (tom streng)
             nameText.innerHTML = `<input type="text" id="nameInput" placeholder="Indtast dit navn" />`;
         } else {
             nameText.textContent = candle.name || "Ukendt";
         }
 
-        // Dette indikerer at en lokation skal komme frem
-        const locationText = document.createElement("p");
-        locationText.className = "candle-location";
-        locationText.textContent = candle.location || "Ukendt placering";
+        // Dette indikerer at en lokation vises eller teksten "ukendt placering" hvis lokation ikke vides
+        const locationText = document.createElement("p"); // opretter et nyt p element, hvor by + land vises
+        locationText.className = "candle-location"; // Tilføjer en css-klasse så den kan styles
+        locationText.textContent = candle.location || "Ukendt placering"; // ||  er en logisk operator - den ser om candle.location "truthy" altså sand og ellers bruges den anden værdi "Ukendt placering" - den læser fra venstre mod højre. 
 
-
-        
-        // Tilføj elementer
+        // Tilføjer elementer til DOM'en
         div.appendChild(mediaElement);
         div.appendChild(nameText);
         div.appendChild(locationText);
+        // Klik-event - koden tænder lyset, hvis ikke det allerede er.
         div.onclick = () => lightCandle(startIndex + index);
         grid.appendChild(div);
     });
 
+    // Kalder på updatePagination (funktionen er længere nede) for at sikre at knapperne til at bladre frem og tilbage mellem sider opdateres.
     updatePagination();
+    // Kalder på funktionen updateCounter (funktionen er længere nede) for at opdatere tælleren på siden, der viser hvor mange lys der er tændt.
     updateCounter();
 }
 
