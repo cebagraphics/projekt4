@@ -1,11 +1,14 @@
+ // --- FUNKTION SOM SKJULER OG VISER SEKTIONER ---
+
+// --- (Placering og udførelse javascript & fejlfinding) ---
 document.addEventListener("DOMContentLoaded", function () {
     console.log("DOM indlæst");
 
-    // --- Skjul alle sektioner ---
+    // --- Skjuler alle sektioner (variabler og typer) ---
     let sections = document.querySelectorAll(".info-section, .second-section, .third-section, .fourth-section, .fifth-section, .sixth-section, .seventh-section, .eight-section, .ninth-section, .tenth-section, .eleventh-section, .twelfth-section, .thirteenth-section, .fourteenth-section, .fifteenth-section, .sixteenth-section, .seventeenth-section, .eighteenth-section, .nineteenth-section, .Jose_info-section, .Jose-second-section, .Jose-third-section, .Jose-fourth-section, .Jose-fifth-section, .Jose-sixth-section, .Jose-seventh-section, .Jose-ninth-section, .Jose-eight-section, .Jose-tenth-section, .Jose-eleventh-section, .Jose-twelfth-section, .Jose-thirteenth-section, .Jose-fourteenth-section, .Jose-fifteenth-section, .Jose-sixteenth-section, .Jose-seventeenth-section, .Jose-eighteenth-section, .Jose-nineteenth-section, .Adut_info-section, .Adut-second-section, .Adut-third-section, .Adut-fourth-section, .Adut-fifth-section, .Adut-sixth-section, .Adut-seventh-section, .Adut-ninth-section, .Adut-eight-section, .Adut-tenth-section, .Adut-eleventh-section, .Adut-twelfth-section, .Adut-thirteenth-section, .Adut-fourteenth-section, .Adut-fifteenth-section, .Adut-sixteenth-section, .Adut-seventeenth-section, .Adut-eighteenth-section, .Adut-nineteenth-section");
     sections.forEach(section => section.style.display = "none");
 
-    // --- Scroll ved første knap ---
+    // --- Scroll ved første knap (logiske operatorer) ---
     let firstButton = document.querySelector(".button_1");
     if (firstButton) {
         firstButton.addEventListener("click", function () {
@@ -13,7 +16,7 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     }
 
-    // --- Navigation mellem sektioner ---
+    // --- Navigation mellem sektioner (arrays, kontrolstruktur if-else, objekter, events & loop) ---
     document.querySelectorAll(".button_2, .button_3, .button_4, .continue_button, .choicebutton, .third-section_button, .fourth-section_button, .fifth-section_button, .sixth-section_button, .dilemma2_choice1_button, .dilemma2_choice2_button, .last_button").forEach(knap => {
         knap.addEventListener("click", function () {
             let targetId = this.getAttribute("data-target");
@@ -27,7 +30,8 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     });
 
-    // --- Pop-up funktion (download knap) ---
+
+    // --- POP-UP FUNKTION (download knap) ---
     document.querySelector(".share-result_button").addEventListener("click", () => {
         document.getElementById("popup").style.display = "block";
     });    
@@ -36,7 +40,7 @@ document.addEventListener("DOMContentLoaded", function () {
         document.getElementById("popup").style.display = "none";
     });
 
-        // --- Pop-up funktion (spørgsmålstegn ikon) ---
+        // --- POP-UP FUNKTION  (spørgsmålstegn ikon) ---
     document.querySelectorAll(".question_mark_icon").forEach((icon) => {
         icon.addEventListener("click", () => {
             document.getElementById("popup2").style.display = "block";
@@ -46,7 +50,8 @@ document.addEventListener("DOMContentLoaded", function () {
         document.getElementById("popup2").style.display = "none";
     });
 
-    // --- Broken hearts ---
+
+    // --- BROKEN HEARTS FUNKTION ---
     let brokenHearts = document.querySelectorAll('.brokenHeart');
     let wholeHearts = document.querySelectorAll('.wholeHeart');
 
