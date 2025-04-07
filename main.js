@@ -97,15 +97,24 @@ document.querySelector(".share-result_button.adut").addEventListener("click", ()
 
 
         // --- POP-UP FUNKTION  (spørgsmålstegn ikon) ---
-    document.querySelectorAll(".question_mark_icon").forEach((icon) => {
-        icon.addEventListener("click", () => {
-            document.getElementById("popup2").style.display = "block";
-        });
+       // Åbn den popup der matcher data-popup
+document.querySelectorAll(".question_mark_icon").forEach((icon) => {
+    icon.addEventListener("click", () => {
+      const popupClass = icon.getAttribute("data-popup");
+      const popup = document.querySelector(`.${popupClass}`);
+      if (popup) popup.style.display = "block";
     });
-    document.getElementById("closeBtn2").addEventListener("click", () => {
-        document.getElementById("popup2").style.display = "none";
+  });
+  
+  // Luk den popup hvor "luk"-knappen hører til
+  document.querySelectorAll(".closeBtn2").forEach((btn) => {
+    btn.addEventListener("click", () => {
+      const popup = btn.closest(".popup2");
+      if (popup) popup.style.display = "none";
     });
-    
+  });
+  
+
 
 
     // --- BROKEN HEARTS FUNKTION ---
