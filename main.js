@@ -32,13 +32,69 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
     // --- POP-UP FUNKTION (download knap) ---
-    document.querySelector(".share-result_button").addEventListener("click", () => {
-        document.getElementById("popup").style.display = "block";
-    });    
 
-    document.getElementById("closeBtn").addEventListener("click", () => {
-        document.getElementById("popup").style.display = "none";
+    // Åbn popup
+document.querySelector(".share-result_button.jose").addEventListener("click", () => {
+    document.getElementById("Jose_popup").style.display = "block";
+  });
+  
+  // Luk popup
+  document.querySelectorAll(".closeBtn").forEach((btn) => {
+    btn.addEventListener("click", () => {
+      document.getElementById("Jose_popup").style.display = "none";
     });
+  });
+  
+  // Download-knap funktion
+  document.querySelectorAll(".downloadBtn").forEach((btn) => {
+    btn.addEventListener("click", () => {
+      // Erstat denne del med din download-funktion
+      console.log("Download starter...");
+    });
+  });
+
+
+  // Åbn popup
+document.querySelector(".share-result_button.ida").addEventListener("click", () => {
+  document.getElementById("Ida_popup").style.display = "block";
+});
+
+// Luk popup
+document.querySelectorAll(".closeBtn").forEach((btn) => {
+  btn.addEventListener("click", () => {
+    document.getElementById("Ida_popup").style.display = "none";
+  });
+});
+
+// Download-knap funktion
+document.querySelectorAll(".downloadBtn").forEach((btn) => {
+  btn.addEventListener("click", () => {
+    // Erstat denne del med din download-funktion
+    console.log("Download starter...");
+  });
+});
+
+
+  // Åbn popup
+document.querySelector(".share-result_button.adut").addEventListener("click", () => {
+    document.getElementById("Adut_popup").style.display = "block";
+  });
+  
+  // Luk popup
+  document.querySelectorAll(".closeBtn").forEach((btn) => {
+    btn.addEventListener("click", () => {
+      document.getElementById("Adut_popup").style.display = "none";
+    });
+  });
+  
+  // Download-knap funktion
+  document.querySelectorAll(".downloadBtn").forEach((btn) => {
+    btn.addEventListener("click", () => {
+      // Erstat denne del med din download-funktion
+      console.log("Download starter...");
+    });
+  });
+
 
         // --- POP-UP FUNKTION  (spørgsmålstegn ikon) ---
     document.querySelectorAll(".question_mark_icon").forEach((icon) => {
@@ -49,6 +105,7 @@ document.addEventListener("DOMContentLoaded", function () {
     document.getElementById("closeBtn2").addEventListener("click", () => {
         document.getElementById("popup2").style.display = "none";
     });
+    
 
 
     // --- BROKEN HEARTS FUNKTION ---

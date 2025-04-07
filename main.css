@@ -517,6 +517,12 @@ th {
 }
 
 .adut_text {
+    font-family: 'AmnestyTradeGothic';
+    font-weight: bold;
+    font-style: normal;
+    font-size: 45px;
+    text-transform: uppercase;
+    color: var(--white);
     position: absolute;
     top: 167%;
     left: 20%;
@@ -548,6 +554,12 @@ th {
 }
 
 .josé_text {
+    font-family: 'AmnestyTradeGothic';
+    font-weight: bold;
+    font-style: normal;
+    font-size: 45px;
+    text-transform: uppercase;
+    color: var(--white);
     position: absolute;
     top: 167%;
     left: 50%;
@@ -563,6 +575,12 @@ th {
 }
 
 .ida_text {
+    font-family: 'AmnestyTradeGothic';
+    font-weight: bold;
+    font-style: normal;
+    font-size: 45px;
+    text-transform: uppercase;
+    color: var(--white);
     position: absolute;
     top: 167%;
     left: 80%;
@@ -1627,7 +1645,7 @@ th {
     background-color: var(--yellow)
 }
 
-#popup {
+#Ida_popup {
     display: none;
     position: fixed;
     top: 50%;
@@ -1640,7 +1658,41 @@ th {
     text-align: center;
 }
 
-#popup p {
+#Ida_popup p {
+    color: var(--black);
+}
+
+#Jose_popup {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: white;
+    padding: 20px;
+    border: 1px solid #ccc;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    text-align: center;
+}
+
+#Jose_popup p {
+    color: var(--black);
+}
+
+#Adut_popup {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: white;
+    padding: 20px;
+    border: 1px solid #ccc;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    text-align: center;
+}
+
+#Adut_popup p {
     color: var(--black);
 }
 
@@ -1662,7 +1714,7 @@ th {
     color: var(--black);
 }
 
-#closeBtn, #downloadBtn {
+.closeBtn, .downloadBtn {
     background: var(--yellow);
     color: var(--black);
     border: none;
