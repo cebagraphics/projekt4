@@ -72,88 +72,268 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     }
 
-    // --- Typewriter + oplæsning ---
-    let synth = window.speechSynthesis;
-    let isSpeaking = false;
-    let isPaused = false;
-    let typewriterIndex = 0;
-
-    let storyTextElement = document.querySelector(".ida_intro p");
-    let typewriterContainer = storyTextElement;
-    let storyText = storyTextElement ? storyTextElement.innerText : "";
-
-    let startButton = document.querySelector(".start_icon");
-    let replayButton = document.querySelector(".replay_icon");
-
-    let utterance;
-    let typewriterInterval;
-
-    const TYPEWRITER_SPEED = 60;
-
-    function resetTypewriter() {
-        if (typewriterContainer) typewriterContainer.innerHTML = "";
-        typewriterIndex = 0;
-    }
-
-    function typeWriter(startIndex = 0) {
-        resetTypewriter();
-        typewriterIndex = startIndex;
-        typewriterInterval = setInterval(() => {
-            if (typewriterIndex < storyText.length && !isPaused) {
-                typewriterContainer.innerHTML = storyText.substring(0, typewriterIndex + 1);
-                typewriterIndex++;
-            } else {
-                clearInterval(typewriterInterval);
-            }
-        }, TYPEWRITER_SPEED);
-    }
-
-    function speakText() {
-        if (isSpeaking) {
-            if (isPaused) {
-                synth.resume();
-                isPaused = false;
-                typeWriter(typewriterIndex);
-            } else {
-                synth.pause();
-                isPaused = true;
-                clearInterval(typewriterInterval);
-            }
-        } else {
-            isSpeaking = true;
+    // --- Typewriter + oplæsning Ida ---
+    document.addEventListener("DOMContentLoaded", () => {
+        const TYPEWRITER_SPEED = 50;
+        const synth = window.speechSynthesis;
+      
+        // Find alle startknapper og replayknapper direkte
+        document.querySelectorAll(".start_icon").forEach((startBtn) => {
+          // Find tilhørende tekst og replay-knap uden at bruge container
+          const textEl = startBtn.nextElementSibling.querySelector(".ida_intro"); // Find tekst (tilpasset efter HTML-struktur)
+          const replayBtn = startBtn.nextElementSibling.querySelector(".replay_icon");
+      
+          if (!textEl || !replayBtn) return;
+      
+          let isSpeaking = false;
+          let isPaused = false;
+          let typewriterIndex = 0;
+          let typeInterval;
+          let utterance;
+          const storyText = textEl.innerText;
+      
+          function reset() {
+            clearInterval(typeInterval);
+            synth.cancel();
+            textEl.textContent = "";
+            typewriterIndex = 0;
+            isSpeaking = false;
             isPaused = false;
-            resetTypewriter();
+          }
+      
+          function typeWriter() {
+            clearInterval(typeInterval);
+            typeInterval = setInterval(() => {
+              if (typewriterIndex < storyText.length && !isPaused) {
+                textEl.textContent += storyText.charAt(typewriterIndex);
+                typewriterIndex++;
+              } else {
+                clearInterval(typeInterval);
+              }
+            }, TYPEWRITER_SPEED);
+          }
+      
+          function speak() {
             utterance = new SpeechSynthesisUtterance(storyText);
             utterance.lang = "da-DK";
-            utterance.rate = 0.8;
+            utterance.rate = 0.9;
+      
             utterance.onboundary = (event) => {
+              if (event.charIndex !== undefined) {
                 typewriterIndex = event.charIndex;
+              }
             };
+      
             utterance.onend = () => {
-                isSpeaking = false;
+              isSpeaking = false;
+              isPaused = false;
             };
+      
             synth.speak(utterance);
-            typeWriter(0);
-        }
-    }
+            typeWriter();
+          }
+      
+          startBtn.addEventListener("click", () => {
+            if (isSpeaking) {
+              if (isPaused) {
+                isPaused = false;
+                synth.resume();
+                typeWriter();
+              } else {
+                isPaused = true;
+                synth.pause();
+                clearInterval(typeInterval);
+              }
+            } else {
+              reset();
+              isSpeaking = true;
+              speak();
+            }
+          });
+      
+          replayBtn.addEventListener("click", () => {
+            reset();
+            isSpeaking = true;
+            speak();
+          });
+        });
+      });
 
-    function restartStory() {
+
+// --- Typewriter + oplæsning Jose ---
+document.addEventListener("DOMContentLoaded", () => {
+    const TYPEWRITER_SPEED = 50;
+    const synth = window.speechSynthesis;
+  
+    // Find alle startknapper og replayknapper direkte
+    document.querySelectorAll(".start_icon").forEach((startBtn) => {
+      // Find tilhørende tekst og replay-knap uden at bruge container
+      const textEl = startBtn.nextElementSibling.querySelector(".jose_intro"); // Find tekst (tilpasset efter HTML-struktur)
+      const replayBtn = startBtn.nextElementSibling.querySelector(".replay_icon");
+  
+      if (!textEl || !replayBtn) return;
+  
+      let isSpeaking = false;
+      let isPaused = false;
+      let typewriterIndex = 0;
+      let typeInterval;
+      let utterance;
+      const storyText = textEl.innerText;
+  
+      function reset() {
+        clearInterval(typeInterval);
         synth.cancel();
-        clearInterval(typewriterInterval);
+        textEl.textContent = "";
+        typewriterIndex = 0;
         isSpeaking = false;
         isPaused = false;
-        typeWriter(0);
-        speakText();
-    }
+      }
+  
+      function typeWriter() {
+        clearInterval(typeInterval);
+        typeInterval = setInterval(() => {
+          if (typewriterIndex < storyText.length && !isPaused) {
+            textEl.textContent += storyText.charAt(typewriterIndex);
+            typewriterIndex++;
+          } else {
+            clearInterval(typeInterval);
+          }
+        }, TYPEWRITER_SPEED);
+      }
+  
+      function speak() {
+        utterance = new SpeechSynthesisUtterance(storyText);
+        utterance.lang = "da-DK";
+        utterance.rate = 0.9;
+  
+        utterance.onboundary = (event) => {
+          if (event.charIndex !== undefined) {
+            typewriterIndex = event.charIndex;
+          }
+        };
+  
+        utterance.onend = () => {
+          isSpeaking = false;
+          isPaused = false;
+        };
+  
+        synth.speak(utterance);
+        typeWriter();
+      }
+  
+      startBtn.addEventListener("click", () => {
+        if (isSpeaking) {
+          if (isPaused) {
+            isPaused = false;
+            synth.resume();
+            typeWriter();
+          } else {
+            isPaused = true;
+            synth.pause();
+            clearInterval(typeInterval);
+          }
+        } else {
+          reset();
+          isSpeaking = true;
+          speak();
+        }
+      });
+  
+      replayBtn.addEventListener("click", () => {
+        reset();
+        isSpeaking = true;
+        speak();
+      });
+    });
+  });
 
-    if (startButton) {
-        startButton.addEventListener("click", speakText);
-        startButton.style.cursor = "pointer";
-    }
 
-    if (replayButton) {
-        replayButton.addEventListener("click", restartStory);
-        replayButton.style.cursor = "pointer";
-    }
+
+// --- Typewriter + oplæsning Adut ---
+document.addEventListener("DOMContentLoaded", () => {
+    const TYPEWRITER_SPEED = 50;
+    const synth = window.speechSynthesis;
+  
+    // Find alle startknapper og replayknapper direkte
+    document.querySelectorAll(".start_icon").forEach((startBtn) => {
+      // Find tilhørende tekst og replay-knap uden at bruge container
+      const textEl = startBtn.nextElementSibling.querySelector(".adut_intro"); // Find tekst (tilpasset efter HTML-struktur)
+      const replayBtn = startBtn.nextElementSibling.querySelector(".replay_icon");
+  
+      if (!textEl || !replayBtn) return;
+  
+      let isSpeaking = false;
+      let isPaused = false;
+      let typewriterIndex = 0;
+      let typeInterval;
+      let utterance;
+      const storyText = textEl.innerText;
+  
+      function reset() {
+        clearInterval(typeInterval);
+        synth.cancel();
+        textEl.textContent = "";
+        typewriterIndex = 0;
+        isSpeaking = false;
+        isPaused = false;
+      }
+  
+      function typeWriter() {
+        clearInterval(typeInterval);
+        typeInterval = setInterval(() => {
+          if (typewriterIndex < storyText.length && !isPaused) {
+            textEl.textContent += storyText.charAt(typewriterIndex);
+            typewriterIndex++;
+          } else {
+            clearInterval(typeInterval);
+          }
+        }, TYPEWRITER_SPEED);
+      }
+  
+      function speak() {
+        utterance = new SpeechSynthesisUtterance(storyText);
+        utterance.lang = "da-DK";
+        utterance.rate = 0.9;
+  
+        utterance.onboundary = (event) => {
+          if (event.charIndex !== undefined) {
+            typewriterIndex = event.charIndex;
+          }
+        };
+  
+        utterance.onend = () => {
+          isSpeaking = false;
+          isPaused = false;
+        };
+  
+        synth.speak(utterance);
+        typeWriter();
+      }
+  
+      startBtn.addEventListener("click", () => {
+        if (isSpeaking) {
+          if (isPaused) {
+            isPaused = false;
+            synth.resume();
+            typeWriter();
+          } else {
+            isPaused = true;
+            synth.pause();
+            clearInterval(typeInterval);
+          }
+        } else {
+          reset();
+          isSpeaking = true;
+          speak();
+        }
+      });
+  
+      replayBtn.addEventListener("click", () => {
+        reset();
+        isSpeaking = true;
+        speak();
+      });
+    });
+  });
 
 });
