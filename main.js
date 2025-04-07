@@ -84,18 +84,9 @@ document.addEventListener("DOMContentLoaded", function () {
         // Gennemgå alle start- og replay-knapper
         startBtns.forEach((startBtn) => {
           const section = startBtn.closest('section');  // Find den nærmeste sektion
-          let textEl;  // Variabel til at holde referencen til tekstområdet
+          const textEl = section.querySelector('div p'); // Find første p tag i sektionen
           
-          // Find den relevante tekstcontainer (ida_intro, jose_intro, adut_intro)
-          if (section.querySelector('.ida_intro')) {
-            textEl = section.querySelector('.ida_intro p');  // Find teksten i .ida_intro
-          } else if (section.querySelector('.jose_intro')) {
-            textEl = section.querySelector('.jose_intro p');  // Find teksten i .jose_intro
-          } else if (section.querySelector('.adut_intro')) {
-            textEl = section.querySelector('.adut_intro p');  // Find teksten i .adut_intro
-          }
-      
-          if (!textEl) return;  // Hvis vi ikke kan finde teksten, gør vi ikke noget videre.
+          if (!textEl) return; // Hvis vi ikke kan finde teksten, gør vi ikke noget videre.
       
           const storyText = textEl.innerText;  // Hent tekstens indhold
       
