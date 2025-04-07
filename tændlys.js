@@ -1,6 +1,7 @@
-const candles = [
+const candles = [ //array af objekter (en liste af objekter)
     { lit: false, name: "", location: "" }, // Første lys - bruger vælger navn
-    { lit: true, name: "Sofie", location: "København, Danmark" },
+    { lit: true, name: "Sofie", location: "København, Danmark" }, 
+    // Hvert lys repræsenterer ét lys og er et objekt med 3 properties af typen Boolean og String
     { lit: true, name: "Anders", location: "Århus, Danmark" },
     { lit: true, name: "Maria", location: "Odense, Danmark" },
     { lit: true, name: "Emil", location: "Aalborg, Danmark" },
@@ -24,25 +25,34 @@ const candles = [
     { lit: true, name: "Amanda", location: "Køge, Danmark" }
 ];
 
-const candlesPerPage = 10;
-let currentPage = 1;
+// Lit er en Boolean value = true/false. 
+// Name og Location er såkaldte strings - bruges til at gemme "tekst-data"
+// Senere bruger vi arrayet Candles og vores strings/booleans (candle.name og candle.lit) for at tilgå disse værdier
 
-function renderCandles() {
-    const grid = document.getElementById("candleGrid");
-    grid.innerHTML = "";
-    console.log("Rendering candles:", candles);
+const candlesPerPage = 10; // Lokal variabel const fortæller at der må være max 10 Candles på en side
+let currentPage = 1; // Global variabel der holder styr på hvilken side brugeren ser - 1 betyder at man starter med at se den første side
+
+// Viser fint forskellen på const og let. Const er en variabel som der ikke ændres i og let bruges fordi den skal opdateres.
+
+function renderCandles() { // funktion der bruges til at vise lysene på skærmen
+    const grid = document.getElementById("candleGrid"); // reference til HTML-elementet med id'et CandleGrid - det er her lysene skal vises på hjemmeside
+    grid.innerHTML = ""; // rydder det gamle indhold, så det nye lys vises (ellers ville de være oveni hinanden)
+    console.log("Rendering candles:", candles); //fejlfinding som tjekker at lysene vises rigtigt
+
+       // Beregner hvilke lys der skal vises på den aktuelle side - viser 10 lys per side og regner ud, hvilken side du befinder dig på
+       const startIndex = (currentPage - 1) * candlesPerPage;
+       const endIndex = startIndex + candlesPerPage;
+       const visibleCandles = candles.slice(startIndex, endIndex);
     
-    // Beregn hvilke lys der skal vises på den aktuelle side
-    const startIndex = (currentPage - 1) * candlesPerPage;
-    const endIndex = startIndex + candlesPerPage;
-    const visibleCandles = candles.slice(startIndex, endIndex);
 
+    // forEach er et loop 
     visibleCandles.forEach((candle, index) => {
         const div = document.createElement("div");
         div.className = "candle";
 
+         // if/else er kontrolstruktur
         let mediaElement;
-        if (candle.lit) {
+        if (candle.lit) { // fortæller at hvis lyset bliver tændt så viser den en video
             mediaElement = document.createElement("video");
             mediaElement.autoplay = true;
             mediaElement.loop = true;
@@ -52,14 +62,15 @@ function renderCandles() {
             source.src = "images/candle-stage-1.mp4";
             source.type = "video/mp4";
             mediaElement.appendChild(source);
-        } else {
+
+        } else { //fortæller at hvis lyset ikke tændes så viser den billedet af de utændte lys
             mediaElement = document.createElement("img");
-            mediaElement.className = "images/unlit_light.png";
+            mediaElement.className = "unlit_light.png";
             mediaElement.src = "images/unlit_light.png";
             mediaElement.alt = "Candle";
         }
 
-        // Navn
+        // Denne kontrolstruktur fortæller at et navn skal komme frem
         const nameText = document.createElement("p");
         nameText.className = "candle-name";
         if (startIndex + index === 0 && candle.name === "") {
@@ -68,11 +79,13 @@ function renderCandles() {
             nameText.textContent = candle.name || "Ukendt";
         }
 
-        // Lokation
+        // Dette indikerer at en lokation skal komme frem
         const locationText = document.createElement("p");
         locationText.className = "candle-location";
         locationText.textContent = candle.location || "Ukendt placering";
 
+
+        
         // Tilføj elementer
         div.appendChild(mediaElement);
         div.appendChild(nameText);
@@ -102,6 +115,8 @@ function lightCandle(index) {
         }
     }
 }
+
+// GEOLOCATION
 
 function getLocation(index) {
     if ("geolocation" in navigator) {
@@ -144,6 +159,9 @@ const litCount = candles.filter(c => c.lit).length;
 document.getElementById("counterNumber").textContent = litCount;
 }
 
+
+// PAGINATION (sider)
+
 function updatePagination() {
     const paginationDiv = document.getElementById("pagination");
     paginationDiv.innerHTML = "";
@@ -184,6 +202,7 @@ function updatePagination() {
         paginationDiv.appendChild(nextButton);
     }
 }
+
 
 // Start rendering
 renderCandles();
