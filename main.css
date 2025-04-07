@@ -1901,6 +1901,13 @@ th {
 
 
 /* JOSE FØRSTE SEKTION STARTER HER */
+.jose_intro {
+    width: 450px;
+    position: absolute;
+    top: 227%;
+    left: 52%;
+}
+
 .letter_j {
     width: 45px;
     position: absolute;
@@ -2165,6 +2172,13 @@ th {
 
 
 /* ADUT FØRSTE SEKTION STARTER HER */
+
+.adut_intro {
+    width: 450px;
+    position: absolute;
+    top: 227%;
+    left: 52%;
+}
 
 .adut_child_1 {
     width: 280px;
