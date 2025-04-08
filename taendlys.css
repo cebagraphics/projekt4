@@ -57,10 +57,11 @@
             margin: auto;
             padding: 20px;
             display: flex;
-    flex-direction: column;
-    align-items: center; /* Centrerer alt vandret */
-    position: relative;
+            flex-direction: column;
+            align-items: center; /* Centrerer alt vandret */
+            position: relative;
         }
+        
         .grid {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
