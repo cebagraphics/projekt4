@@ -319,17 +319,17 @@ p {
 }
 
 .handwritten_1 img {
-    width: 250px;
+    width: 360px;
     position: absolute;
-    top: 14%; 
-    left: 68%;
+    top: 10%; 
+    left: 62.5%;
 }
 
 .handwritten_2 img {
-    width: 250px;
+    width: 360px;
     position: absolute;
-    top: 65%; 
-    left: 9%;
+    top: 64%; 
+    left: 8%;
 }
 
 .star_1 {
@@ -666,8 +666,22 @@ th {
 .ida_handwritten {
     width: 400px;
     position: absolute;
-    top: 260%; 
+    top: 250%; 
     left: 0%;
+}
+
+.jose_handwritten {
+    width: 500px;
+    position: absolute;
+    top: 245%; 
+    left: -2%;
+}
+
+.adut_handwritten {
+    width: 480px;
+    position: absolute;
+    top: 245%; 
+    left: -2%;
 }
 
 .replay_icon {
