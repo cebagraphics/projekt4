@@ -496,7 +496,7 @@ th {
     transform: translate(-50%, -50%);
 }
 
-.josé_portrait {
+.jose_portrait {
     width: 300px;
     position: absolute;
     top: 138%;
@@ -504,7 +504,7 @@ th {
     transform: translate(-50%, -50%);
 }
 
-.josé_bodytext {
+.jose_bodytext {
     width: 300px;
     position: absolute;
     top: 179%;
@@ -512,7 +512,7 @@ th {
     transform: translate(-50%, -50%);
 }
 
-.josé_text {
+.jose_text {
     font-family: 'AmnestyTradeGothic';
     font-weight: bold;
     font-style: normal;
