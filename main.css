@@ -664,10 +664,10 @@ th {
 }
 
 .ida_handwritten {
-    width: 200px;
+    width: 400px;
     position: absolute;
     top: 260%; 
-    left: 8%;
+    left: 0%;
 }
 
 .replay_icon {
