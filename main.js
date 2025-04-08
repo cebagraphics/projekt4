@@ -160,28 +160,29 @@ function typeWriter(typewriterContainer, storyText, startIndex = 0) {
     typewriterIndex = startIndex;
 
     typewriterInterval = setInterval(() => {
-        if (typewriterIndex < storyText.length && !isPaused) {
-            typewriterContainer.innerHTML = storyText.substring(0, typewriterIndex + 1);
-            typewriterIndex++;
-        } else {
-            clearInterval(typewriterInterval);
-        }
-    }, TYPEWRITER_SPEED); // Justeret hastighed
+      if (typewriterIndex < storyText.length && !isPaused) {
+          typewriterContainer.innerHTML = storyText.substring(0, typewriterIndex + 1);
+          typewriterIndex++;
+      } else {
+          isSpeaking = true;
+          clearInterval(typewriterInterval);
+      }
+  }, TYPEWRITER_SPEED); // Justeret hastighed
 }
 
 // Funktion til tekst-til-tale
 function speakText(storyText, typewriterContainer) {
-    if (isSpeaking) {
-        if (isPaused) {
-            synth.resume();
-            isPaused = false;
-            typeWriter(typewriterContainer, storyText, typewriterIndex); // Genoptag typewriter fra sidste position
+  if (isSpeaking) {
+      if (isPaused) {
+          synth.resume();
+          isPaused = false;
+          typeWriter(typewriterContainer, storyText, typewriterIndex); // Genoptag typewriter fra sidste position
         } else {
             synth.pause();
             isPaused = true;
             clearInterval(typewriterInterval); // Stop typewriter midlertidigt
         }
-    } else {
+      } else {
         isSpeaking = true;
         isPaused = false;
         resetTypewriter(typewriterContainer);
@@ -197,44 +198,41 @@ function speakText(storyText, typewriterContainer) {
         synth.speak(utterance);
         typeWriter(typewriterContainer, storyText); // Start typewriter fra begyndelsen
     }
-}
+  }
 
-// Funktion til at genstarte
-function restartStory(storyText, typewriterContainer) {
-    synth.cancel(); // Stopper evt. igangværende tale
-    clearInterval(typewriterInterval);
-    isSpeaking = false;
-    isPaused = false;
-    typeWriter(typewriterContainer, storyText); // Start typewriter fra begyndelsen
-    speakText(storyText, typewriterContainer);
-}
-
-// Funktion til at håndtere hver sektion
-function handleSection(sectionId, storyClass) {
-    // Find den sektion ved hjælp af sektionens ID
-    let section = document.querySelector(sectionId);
-    if (!section) return; // Hvis sektionen ikke findes, skal vi ikke gøre noget
-
-    // Find de relevante knapper og tekst indenfor denne sektion
-    let startButton = section.querySelector(".start_icon");
-    let replayButton = section.querySelector(".replay_icon");
-    let storyText = section.querySelector(storyClass).innerText;  // Hent den rigtige tekst
-    let typewriterContainer = section.querySelector(storyClass);
-
-    // Event listeners til startknapperne
-    startButton.addEventListener("click", () => {
+  // Funktion til at genstarte
+  function restartStory(storyText, typewriterContainer) {
+      synth.cancel(); // Stopper evt. igangværende tale
+      clearInterval(typewriterInterval);
+      isSpeaking = false;
+      isPaused = false;
+      typeWriter(typewriterContainer, storyText); // Start typewriter fra begyndelsen
+      speakText(storyText, typewriterContainer);
+  }
+  
+  // Funktion til at håndtere hver sektion
+  function handleSection(sectionId) {
+      let startButton = document.querySelector(sectionId + " .start_icon");
+      let replayButton = document.querySelector(sectionId + " .replay_icon");
+      let storyText = document.querySelector(sectionId + " p").innerText;
+      let typewriterContainer = document.querySelector(sectionId + " p");
+  
+      // Event listeners til startknapperne
+      startButton.addEventListener("click", () => {
         speakText(storyText, typewriterContainer);
     });
 
-    // Event listeners til replay-knapperne
-    replayButton.addEventListener("click", () => {
-        restartStory(storyText, typewriterContainer);
+        // Event listeners til replay-knapperne
+        replayButton.addEventListener("click", () => {
+          restartStory(storyText, typewriterContainer);
+      });
+
+    }
+
+    // Kald funktionerne for hver sektion ved hjælp af deres ID'er
+    handleSection("#info1");  // Ida's tekst
+    handleSection("#info2");  // Adut's tekst
+    handleSection("#info3");  // Jose's tekst
+    
     });
-}
 
-// Kald funktionerne for hver sektion ved hjælp af deres ID'er og de specifikke klasser
-handleSection("#info1", ".ida_intro");  // Ida's tekst
-handleSection("#info2", ".adut_intro");  // Adut's tekst
-handleSection("#info3", ".jose_intro");  // Jose's tekst
-
-});
