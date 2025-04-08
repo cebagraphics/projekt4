@@ -138,88 +138,103 @@ document.querySelectorAll(".question_mark_icon").forEach((icon) => {
         }
     }
 
-    // --- Typewriter + oplæsning ---
-    let synth = window.speechSynthesis;
-    let isSpeaking = false;
-    let isPaused = false;
-    let typewriterIndex = 0;
+// --- Typewriter + oplæsning for alle sektioner ---
+let synth = window.speechSynthesis;
+let isSpeaking = false;
+let isPaused = false;
+let typewriterIndex = 0;
+let typewriterInterval;
 
-    let storyTextElement = document.querySelector(".ida_intro p");
-    let typewriterContainer = storyTextElement;
-    let storyText = storyTextElement ? storyTextElement.innerText : "";
+// Justeret typewriter-hastighed
+const TYPEWRITER_SPEED = 60; // Øget forsinkelse for langsommere skrivning
 
-    let startButton = document.querySelector(".start_icon");
-    let replayButton = document.querySelector(".replay_icon");
+// Funktion til at nulstille typewriter-effekten
+function resetTypewriter(typewriterContainer) {
+    typewriterContainer.innerHTML = ""; // Sørg for at teksten bliver skrevet korrekt fra start
+    typewriterIndex = 0;
+}
 
-    let utterance;
-    let typewriterInterval;
+// Funktion til typewriter-effekten
+function typeWriter(typewriterContainer, storyText, startIndex = 0) {
+    resetTypewriter(typewriterContainer);
+    typewriterIndex = startIndex;
 
-    const TYPEWRITER_SPEED = 60;
-
-    function resetTypewriter() {
-        if (typewriterContainer) typewriterContainer.innerHTML = "";
-        typewriterIndex = 0;
-    }
-
-    function typeWriter(startIndex = 0) {
-        resetTypewriter();
-        typewriterIndex = startIndex;
-        typewriterInterval = setInterval(() => {
-            if (typewriterIndex < storyText.length && !isPaused) {
-                typewriterContainer.innerHTML = storyText.substring(0, typewriterIndex + 1);
-                typewriterIndex++;
-            } else {
-                clearInterval(typewriterInterval);
-            }
-        }, TYPEWRITER_SPEED);
-    }
-
-    function speakText() {
-        if (isSpeaking) {
-            if (isPaused) {
-                synth.resume();
-                isPaused = false;
-                typeWriter(typewriterIndex);
-            } else {
-                synth.pause();
-                isPaused = true;
-                clearInterval(typewriterInterval);
-            }
+    typewriterInterval = setInterval(() => {
+        if (typewriterIndex < storyText.length && !isPaused) {
+            typewriterContainer.innerHTML = storyText.substring(0, typewriterIndex + 1);
+            typewriterIndex++;
         } else {
-            isSpeaking = true;
-            isPaused = false;
-            resetTypewriter();
-            utterance = new SpeechSynthesisUtterance(storyText);
-            utterance.lang = "da-DK";
-            utterance.rate = 0.8;
-            utterance.onboundary = (event) => {
-                typewriterIndex = event.charIndex;
-            };
-            utterance.onend = () => {
-                isSpeaking = false;
-            };
-            synth.speak(utterance);
-            typeWriter(0);
+            clearInterval(typewriterInterval);
         }
-    }
+    }, TYPEWRITER_SPEED); // Justeret hastighed
+}
 
-    function restartStory() {
-        synth.cancel();
-        clearInterval(typewriterInterval);
-        isSpeaking = false;
+// Funktion til tekst-til-tale
+function speakText(storyText, typewriterContainer) {
+    if (isSpeaking) {
+        if (isPaused) {
+            synth.resume();
+            isPaused = false;
+            typeWriter(typewriterContainer, storyText, typewriterIndex); // Genoptag typewriter fra sidste position
+        } else {
+            synth.pause();
+            isPaused = true;
+            clearInterval(typewriterInterval); // Stop typewriter midlertidigt
+        }
+    } else {
+        isSpeaking = true;
         isPaused = false;
-        typeWriter(0);
-        speakText();
+        resetTypewriter(typewriterContainer);
+        let utterance = new SpeechSynthesisUtterance(storyText);
+        utterance.lang = "da-DK"; // Dansk sprog
+        utterance.rate = 0.8; // Lavere hastighed for bedre synkronisering
+        utterance.onboundary = (event) => {
+            typewriterIndex = event.charIndex; // Synkroniser typewriter med tale
+        };
+        utterance.onend = () => {
+            isSpeaking = false;
+        };
+        synth.speak(utterance);
+        typeWriter(typewriterContainer, storyText); // Start typewriter fra begyndelsen
     }
+}
 
-    if (startButton) {
-        startButton.addEventListener("click", speakText);
-        startButton.style.cursor = "pointer";
-    }
+// Funktion til at genstarte
+function restartStory(storyText, typewriterContainer) {
+    synth.cancel(); // Stopper evt. igangværende tale
+    clearInterval(typewriterInterval);
+    isSpeaking = false;
+    isPaused = false;
+    typeWriter(typewriterContainer, storyText); // Start typewriter fra begyndelsen
+    speakText(storyText, typewriterContainer);
+}
 
-    if (replayButton) {
-        replayButton.addEventListener("click", restartStory);
-        replayButton.style.cursor = "pointer";
-    }
+// Funktion til at håndtere hver sektion
+function handleSection(sectionId, storyClass) {
+    // Find den sektion ved hjælp af sektionens ID
+    let section = document.querySelector(sectionId);
+    if (!section) return; // Hvis sektionen ikke findes, skal vi ikke gøre noget
+
+    // Find de relevante knapper og tekst indenfor denne sektion
+    let startButton = section.querySelector(".start_icon");
+    let replayButton = section.querySelector(".replay_icon");
+    let storyText = section.querySelector(storyClass).innerText;  // Hent den rigtige tekst
+    let typewriterContainer = section.querySelector(storyClass);
+
+    // Event listeners til startknapperne
+    startButton.addEventListener("click", () => {
+        speakText(storyText, typewriterContainer);
+    });
+
+    // Event listeners til replay-knapperne
+    replayButton.addEventListener("click", () => {
+        restartStory(storyText, typewriterContainer);
+    });
+}
+
+// Kald funktionerne for hver sektion ved hjælp af deres ID'er og de specifikke klasser
+handleSection("#info1", ".ida_intro");  // Ida's tekst
+handleSection("#info2", ".adut_intro");  // Adut's tekst
+handleSection("#info3", ".jose_intro");  // Jose's tekst
 
 });
