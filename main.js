@@ -138,88 +138,101 @@ document.querySelectorAll(".question_mark_icon").forEach((icon) => {
         }
     }
 
-    // --- Typewriter + oplæsning ---
-    let synth = window.speechSynthesis;
-    let isSpeaking = false;
-    let isPaused = false;
-    let typewriterIndex = 0;
+// --- Typewriter + oplæsning for alle sektioner ---
+let synth = window.speechSynthesis;
+let isSpeaking = false;
+let isPaused = false;
+let typewriterIndex = 0;
+let typewriterInterval;
 
-    let storyTextElement = document.querySelector(".ida_intro p");
-    let typewriterContainer = storyTextElement;
-    let storyText = storyTextElement ? storyTextElement.innerText : "";
+// Justeret typewriter-hastighed
+const TYPEWRITER_SPEED = 60; // Øget forsinkelse for langsommere skrivning
 
-    let startButton = document.querySelector(".start_icon");
-    let replayButton = document.querySelector(".replay_icon");
+// Funktion til at nulstille typewriter-effekten
+function resetTypewriter(typewriterContainer) {
+    typewriterContainer.innerHTML = ""; // Sørg for at teksten bliver skrevet korrekt fra start
+    typewriterIndex = 0;
+}
 
-    let utterance;
-    let typewriterInterval;
+// Funktion til typewriter-effekten
+function typeWriter(typewriterContainer, storyText, startIndex = 0) {
+    resetTypewriter(typewriterContainer);
+    typewriterIndex = startIndex;
 
-    const TYPEWRITER_SPEED = 60;
+    typewriterInterval = setInterval(() => {
+      if (typewriterIndex < storyText.length && !isPaused) {
+          typewriterContainer.innerHTML = storyText.substring(0, typewriterIndex + 1);
+          typewriterIndex++;
+      } else {
+          isSpeaking = true;
+          clearInterval(typewriterInterval);
+      }
+  }, TYPEWRITER_SPEED); // Justeret hastighed
+}
 
-    function resetTypewriter() {
-        if (typewriterContainer) typewriterContainer.innerHTML = "";
-        typewriterIndex = 0;
-    }
-
-    function typeWriter(startIndex = 0) {
-        resetTypewriter();
-        typewriterIndex = startIndex;
-        typewriterInterval = setInterval(() => {
-            if (typewriterIndex < storyText.length && !isPaused) {
-                typewriterContainer.innerHTML = storyText.substring(0, typewriterIndex + 1);
-                typewriterIndex++;
-            } else {
-                clearInterval(typewriterInterval);
-            }
-        }, TYPEWRITER_SPEED);
-    }
-
-    function speakText() {
-        if (isSpeaking) {
-            if (isPaused) {
-                synth.resume();
-                isPaused = false;
-                typeWriter(typewriterIndex);
-            } else {
-                synth.pause();
-                isPaused = true;
-                clearInterval(typewriterInterval);
-            }
+// Funktion til tekst-til-tale
+function speakText(storyText, typewriterContainer) {
+  if (isSpeaking) {
+      if (isPaused) {
+          synth.resume();
+          isPaused = false;
+          typeWriter(typewriterContainer, storyText, typewriterIndex); // Genoptag typewriter fra sidste position
         } else {
-            isSpeaking = true;
-            isPaused = false;
-            resetTypewriter();
-            utterance = new SpeechSynthesisUtterance(storyText);
-            utterance.lang = "da-DK";
-            utterance.rate = 0.8;
-            utterance.onboundary = (event) => {
-                typewriterIndex = event.charIndex;
-            };
-            utterance.onend = () => {
-                isSpeaking = false;
-            };
-            synth.speak(utterance);
-            typeWriter(0);
+            synth.pause();
+            isPaused = true;
+            clearInterval(typewriterInterval); // Stop typewriter midlertidigt
         }
-    }
-
-    function restartStory() {
-        synth.cancel();
-        clearInterval(typewriterInterval);
-        isSpeaking = false;
+      } else {
+        isSpeaking = true;
         isPaused = false;
-        typeWriter(0);
-        speakText();
+        resetTypewriter(typewriterContainer);
+        let utterance = new SpeechSynthesisUtterance(storyText);
+        utterance.lang = "da-DK"; // Dansk sprog
+        utterance.rate = 0.8; // Lavere hastighed for bedre synkronisering
+        utterance.onboundary = (event) => {
+            typewriterIndex = event.charIndex; // Synkroniser typewriter med tale
+        };
+        utterance.onend = () => {
+            isSpeaking = false;
+        };
+        synth.speak(utterance);
+        typeWriter(typewriterContainer, storyText); // Start typewriter fra begyndelsen
+    }
+  }
+
+  // Funktion til at genstarte
+  function restartStory(storyText, typewriterContainer) {
+      synth.cancel(); // Stopper evt. igangværende tale
+      clearInterval(typewriterInterval);
+      isSpeaking = false;
+      isPaused = false;
+      typeWriter(typewriterContainer, storyText); // Start typewriter fra begyndelsen
+      speakText(storyText, typewriterContainer);
+  }
+  
+  // Funktion til at håndtere hver sektion
+  function handleSection(sectionId) {
+      let startButton = document.querySelector(sectionId + " .start_icon");
+      let replayButton = document.querySelector(sectionId + " .replay_icon");
+      let storyText = document.querySelector(sectionId + " p").innerText;
+      let typewriterContainer = document.querySelector(sectionId + " p");
+  
+      // Event listeners til startknapperne
+      startButton.addEventListener("click", () => {
+        speakText(storyText, typewriterContainer);
+    });
+
+        // Event listeners til replay-knapperne
+        replayButton.addEventListener("click", () => {
+          restartStory(storyText, typewriterContainer);
+      });
+
     }
 
-    if (startButton) {
-        startButton.addEventListener("click", speakText);
-        startButton.style.cursor = "pointer";
-    }
+    // Kald funktionerne for hver sektion ved hjælp af deres ID'er
+    handleSection("#info1");  // Ida's tekst
+    handleSection("#info2");  // Adut's tekst
+    handleSection("#info3");  // Jose's tekst
+    
+    });
 
-    if (replayButton) {
-        replayButton.addEventListener("click", restartStory);
-        replayButton.style.cursor = "pointer";
-    }
-
-});
