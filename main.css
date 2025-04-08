@@ -42,20 +42,6 @@ body {
     overflow-x: hidden;
 }
 
-
-button {
-    margin-top: 575px;
-    color: var(--black);
-    border-radius: 30px;
-    font-family: 'AmnestyTradeGothic';
-    font-weight: bold;
-    font-style: normal;
-    font-size: 18px;
-    background-color: var(--yellow);
-    border: 1px solid var(--yellow);
-    cursor: pointer;
-}
-
 h1 {
     font-family: 'AmnestyTradeGothic';
     font-weight: bold;
@@ -98,6 +84,19 @@ p {
 
 
 /* KNAPPER START */
+button {
+    margin-top: 575px;
+    color: var(--black);
+    border-radius: 30px;
+    font-family: 'AmnestyTradeGothic';
+    font-weight: bold;
+    font-style: normal;
+    font-size: 18px;
+    background-color: var(--yellow);
+    border: 1px solid var(--yellow);
+    cursor: pointer;
+}
+
 .button_1 {
     padding: 12px 40px;
     position: absolute;
@@ -224,47 +223,7 @@ p {
     background-color: var(--black)
 }
 
-
 /* KNAPPER SLUT */
-.choices {
-    text-align: left;
-    max-width: 600px;
-    margin-left: 180px; /* Skubber valgene mod venstre */
-    transform: translateY(45%); /* Flytter containeren 50% op for at centrere */
-    display: flex;
-    flex-direction: column;
-    gap: 30px; /* Skaber ensartet afstand mellem alle valg */
-}
-
-.choice p {
-    display: flex;
-    align-items: center;
-    justify-content: flex-start; /* Sikrer at teksten starter til venstre */
-    gap: 10px; /* Lidt afstand mellem teksten og ikonerne */
-}
-
-.choicebutton {
-    background: yellow;
-    border: 1px solid var(--yellow);
-    font-size: 16px;
-    cursor: pointer;
-    display: block;
-    margin-top: 5px;
-    text-align: left; /* Sørger for at teksten på knappen også er venstrejusteret */
-    padding: 12px 80px;
-    transition: all .5s ease;
-}
-
-.choicebutton:hover {
-    color: var(--yellow);
-    background-color: var(--black)
-}
-
-.choice img {
-    width: 20px; /* Juster ikonernes størrelse */
-    height: auto;
-    cursor: pointer; /* Gør dem klikbare */
-}
 
 
 /* LANDING PAGE START */
@@ -319,17 +278,17 @@ p {
 }
 
 .handwritten_1 img {
-    width: 250px;
+    width: 360px;
     position: absolute;
-    top: 14%; 
-    left: 68%;
+    top: 10%; 
+    left: 62.5%;
 }
 
 .handwritten_2 img {
-    width: 250px;
+    width: 360px;
     position: absolute;
-    top: 65%; 
-    left: 9%;
+    top: 64%; 
+    left: 8%;
 }
 
 .star_1 {
@@ -597,8 +556,86 @@ th {
 
 /* 3 PERSONER SIDE SLUT */
 
+/* CHOICES START */
+.choices {
+    text-align: left;
+    max-width: 600px;
+    margin-left: 180px; 
+    transform: translateY(45%);
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
 
-/* PRÆSENTATION SIDE */
+.choice p {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start; 
+    gap: 10px;
+}
+
+.choicebutton {
+    background: yellow;
+    border: 1px solid var(--yellow);
+    font-size: 16px;
+    cursor: pointer;
+    display: block;
+    margin-top: 5px;
+    text-align: left; 
+    padding: 12px 80px;
+    transition: all .5s ease;
+}
+
+.choicebutton:hover {
+    color: var(--yellow);
+    background-color: var(--black)
+}
+
+.choice img {
+    width: 20px; 
+    height: auto;
+    cursor: pointer;
+}
+/* CHOICES SLUT */
+
+
+/* AMNESTY HJØRNE LYS START */
+.corner_light {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start; 
+    text-align: left;
+    margin-top: 5px;
+}
+
+.amnesty-light_3 {
+    width: 50px;
+    position: absolute;
+    top: 312%;
+}
+
+.amnesty-light_1, .amnesty-light_2, .amnesty-light_3, .amnesty-light_4, .amnesty-light_5, .amnesty-light_6, .amnesty-light_7 {
+    width: 50px; 
+    height: auto;
+    padding: 15px;
+}
+
+.light-text_1, .light-text_2, .light-text_3, .light-text_4, .light-text_5, .light-text_6, .light-text_7 {
+    font-family: 'AmnestyTradeGothic';
+    font-weight: 500;
+    font-style: normal;
+    font-size: 18px;
+    text-transform: uppercase;
+    color: var(--white);
+    margin-top: 5px; /* Giver lidt luft mellem billedet og teksten */
+    margin-left: 25px;
+}
+
+/* AMNESTY HJØRNE LYS SLUT */
+
+
+/* PRÆSENTATION SIDE START*/
+
 .info-section {
     display: none; /* Skjult som standard */
     height: 100vh;
@@ -664,10 +701,24 @@ th {
 }
 
 .ida_handwritten {
-    width: 200px;
+    width: 400px;
     position: absolute;
-    top: 260%; 
-    left: 8%;
+    top: 250%; 
+    left: 0%;
+}
+
+.jose_handwritten {
+    width: 500px;
+    position: absolute;
+    top: 245%; 
+    left: -2%;
+}
+
+.adut_handwritten {
+    width: 480px;
+    position: absolute;
+    top: 245%; 
+    left: -2%;
 }
 
 .replay_icon {
@@ -713,6 +764,7 @@ th {
 /* PRÆSENTATION SLUT */
 
 
+/* Ida anden sektion (1. valg) */
 .second-section {
     display: none; /* Skjult som standard */
     height: 100vh;
@@ -722,17 +774,6 @@ th {
     align-items: center;
     background-color: var(--black);
 }
-
-.amnesty-light_3 {
-    width: 50px;
-    position: absolute;
-    top: 312%;
-}
-
-
-
-/* Ida valg 1 */
-
 
 .info4_heading {
     position: absolute;
@@ -810,6 +851,7 @@ th {
     width: 30px;
 }
 
+/* Ida tredje sektion */
 .third-section {
     display: none; /* Skjult som standard */
     height: 100vh;
@@ -820,41 +862,17 @@ th {
     background-color: var(--black);
 }
 
-.corner_light {
-    display: flex;
-    flex-direction: column; /* Stabler elementerne lodret */
-    align-items: flex-start; /* Placerer dem i venstre hjørne */
-    text-align: left;
-    margin-top: 5px;
-}
-
-.amnesty-light_1, .amnesty-light_2, .amnesty-light_3, .amnesty-light_4, .amnesty-light_5, .amnesty-light_6, .amnesty-light_7 {
-    width: 50px; /* Juster størrelsen efter behov */
-    height: auto;
-    padding: 15px;
-}
-
-.light-text_1, .light-text_2, .light-text_3, .light-text_4, .light-text_5, .light-text_6, .light-text_7 {
-    font-family: 'AmnestyTradeGothic';
-    font-weight: 500;
-    font-style: normal;
-    font-size: 18px;
-    text-transform: uppercase;
-    color: var(--white);
-    margin-top: 5px; /* Giver lidt luft mellem billedet og teksten */
-    margin-left: 25px;
-}
 
 .third-section-wrapper {
-    width: 400px; /* eller hvad du ønsker */
+    width: 400px; 
     margin-left: auto;
     margin-right: 10%;
     display: flex;
     flex-direction: column;
-    justify-content: center; /* Centrerer teksten vertikalt */
-    align-items: flex-start; /* Holder teksten venstrejusteret */
-    align-items: flex-end; /* sørger for, at knapperne er til højre */
-    padding: 1rem; /* lidt padding omkring */
+    justify-content: center; 
+    align-items: flex-start;
+    align-items: flex-end; 
+    padding: 1rem;
   }
   
 
@@ -975,7 +993,7 @@ th {
     background-color: var(--black)
 }
     
-
+/* Ida fjerde sektion */
 .fourth-section {
     display: none; /* Skjult som standard */
     height: 100vh;
@@ -993,7 +1011,7 @@ th {
     left: 15%;
 }
 
-
+/* Ida femte sektion */
 .fifth-section {
     display: none; /* Skjult som standard */
     height: 100vh;
@@ -1004,6 +1022,7 @@ th {
     background-color: var(--black);
 }
 
+/* Ida sjette sektion */
 .sixth-section {
     display: none; /* Skjult som standard */
     height: 100vh;
@@ -1014,6 +1033,7 @@ th {
     background-color: var(--black);
 }
 
+/* Ida syvende sektion (2. valg) */
 .seventh-section {
     display: none; /* Skjult som standard */
     height: 100vh;
@@ -1149,6 +1169,7 @@ th {
     left: 75%;
 }
 
+/* Ida ottende sektion */
 .eight-section {
     display: none; /* Skjult som standard */
     height: 100vh;
@@ -1188,6 +1209,7 @@ th {
     left: 44%;
 }
 
+/* Ida niende sektion */
 .ninth-section {
     display: none; /* Skjult som standard */
     height: 100vh;
@@ -1226,6 +1248,7 @@ th {
     left: 43.5%;
 }
 
+/* Ida tiende sektion */
 .tenth-section {
     display: none; /* Skjult som standard */
     height: 100vh;
@@ -1264,12 +1287,7 @@ th {
     left: 37.5%;
 }
 
-.eleventh-section-text {
-    width: 450px;
-    position: absolute;
-    top: 622%;
-    left: 60%;
-}
+/* Ida elvte sektion */
 
 .eleventh-section {
     display: none; /* Skjult som standard */
@@ -1279,6 +1297,13 @@ th {
     justify-content: center;
     align-items: center;
     background-color: var(--black);
+}
+
+.eleventh-section-text {
+    width: 450px;
+    position: absolute;
+    top: 622%;
+    left: 60%;
 }
 
 .eleventh-section_letterf {
@@ -1383,6 +1408,7 @@ th {
     cursor: pointer;
 }
 
+/* Ida resterende sektioner */
 .twelfth-section {
     display: none; /* Skjult som standard */
     height: 100vh;
@@ -1453,6 +1479,7 @@ th {
     background-color: var(--black);
 }
 
+/* Ida sidste sektion */
 .nineteenth-section {
     display: none; /* Skjult som standard */
     height: 95vh;
@@ -1645,6 +1672,8 @@ th {
     background-color: var(--yellow)
 }
 
+
+/* POP-UP FUNKTIONER */
 #Ida_popup {
     display: none;
     position: fixed;
@@ -1783,7 +1812,6 @@ th {
     padding-top: 5px;
     padding-bottom: 40px;
  }
-
 
 
 
@@ -2265,9 +2293,6 @@ th {
 }
 
 
-/* ADUT SEKTIONER SLUTTER HER */
-
-
 
 /* ADUT FØRSTE SEKTION STARTER HER */
 
@@ -2317,9 +2342,9 @@ th {
     rotate: 5deg;
 }
 
-
-
 /* ADUT FØRSTE SEKTION SLUTTER HER */
+
+
 
 /* ADUT ANDEN SEKTION STARTER HER */
 
@@ -2378,3 +2403,4 @@ th {
 }
 
 
+/* ADUT SEKTIONER SLUTTER HER */
