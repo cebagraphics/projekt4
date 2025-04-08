@@ -1959,6 +1959,16 @@ th {
     background-color: var(--black);
 }
 
+.Jose-eighteenth-section {
+    display: none; /* Skjult som standard */
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--black);
+}
+
 .Jose-nineteenth-section {
     display: none; /* Skjult som standard */
     height: 95vh;
