@@ -1,7 +1,6 @@
-const candles = [ //array af objekter (en liste af objekter)
-    { lit: false, name: "", location: "" }, // Første lys - bruger vælger navn
+const candles = [ 
+    { lit: false, name: "", location: "" }, 
     { lit: true, name: "Sofie", location: "København, Danmark" }, 
-    // Hvert lys repræsenterer ét lys og er et objekt med 3 properties af typen Boolean og String
     { lit: true, name: "Anders", location: "Århus, Danmark" },
     { lit: true, name: "Maria", location: "Odense, Danmark" },
     { lit: true, name: "Emil", location: "Aalborg, Danmark" },
@@ -25,34 +24,26 @@ const candles = [ //array af objekter (en liste af objekter)
     { lit: true, name: "Amanda", location: "Køge, Danmark" }
 ];
 
-// Lit er en Boolean value = true/false. 
-// Name og Location er såkaldte strings - bruges til at gemme "tekst-data"
-// Senere bruger vi arrayet Candles og vores strings/booleans (candle.name og candle.lit) for at tilgå disse værdier
+const candlesPerPage = 10; 
+let currentPage = 1;
 
-const candlesPerPage = 10; // Lokal variabel const fortæller at der må være max 10 Candles på en side
-let currentPage = 1; // Global variabel der holder styr på hvilken side brugeren ser - 1 betyder at man starter med at se den første side
+const startIndex = (currentPage - 1) * candlesPerPage;
+const endIndex = startIndex + candlesPerPage;
+const visibleCandles = candles.slice(startIndex, endIndex);
 
-// Viser fint forskellen på const og let. Const er en variabel som der ikke ændres i og let bruges fordi den skal opdateres.
 
-function renderCandles() { // funktion der bruges til at vise lysene på skærmen
-    const grid = document.getElementById("candleGrid"); // reference til HTML-elementet med id'et CandleGrid - det er her lysene skal vises på hjemmeside
-    grid.innerHTML = ""; // rydder det gamle indhold, så det nye lys vises (ellers ville de være oveni hinanden)
-    console.log("Rendering candles:", candles); //fejlfinding som tjekker at lysene vises rigtigt
+function renderCandles() { 
+    const grid = document.getElementById("candleGrid"); 
+    grid.innerHTML = ""; 
+    console.log("Rendering candles:", candles); 
 
-       // Beregner hvilke lys der skal vises på den aktuelle side - viser 10 lys per side og regner ud, hvilken side du befinder dig på
-       const startIndex = (currentPage - 1) * candlesPerPage;
-       const endIndex = startIndex + candlesPerPage;
-       const visibleCandles = candles.slice(startIndex, endIndex);
-    
 
-    // forEach er et loop 
     visibleCandles.forEach((candle, index) => {
         const div = document.createElement("div");
         div.className = "candle";
 
-         // if/else er kontrolstruktur
         let mediaElement;
-        if (candle.lit) { // fortæller at hvis lyset bliver tændt så viser den en video
+        if (candle.lit) { 
             mediaElement = document.createElement("video");
             mediaElement.autoplay = true;
             mediaElement.loop = true;
@@ -63,42 +54,34 @@ function renderCandles() { // funktion der bruges til at vise lysene på skærme
             source.type = "video/mp4";
             mediaElement.appendChild(source);
 
-        } else { //fortæller at hvis lyset ikke tændes så viser den billedet af de utændte lys
+        } else { 
             mediaElement = document.createElement("img");
             mediaElement.className = "unlit_light.png";
             mediaElement.src = "images/unlit_light.png";
             mediaElement.alt = "Candle";
         }
 
-        // Denne kontrolstruktur fortæller at et navn skal komme frem når det er tastet ind
         const nameText = document.createElement("p");
         nameText.className = "candle-name";
-        // Hvis vi er ved det allerførste lys i hele listen, og det stadig ikke har et navn, så vil vi vise et input-felt, hvor brugeren kan skrive sit navn og dermed "tænde" det første lys.
         if (startIndex + index === 0 && candle.name === "") {
-            // startIndex + index: det første lys i listen med alle candles
-            // candle.name === tjekker om lyset endnu ikke har fået et navn (tom streng)
             nameText.innerHTML = `<input type="text" id="nameInput" placeholder="Indtast dit navn" />`;
         } else {
             nameText.textContent = candle.name || "Ukendt";
         }
 
-        // Dette indikerer at en lokation vises eller teksten "ukendt placering" hvis lokation ikke vides
-        const locationText = document.createElement("p"); // opretter et nyt p element, hvor by + land vises
-        locationText.className = "candle-location"; // Tilføjer en css-klasse så den kan styles
-        locationText.textContent = candle.location || "Ukendt placering"; // ||  er en logisk operator - den ser om candle.location "truthy" altså sand og ellers bruges den anden værdi "Ukendt placering" - den læser fra venstre mod højre. 
 
-        // Tilføjer elementer til DOM'en
+        const locationText = document.createElement("p");
+        locationText.className = "candle-location"; 
+        locationText.textContent = candle.location || "Ukendt placering"; 
+
         div.appendChild(mediaElement);
         div.appendChild(nameText);
         div.appendChild(locationText);
-        // Klik-event - koden tænder lyset, hvis ikke det allerede er.
         div.onclick = () => lightCandle(startIndex + index);
         grid.appendChild(div);
     });
 
-    // Kalder på updatePagination (funktionen er længere nede) for at sikre at knapperne til at bladre frem og tilbage mellem sider opdateres.
     updatePagination();
-    // Kalder på funktionen updateCounter (funktionen er længere nede) for at opdatere tælleren på siden, der viser hvor mange lys der er tændt.
     updateCounter();
 }
 
